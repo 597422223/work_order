@@ -1,0 +1,131 @@
+<!--modules/parts/tpl/selectde.html-->
+<script type="text/javascript" src="modules/parts/js/selected.js"></script>
+<!-- 已选配件 -->
+<div class="tab-parts-module1 overtime-content1 mark-secondContent"  style="display: block;">
+   <div class="content1-tit">
+       <span>已选<i class="overtime-red">5</i>个项目</span>
+       <span>金额<i class="overtime-red">4650.00</i></span>
+       <input type="text" value="" placeholder="输入编号/名称" class="apaceAdd">
+       <span class="overtime-add">快捷添加</span>
+       <span >扫码出库</span>
+       <input type="text" name="" placeholder="请去仓库拿配件扫码出库">
+       <span class="overtime-add">开始扫码</span>
+       <span >扫码回库</span>
+       <input type="text" name="" placeholder="请拿配件扫码回库">
+       <span class="overtime-return">开始扫码</span>
+       <span class="dispatch-warehouse">急件出入库</span>
+    </div>
+   <div class="content1-table">
+       <table border="1" bordercolor="#dfdfdf">
+           <thead>
+               <tr>
+                   <th>名称</th>
+                   <th>品牌</th>
+                   <th>型号</th>
+                   <th>库位</th>
+                   <th>单价</th>
+                   <th>数量</th>
+                   <th>应付</th>
+                   <th>实收</th>
+                   <th>领料人</th>
+                   <th>销售提成人</th>
+                   <th>备注</th>
+                   <th>出库状态</th>
+                   <th width="4%">操作</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>雨刮片</td>
+                   <td>博世</td>
+                   <td>T109</td>
+                   <td>1243</td>
+                   <td>125.00 </td>
+                   <td >3</td>
+                   <td>375.00</td>
+                   <td  class="overtime_red">375.00</td>
+                   <td>小李</td>
+                   <td>小刘</td>
+                   <td>小刘销售</td>
+                   <td class="overtime_red">急件出入库</td>
+                   <td class="overtime_blue"><span>配件回库</span>删除</td>
+               </tr>
+               <tr>
+                  <td><span>雨刮片</span></td>
+                   <td><span>博世</span></td>
+                   <td><span>T109</span></td>
+                   <td><span>1243</span></td>
+                   <td><input type="" name=""></td>
+                   <td><input type="" name=""></td>
+                   <td>375.00</td>
+                   <td class="overtime_red"><input type="" name=""></td>
+                   <td><input type="" name=""></td>
+                   <td><input type="" name=""></td>
+                   <td><input type="" name=""></td>
+                   <td class="overtime_red">已出库（0/1）</td>
+                   <td class="overtime_blue">删除</td>
+               </tr>
+              
+           </tbody>
+       </table>
+   </div>
+   <!-- page control -->
+   <div class="ep-pages"> 
+         <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
+         <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
+         <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+    </div>
+</div>
+
+
+<!-- 急件出入库弹窗 -->
+<div class="despatch-pop  popOuter">
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <p>急件出入库</p>
+        <div class="mui-list-flex">
+            <div>
+                <label>型&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>品&nbsp;&nbsp;&nbsp;&nbsp;牌</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>名&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+                <input type="text" name="">
+            </div>
+        </div>
+        <div  class="mui-list-flex">
+            <div>
+                <label>供应商</label>
+                <input type="text" name="">
+            </div>
+            <div class="caigouPrice">
+                <label>采购价</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>入库数量</label>
+                <input type="text" name="">
+            </div>
+        </div>
+        <div  class="mui-list-flex">
+            <div>
+                <label>售&nbsp;&nbsp;&nbsp;&nbsp;价</label>
+                <input type="text" name="">
+            </div>
+            <div class="kuwei-pop">
+                <label>库&nbsp;&nbsp;&nbsp;&nbsp;位</label>
+                <input type="text" name="">
+            </div>
+            <div class="list-space"></div>
+        </div>
+       <div class="pop-controlBtn">
+            <div class="controlBtn-save">保存并继续添加</div>
+            <div class="controlBtn-add">添加</div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,7 @@
+http://www.kancloud.cn/gewansong/qcp-shop?token=rJshwE5P3Bjd  接口地址
+
+http://dev.api.shop.quanchepei.com/user/authorize/sign 接口api
+
+
+627886879@qq.com  用户名
+1000  密码

@@ -1,0 +1,28 @@
+<script type="text/javascript" src="modules/common/js/tbl.js"></script>
+<div class="order-cell order-tab">
+    <!-- tab导航 -->
+    <div class="tab-menu">
+        <ul class="clearfix">
+            <li class="tab-order tab-menu-active"><a ui-sref="index.tab-order">快速开单</a></li>
+            <li class="tab-card">
+                <a ui-sref="index.tab-card.xianyou">卡券<span>3</span></a>
+            </li>
+            <li class="tab-overtime">
+                <a ui-sref="index.tab-overtime.yixuan">项目工时</a>
+               
+            </li>
+            <li class="tab-parts">
+                <a ui-sref="index.tab-parts.selected">配件<span>5</span></a>
+            </li>
+            <li class="tab-book">
+                <a ui-sref="index.tab-book.nowbook">预约</a>
+                
+            </li>
+            <!--<li class="tab-activity"><a ui-sref="tab-activity">活动</a></li>-->
+            <li class="tab-remarks"><a ui-sref="index.tab-remarks">备注</a></li>
+        </ul>
+    </div>
+    <div class="tab-module" >
+        <div ui-view='tblmain'></div>
+    </div>
+</div>

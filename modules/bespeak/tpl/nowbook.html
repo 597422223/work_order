@@ -1,0 +1,102 @@
+<script type="text/javascript" src="modules/bespeak/js/nowbook.js"></script>
+<!-- 当前预约 -->
+<div class="book-content1 mark-secondContent" style="display:block" ng-model="nowbook" ng-controller='nowbookCtrl'>
+    <div class="book-time mui-list-flex">
+        <div class="book-time-list">
+            预约到店时间：
+            <span class="book-red">{{bookGetInTime}}</span>
+        </div>
+        <div class="book-time-list">
+            预约开单时间：
+            <span class="book-red">5月16日 10:30</span>
+        </div>
+        <div class="book-time-list">
+            预约方式：
+            <span>电话预约</span>
+        </div>
+        <div class="book-time-control">
+            <span class="qx-book">取消预约</span>
+            <span class="zc-book">转出工单</span>
+             <div class="book-time-controlClose qx-book-pop">
+                <span>你确认要取消预约吗？</span>
+                <span><em class="qx-book-ture">确认</em><em class="qx-book-false">取消</em></span>
+            </div>
+            <div class="zc-book-pop book-time-controlClose">
+                <span>你确认要转出工单吗？</span>
+                <span><em class="qx-book-ture">确认转出</em><em class="qx-book-false">取消</em></span>
+            </div>
+        </div>
+    </div>
+    <div class="book-remark">
+        <label>预约备注：</label>
+        <textarea name="" id=""></textarea>
+    </div>
+    <div class="book-service">
+        <div class="service-tit">
+            预约服务内容：
+            <span class="add-book">增加</span>
+        </div>
+        <div class="service-list">
+            <ol>
+               <!--  <li>
+                    <span class="service-con">更换机油</span> <span class="book-blue delete-book">删除</span>
+                </li>
+                <li>
+                    <span class="service-con">更换刹车片</span> <span class="book-blue delete-book">删除</span>
+                </li> -->
+            </ol>
+        </div>
+    </div>
+</div>
+<!-- 新增预约弹窗 -->
+<div class="newAddBespeak-pop  popOuter" >
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <p>新增预约服务</p>
+        <div class="pop-conten">
+            <div class="FastBilling clearfix newAddBespeak_con" >
+                <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i></i>
+                </div>
+                 <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i ></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i ></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i ></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>精洗</p>
+                    <i ></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>补胎</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>打蜡</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>修车</p>
+                    <i></i>
+
+                </div>
+            </div>
+            <div class="newAddBespeakbtn">
+                确认增加
+            </div>
+        </div>
+    </div>
+</div>

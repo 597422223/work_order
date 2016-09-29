@@ -1,0 +1,660 @@
+@import "config.scss";
+
+//public
+input,select{
+	border:1px solid #d8d8d8;
+	height:28px;
+	line-height: 28px;
+	font-size: 12px; 
+	text-indent:5px;
+	vertical-align: super;
+	box-sizing: border-box;
+}
+
+
+// wrap content
+.white{
+	label{
+		color:#fff;
+
+	}
+	input{
+			border:none;
+			color:#fff;
+		}
+}
+.wrap{
+	padding: 30px;
+	min-width: 1088px;
+	//9-21修改
+	.order-cell-none{
+			display: none;
+			.list-adress{
+				position: relative;
+
+				.list-customerDetailAdress{
+					position:absolute;
+					top: 0;
+					left:0;
+					label{
+						    margin-left: -25px;
+						    width: 90px;
+					}
+
+				}
+			}
+	}
+	@at-root .order-cell{ //公用栏
+		position: relative;
+		background: #fff;
+		color: #555;
+		font-size:14px;
+		margin-bottom: 10px;
+		// overflow: hidden;
+	}
+	@at-root .part1{ //part1
+		    padding: 20px 32px 20px 27px;
+		@at-root .list-flex{ //公用flex布局
+			display: flex;
+			display: -webkit-flex;
+  			display: flex;
+  			flex-flow:row|nowrap;
+  			justify-content:space-between;
+		}
+		@at-root .order-list{ //公用list
+			margin-bottom: 20px;
+			height: 30px;
+			line-height: 30px;
+			font-size: 0;
+			label{
+				display: inline-block;
+				font-size: 15px;
+				margin-right: 20px;
+			}
+			.comInputWidth{
+				width: 200px;
+			}
+			.list-cardNum{
+				.order-scan{
+					display: inline-block;
+					width: 50px;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					color: #fff;
+					background: #e83f3c;
+					font-size: 14px;
+					margin-left: 12px;
+					border-radius: 5px;
+					cursor: pointer;
+				}
+			}
+			.list-carCard{
+				select{
+					margin-right: 5px;
+					vertical-align: baseline;
+					// padding: 0 5px;
+					width: 60px;
+					}
+				}
+				input{
+					width: 135px;
+				}
+			}
+			.list-name{
+				width: 280px;
+				overflow: hidden;
+				label{
+					width: 60px;
+				}
+			}
+			.list-beginTime{
+				width: 280px;
+				overflow: hidden;
+				position: relative;
+				label{
+					width: 60px;
+				}
+				img{
+					position: absolute;
+					top: 3px;
+					right: 3px;
+				}
+				input{
+					padding-right: 27px;
+				}
+			}
+		}
+	}
+
+	@at-root .part2,.part3,.part4{ //part2 part3
+		padding: 10px 35px 10px 60px;
+		>img{
+			position: absolute;
+			top: 16px;
+			left: 13px;
+		}
+		label{
+			margin-right: 15px;
+		}
+		
+		.list-carNo,.list-roadNum,.list-userName,.list-userCardId{
+			label{
+				width: 80px;
+			}
+			input,select{
+				width: 140px;
+			}
+		}
+		.list-carType,.list-cardTime,.list-userPhone,.list-userBirth{
+			position: relative;
+			label{
+				width:95px;
+			}
+			select,input{
+				width: 155px;
+			}
+			img{
+				position: absolute;
+				top: 3px;
+				right: 3px;
+			}
+		}
+		.list-carPrice,.list-engineType,.list-customer{
+			label{
+				width: 65px;
+			}
+			input,select{
+				width: 110px;
+			}
+
+		}
+		.list-carColor,.list-space,.list-customerDetail{
+			width: 192px;
+			label{
+				width: 65px;
+			}
+			input,select{
+				width: 112px;
+			}
+		}
+
+//赵飞翔修改		
+
+
+
+		.list-customerDetailAdress{
+			input{
+				width: 313px;
+			}
+		} 
+		
+	}
+	@at-root .part3,.part4{ //part3
+		// margin-bottom: 0;
+		// padding-bottom: 30px;
+		// height: 60px;
+		img{
+			top: 12px;
+		}
+		
+	}
+	@at-root .part4{
+		.list-company{
+			input{
+				width:110px;
+			}
+		}
+	}
+	@at-root .order-car-info{ //汽车信息栏
+		margin: 30px 0;
+		.list-car-info{
+			width: 150px;
+			height: 85px;
+			border: 1px solid #dfdfdf;
+			padding:10px;
+			border-radius: 5px;
+			background: #fff;
+			i{
+				width: 20px;
+				height: 20px;
+				background:url(../images/icon9.png) no-repeat;
+				display: inline-block;
+				float:left;
+			}
+			span{
+              font-size:15px;
+              
+			}
+		}
+		.car-info-list1{
+			i{
+				background-position: 0px -238px;
+			}
+			p{
+				text-align: center;
+				color:red;
+				line-height:45px;
+				em{
+					font-size: 25px;
+					letter-spacing:4px;
+				}
+			}
+			a{
+				display: block;
+				background:#e93d39;
+				width:40px;
+				line-height:20px;
+				color:#fff;
+				text-align:center;
+				float:right;
+			}
+		}
+		.car-info-list2{
+			i{
+				background-position: 0px -307px;
+			}
+			p{
+				text-align: center;
+				color:#1ba29c;
+				line-height:50px;
+				em{
+					font-size: 25px;
+					letter-spacing:4px;
+					line-height:33px;
+				}
+			};
+			strong{
+			text-align: right;
+			display: block;
+			}
+		}
+		.car-info-list3{
+			i{
+				background-position:0px -374px;
+			}
+			div{
+				text-align: center;
+				color:#8e44ad;
+				em{
+					font-size: 25px;
+					letter-spacing:4px;
+					line-height:33px;
+				}
+				>p{
+					display: inline-block;
+					width:18px ;
+					height: 18px;
+					color: #fff;
+					background:#8e44ad;
+					text-align: center;
+					margin-right:15px;
+				}
+			}
+		}
+		.car-info-list4{
+			i{
+				background-position:0px -442px;
+			}
+			p{
+				text-align: left;
+				line-height:18px;
+				padding:10px 0 0 20px;
+				em{
+					color:#4c76be;
+					font-weight:bold;
+					margin-left:2px;
+				}
+			}
+		}
+		.car-info-list5{
+			i{
+				background-position: 0px -512px;
+				margin-right: 2px;
+			}
+			p{
+				text-align: center;
+				line-height:70px;
+				font-weight:bold;
+			}
+		}
+		.car-info-list6{
+			i{
+				background-position: 0px -579px;
+				margin-right: 2px;
+			}
+			p{
+				text-align: center;
+				line-height:70px;
+				font-weight:bold;
+			}
+		}
+	}
+
+	
+	// footer
+	.check_footer{
+		padding:11px;
+		background:#fff;
+		border:1px solid #e7e7e7;
+		margin-top:-10px;
+		ul{
+			margin: 0 auto;
+			overflow:hidden;
+			text-align: center;
+			li{
+				background:#4c76be;
+				height: 33px;
+				color:#fff;
+				padding: 0 20px;
+				display: inline-block;
+				text-align: center;
+				line-height:33px;
+				margin-right:28px;
+				border-radius:2px;
+				cursor: pointer;
+			}
+		}	
+}
+// ****************************2016.9.1 hanpanpan************************//
+// 查看更多
+// .morde-list{
+// 	display: none;
+// }
+//9.21修改布局
+.warp-userInfo{
+	position:relative;
+	.info-more{
+			border-top: 1px solid #e7e7e7;
+			position: absolute;
+		    left: 0;
+		    right: 0;
+		    bottom: 0;
+		    .info-more-btn{
+		    	width: 90px;
+		    	height: 20px;
+		    	line-height: 20px;
+		    	text-align: center;
+		    	font-size: 12px;
+		    	color: #858585;
+		    	border: 1px solid #858585;
+		    	border-top:none;
+		    	border-bottom-right-radius: 5px;
+		    	border-bottom-left-radius: 5px;
+		    	background: #e7e7e7;
+		    	margin: 0 auto;
+		    	cursor: pointer;
+		    	position: relative;
+
+		    	img{
+		    		width: 10px;
+				    position: absolute;
+				    right: 7px;
+				    top: 5px;
+		    	}
+		    }
+		}
+}
+
+
+
+
+
+
+
+
+//违章弹窗 9-13
+.illicitly-pop{
+	display:none;
+	.illicitly-inner{
+		    padding: 0 30px 30px;
+		    width: 50%;
+		    margin-left: -25%;
+		p{
+			font-weight: bold;
+		}
+		table{
+
+			
+			thead{
+				td{
+					background:#fff;
+					text-align: left;
+					text-indent: 15px;
+					line-height: 42px;
+					font-weight: bold;
+				}
+				tr:nth-child(2n){
+					
+					background:#eef1f5;
+
+				}
+
+
+				
+			}
+			tbody{
+				height: 120px;
+				td{
+					background:#e8e8e8;
+					border-right:0;
+				}
+				.table-total{
+					td:nth-child(1){
+						text-align:left;
+						padding-left:15px;
+
+					}
+				}
+					
+				th>p{
+					line-height:20px;
+					text-indent: 15px;
+					text-align:left;
+				}
+				th{
+					text-align: center;
+					padding:10px 0;
+
+
+				}
+			}
+		}
+	}
+}
+
+//赵飞翔9-22
+.pay_cardwin_con{width: 500px;height: 100%;margin: 0 auto;}
+.pay_cardwin_artical{height: 359px;}
+.pay_cardwin_artical_l{width: 109px;float: left;text-align: right;}
+.pay_cardwin_artical_r{float: right;text-align: left;width: 380px;}
+.pay_cardwin_artical_l li{height: 30px;line-height: 30px;margin-top: 19.5px;}
+.pay_cardwin_artical_r li{height: 30px;margin-top: 19px;}
+.pay_cardwin_artical_r li input{height: 30px;padding: 8px 0px 7px 10px;background: #eef1f5;border: 1px solid #cacaca;font-size: 15px;text-indent:5px;line-height:30px;border-radius: 2px;}
+.pay_cardwin_artical_r li select{height: 30px;width: 70px;background: #eef1f5;border: 1px solid #cacaca;font-size: 15px;line-height:30px;text-indent:5px;}
+.pay_cardwin_artical_r li:nth-child(1) input,.pay_cardwin_artical_r li:nth-child(2) input{width: 147px;}
+.pay_cardwin_artical_r li:nth-child(3) input{width: 124px;margin-left: 5px;}
+.pay_cardwin_artical_r li:nth-child(4) input{width: 204px;}
+.pay_cardwin_artical_r li:nth-child(5) input{width: 85px; color:#e83f3c ;}
+.pay_cardwin_artical_r li:nth-child(6) input{width: 148px;}
+.pay_cardwin_artical_r li:nth-child(6) span{margin: 0 12px;}
+.pay_cardwin_artical_r li:nth-child(7) input{width: 148px;}
+.pay_cardwin_btn {height: 70px;padding-top: 15px;width: 100%;}		
+.pay_cardwin_button{width: 83px;height: 40px;text-align: center;line-height: 40px;background: #e83f3c;font-size: 19px;color: #FFFFFF;display: block;margin: 0 auto;cursor: pointer;}
+.pay_cardwin-inner{
+	margin-left:-280px;
+}
+.pay_cardwin-pop{
+	display: none;
+.pop-content{width: 559px;background: #FFFFFF;font-size: 15px;}
+	
+}
+
+//取消预约弹窗
+.book-time-control{position: relative;}
+.book-time-controlClose{
+	position: absolute;
+	width: 280px;
+	height: 95px;
+	display: block;
+	padding-top: 25px;
+	top: 45px;
+	background: #FFFFFF;
+	right: -17px;
+	box-shadow: 0 3px 6px 5px #919191;
+	display: none;
+}
+.book-time-controlClose span{display: block;cursor: pointer;}
+.book-time-controlClose span:nth-child(1){
+	font-size: 15px;
+	text-align: center;
+	height: 45px;
+}
+.book-time-controlClose span:nth-child(2) em{
+	display: inline-block;
+	width: 79px;
+	height: 33px;
+	text-align: center;
+	line-height: 33px;
+	font-size: 13px;
+	color: #FFFFFF;
+}
+.qx-book-ture{background: #e83f3c;margin-left: 39px;}
+.qx-book-false{background: #c1c1c1;margin-left: 44px;}
+
+// 9-22 赵飞翔
+/*保险*/
+#VCITypes li,.list-company-lists li {
+    overflow: hidden;
+    padding: 0 2px;
+    height: 29px;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 29px;
+    cursor: pointer;
+}
+
+#insurances li{
+	padding-left: 10px;
+}
+#VCITypes,.list-company-lists{
+    position: absolute;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 210px;
+    width: 133px;
+    background-color: #dbe5e7;
+    border: solid 1px #ccc;
+	box-shadow: 1px 2px 5px #D6D6D6;
+	left: 45px;
+	top: 29px;
+	z-index: 60 !important;
+ }
+ #insurances,#insurance-company{
+ 	width: 109px;
+ 	left: 120px;
+ 	
+ }
+ 
+ #VCITypes input {
+    width:15px;
+    height: 20px;
+    float: left;
+    margin: 5px 3px 3px 4px;
+}
+.list-company,.list-company-goods{position: relative;}
+ #VCITypes label{
+ 	font-size: 13px;
+ }
+ table{
+ 	th,td{
+ 		width: auto;
+ 	}
+ }
+.min-NumWidth{
+	min-width:110px;
+}
+
+// /*颜色*/和选人他们是一起的
+#colors,#list-pickPle,#list-workTeamPle {
+	z-index: 9;
+    display: none;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 90px;
+    width: 110px;
+    background-color: #dbe5e7;
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px #D6D6D6;
+    color: #000000;
+    float: right;
+    margin-top: -10px;
+}
+#list-pickPle,#list-workTeamPle{
+	 margin-top: 33px;
+	 width: 198px;
+}
+#list-pickPle{
+	margin-top: -7px;
+	    right: 0;
+}
+.list-workTeam{
+	position:relative;
+}
+#list-workTeamPle{
+    float: left;
+    left: 65px;
+    margin-top: -10px;
+    position: absolute;
+}
+
+#where_come{
+	left: 80px;
+	width: 108px;
+}
+#where_come li{
+	padding-left: 20px;
+}
+.list-customer{
+	position: relative;
+}
+	
+.list-pickName{
+	position: relative;
+}
+#colors li,#list-pickPle li,#list-workTeamPle li{
+    overflow: hidden;
+    padding: 0 10px;
+    height: 29px;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 29px;
+    cursor: pointer;
+}
+#colors li:hover{
+  background:#5588a5 ;
+  color: #FFFFFF;
+}
+#list-pickPle li:hover{
+  background:#5588a5 ;
+  color: #FFFFFF;
+}
+#list-workTeamPle  li:hover{
+  background:#5588a5 ;
+  color: #FFFFFF;
+}
+
+.listjs{
+	position: relative;
+}
+.colorjs{
+	right: 0
+}

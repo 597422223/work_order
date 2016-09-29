@@ -1,0 +1,2115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>workOrder</title>
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit">
+<meta name="referrer" content="always">
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--[if lt IE 9]>
+<script>
+    document.execCommand("BackgroundImageCache", false, true);
+</script>
+    <script type="text/javascript" src="../js/common/html5.js"></script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../css/common/global.css">
+<link type="text/css" rel="stylesheet" href="../css/common/jquery.datetimepicker.css">
+<link type="text/css" rel="stylesheet" href="../css/workOrder.css" >
+<link type="text/css" rel="stylesheet" href="../css/workOrderTab.css">
+</head>
+<body>
+    <!-- content -->
+    <div class="wrap">
+        <div class="warp-userInfo">
+            <div class="order-cell part1">
+            <div class="order-list">
+                <div class="list-cardNum">
+                    <label for="">会员卡</label>
+                    <input type="text" value="" class="comInputWidth">
+                    <span class="order-scan">扫描</span>
+                </div>
+            </div>
+            <div class="order-list mui-list-flex">
+               <div class="list-carCard">
+                    <label for="">车牌号</label>
+                    <select name="" id="">
+                        <option value="" selected>正式</option>
+                        <option value="">正式1</option>
+                        <option value="">正式2</option>
+                    </select>
+                    <input type="text" value="">
+               </div>
+               <div class="list-name">
+                   <label for=""">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                   <input type="text" value="" class="comInputWidth">
+               </div>
+               <div class="list-phone">
+                   <label for=""">手机号</label>
+                   <input type="text" value="" class="comInputWidth">
+               </div>
+            </div>
+            <div class="order-list mui-list-flex">
+                <div class="list-pickName list_Work">
+                    <label for="">接车人</label>
+                    <input type="text" name="" class="comInputWidth">
+                    <ul id="list-pickPle" class="list_WorkUl">
+                      <li>王飞</li>
+                      <li>李龙</li>
+                      <li>李静</li>
+                      <li>陈有龙</li>
+                      <li>贺燕飞</li>
+                      <li>苗志鹏</li>
+                      <li>周鲲鹏</li>
+                  </ul>
+                </div>
+                <div class="list-beginTime ">
+                    <label for="">进厂时间</label>
+                    <input type="text" class="comInputWidth datetimepicker today" name="datepicker" value="" >
+                </div>
+                <div class="list-workTeam list_Work">
+                    <label for="">施工人</label>
+                    <input type="text" name="" class="comInputWidth">
+                    <ul id="list-workTeamPle" class="list_WorkUl">
+                      <li>王飞</li>
+                      <li>李龙</li>
+                      <li>李静</li>
+                      <li>陈有龙</li>
+                      <li>贺燕飞</li>
+                      <li>苗志鹏</li>
+                      <li>周鲲鹏</li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="order-cell-none">
+            <div class="order-cell part2">
+                <img src="../images/workOrder/icon_car.jpg" alt="">
+                <div class="order-list mui-list-flex">
+                    <div class="list-carNo">
+                        <label for="">车&nbsp;&nbsp;架&nbsp;&nbsp;号</label>
+                        <input type="text" value="">
+                    </div>
+                    <div class="list-carType">
+                        <label for="">车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型</label>
+                        <select name="" id="">
+                            <option value="" selected>请选择车型</option>
+                            <option value="">BMW</option>
+                            <option value="">BMW</option>
+                            <option value="">BMW</option>
+                        </select>
+                    </div>
+                    <div class="list-carPrice">
+                        <label for="">车辆价格</label>
+                        <input type="text" value="">
+                    </div>
+                            <div class="list-carColor listjs">
+                                <label for="">车辆颜色</label>
+                                <input type="text" name="" id="" value="" />
+                                <ul id="colors" class="colorjs">
+                                  <li>银色</li>
+                                  <li>蓝色</li>
+                                  <li>黑色</li>
+                                  <li>白色</li>
+                                  <li>黄色</li>
+                                  <li>红色</li>
+                                  <li>绿色</li>
+                              </ul>
+                             </div>
+                        </div>
+                <div class="order-list mui-list-flex">
+                    <div class="list-roadNum">
+                        <label for="">当前公里数</label>
+                        <input type="text" value="">
+                    </div>
+                    <div class="list-cardTime">
+                        <label for="">上牌时间</label>
+                        <input type="text" name="datepicker"  class="datetimepicker" placeholder="请选择时间">
+                    </div>
+                    <div class="list-engineType">
+                        <label for="">发动机号</label>
+                        <input type="text" value="">
+                    </div>
+                    <div class="list-space"></div>
+                </div>
+            </div>
+        <div class="order-cell part3">
+            <img src="../images/workOrder/icon_user.jpg" alt="">
+            <div class="order-list mui-list-flex" >
+                <div class="list-userName">
+                    <label for="" >姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                    <input type="text" value="">
+                </div>
+                <div class="list-userPhone" >
+                    <label for="">手&nbsp;机&nbsp;号</label>
+                    <input type="text" value="">
+                </div>
+                <div class="list-customer">
+                    <label for="">客户来源</label>
+                    <input type="text" name="" id="" value="" />
+                    <ul id="where_come" class="list-company-lists">
+                      <li>无</li>
+                      <li>员工</li>
+                      <li>老带新</li>
+                      <li>其他</li>
+                      <li>附件</li>
+                      <li>外部车辆</li>
+                      <li>自主上门</li>
+                  </ul>
+                </div>
+                <div class="list-customerDetail">
+                    <label for="">来源详情</label>
+                    <input type="text" placeholder="">
+                </div>
+            </div>
+            <!-- more list -->
+                <div class="order-list " >
+                    <div class="order-list mui-list-flex">
+                        <div class="list-roadNum">
+                            <label for="">身份证号</label>
+                            <input type="text" value="">
+                        </div>
+                        <div class="list-cardTime">
+                            <label for="">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</label>
+                            <input type="text" name="datepicker"  class="datetimepicker" placeholder="请选择时间">
+                        </div>
+                       <div class="list-space list-adress">
+                        <div class="list-customerDetailAdress">
+                            <label for="">客户联系地址</label>
+                            <input type="text" placeholder="请输入联系地址">
+                        </div>
+                       </div>
+                        <div class="list-space"></div>
+                     </div>
+
+                    <!-- <div class="mui-list-flex"> -->
+                       <!--  <div class="list-userCardId">
+                            <label for="" >身份证号</label>
+                            <input type="text" value="">
+                        </div> -->
+                       <!--  <div class="list-userBirth" >
+                            <label for="">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</label>
+                            <input type="text" value=""  name="datepicker" class="datetimepicker" placeholder="请选择时间">
+                        </div> -->
+                       
+                        <!-- <div class="list-customerDetailAdress">
+                            <label for="">客户联系地址</label>
+                            <input type="text" placeholder="请输入联系地址">
+                        </div> -->
+                    <!-- </div> -->
+                </div>
+           
+        </div>
+        <!-- 9-21新加 -->
+        <div class="order-cell part4">
+            <img src="../images/chepai_icon.png" alt="">
+            <div class="order-list mui-list-flex" >
+                <div class="list-company">
+                    <label for="" >交强险投保公司</label>
+                    <input type="text" value="">
+                    <!-- 9-22 add -->
+                    <ul id="insurance-company"  class="list-company-lists">
+                            <li>平安车险</li>
+                            <li>中国人保车险</li>
+                            <li>太平洋车险</li>
+                            <li>中华联合车险</li>
+                            <li>大地车险</li>
+                            <li>天安车险</li>
+                            <li>永安车险</li>
+                            <li>阳光车险</li>
+                            <li>安邦车险</li>
+                            <li>太平车险</li>
+                        </ul>
+                    <!-- 9-22 add结束 -->
+                </div>
+                <div class="list-userPhone" >
+                    <label for="">保&nbsp;单&nbsp;号</label>
+                    <input type="text" value="">
+                </div>
+                <div class="list-customer">
+                    <label for="">到期时间</label>
+                   <input type="text" class="comInputWidth datetimepicker " name="datepicker" value="" placeholder="请选择时间">
+                </div>
+                <div class="white">
+                     <label for="" >空白</label>
+                    <input type="text" value="">
+                </div>
+            </div>
+                <div class="order-list " >
+                    <div class="mui-list-flex">
+                        <div  class="list-company">
+                            <label for="" >商业险投保公司</label>
+                           <input type="text" value="">
+                           <!-- 9-22 add -->
+                           <ul id="insurances" class="list-company-lists">
+                               <li>平安车险</li>
+                               <li>中国人保车险</li>
+                               <li>太平洋车险</li>
+                               <li>中华联合车险</li>
+                               <li>大地车险</li>
+                               <li>天安车险</li>
+                               <li>永安车险</li>
+                               <li>阳光车险</li>
+                               <li>安邦车险</li>
+                               <li>太平车险</li>
+                           </ul>
+                           <!-- 9-22add 结束 -->
+                        </div>
+                        <div class="list-userBirth" >
+                            <label for="">保&nbsp;单&nbsp;号</label>
+                             <input type="text" value="">
+                        </div>
+                        <div class="list-customer">
+                            <label for="">到期时间</label>
+                           <input type="text" class="comInputWidth datetimepicker " name="datepicker" value="" placeholder="请选择时间">
+                        </div>
+                        <div class="list-company-goods">
+                            <label for="">险种</label>
+                            <input type="text" value="" id='xinazhong'>
+                            <!-- 9-22 add -->
+                             <ul id="VCITypes">
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="车辆破损险" value="车辆破损险" >车辆破损险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="玻璃破损险" value="玻璃破损险">玻璃破损险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="划痕险" value="划痕险">划痕险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="自燃险" value="自燃险">自燃险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="涉水险" value="涉水险">涉水险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="第三者责任险" value="第三者责任险">第三者责任险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="司机座位险" value="司机座位险">司机座位险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="乘客座位险" value="乘客座位险">乘客座位险</label></li>
+                                <li><label><input type="checkbox"   data-type="checkbox" data-value="盗抢险" value="盗抢险">盗抢险</label></li>
+                            </ul>
+                            <!-- 9-22add结束 -->
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+        </div>
+        
+         <!-- more list end -->
+            <div class="info-more">
+                <div class="info-more-btn">
+                    更多详情
+                    <!-- <img src="../images/workOrder/row.png" alt=""> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- car info -->
+        <div class="order-car-info mui-list-flex">
+            <div class="list-car-info car-info-list1">
+                <i></i>
+                <span>违章</span>
+                <p><em>3</em>次</p>
+                <a href="javascipt:void(0)">详情</a>
+            </div>
+            <div class="list-car-info car-info-list2">
+                 <i></i>
+                 <span>年检</span>
+                 <p><em>149</em>天</p>
+                 <strong>距2016-12-31还有149天</strong>
+            </div>
+          
+            <div class="list-car-info car-info-list3">
+                 <i></i>
+                 <span>保险</span>
+                 <div><p>交</p><em>45</em>天</div>
+                 <div><p>商</p><em>76</em>天</div>
+            </div>
+            <div class="list-car-info car-info-list4">
+                 <i></i>
+                 <span>保养</span>
+                 <p>建议里程 <em>70000</em>   <br>  
+                 预估时间 <em>2017-01-31 </em> <br>  
+                 当前里程<em>30000</em></p>
+            </div>
+            <div class="list-car-info car-info-list5">
+                <i></i>
+                <span>客户标签</span>
+                <p>更换汽缸体，更换曲轴</p>
+            </div>
+            <div class="list-car-info car-info-list6">
+                <i></i>
+                <span>上次完工备注</span>
+                <p>更换汽缸体，更换曲轴</p>
+            </div>
+        </div>
+        <!-- tab模块 -->
+        <div class="order-cell order-tab">
+            <!-- tab导航 -->
+            <div class="tab-menu">
+                <ul class="clearfix">
+                    <li class="tab-order tab-menu-active"><a href="javascipt:;">快速开单</a></li>
+                    <li class="tab-card">
+                        <a href="javascipt:;">卡券<span>3</span></a>
+                        <div class="tab-menu-second tab-card-items">
+                            <ul class="clearfix">
+                                <li class="tab-menu-second-active"><a href="javascript:;">现有</a></li>
+                                <li><a href="javascript:;">售卡</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="tab-overtime">
+                        <a href="javascipt:;">项目工时</a>
+                        <div class="tab-menu-second tab-card-items">
+                            <ul class="clearfix">
+                                <li class="tab-menu-second-active"><a href="javascript:;">已选项目</a></li>
+                                <li><a href="javascript:;">选择项目</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="tab-parts">
+                        <a href="javascipt:;">配件<span>5</span></a>
+                        <div class="tab-menu-second tab-parts-items">
+                            <ul class="clearfix">
+                                <li class="tab-menu-second-active"><a href="javascript:;">已选配件</a></li>
+                                <li><a href="javascript:;">项目适配配件</a></li>
+                                <li><a href="javascript:;">常用配件</a></li>
+                                <li><a href="javascript:;">库存配件</a></li>
+                                <!-- <li><a href="javascript:;">全车配采购</a></li> -->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="tab-book">
+                        <a href="javascipt:;">预约</a>
+                        <div class="tab-menu-second tab-card-items">
+                            <ul class="clearfix">
+                                <li class="tab-menu-second-active"><a href="javascript:;">当前预约</a></li>
+                                <li><a href="javascript:;">新建预约单</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- <li class="tab-activity"><a href="javascipt:;">活动</a></li> -->
+                    <li class="tab-remarks"><a href="javascipt:;">备注</a></li>
+                </ul>
+            </div>
+            <!-- tab module -->
+            <div class="tab-module" >
+                <!-- 快速开单 -->
+                <div class="tab-order-module"  style="display: block;">
+                    <div class="FastBilling mui-list-flex" id="FastBillingOrder">
+                        <div class="list-FastBilling">
+                            <p>普通洗车</p>
+                            <span>2时20元</span>
+                            <i></i>
+                        </div>
+                        <div class="list-FastBilling">
+                            <p >精洗</p>
+                            <span>2时20元</span>
+                            <i></i>
+                        </div>
+                        <div class="list-FastBilling">
+                            <p>补胎</p>
+                            <span>2时20元</span>
+                            <i></i>
+                        </div>
+                        <div class="list-FastBilling">
+                            <p>打蜡</p>
+                            <span>2时20元</span>
+                            <i></i>
+                        </div>
+                        <div class="list-FastBilling">
+                            <p>修车</p>
+                            <span>2时20元</span>
+                            <i></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 卡券 -->
+                <div class="tab-card-module tab-menu-secondModule" >
+                    <!-- 卡券现有 -->
+                    <div class="tab-card-module1 mark-secondContent"  style="display: block;">
+                        <div class="card1 ">
+                            <table border="1">
+                                <tr>
+                                    <td>储蓄卡</td>
+                                    <td>卡号</td>
+                                    <td>办卡时间</td>
+                                    <td>金额</td>
+                                    <td>操作</td>
+                                </tr>
+                                <tr>
+                                    <td>会员充值卡一</td>
+                                    <td>123456789123</td>
+                                    <td>2016-08-02 10:39:27</td>
+                                    <td>200元</td>
+                                    <td class="chargeClick">充值</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="card2">
+                            <table border="1">
+                               <tr>
+                                    <th>次卡：全车配次卡</th>
+                                    <th>卡号：123456789123</th>
+                                    <th colspan="2">办卡时间：2016-08-02 10:39:27</th>
+                               </tr>
+                               <tr>
+                                    <td width="22.3%">项目名称</td>
+                                    <td width="23%">次数</td>
+                                    <td width="27%">剩余次数</td>
+                                    <td>操作</td>
+                               </tr>
+                                <tr>
+                                    <td>洗车</td>
+                                    <td>5次</td>
+                                    <td>0次</td>
+                                    <td  class="card2-caozuo">
+                                        <input type="checkbox" name="">
+                                    </td>
+                               </tr>
+                         </table>
+                        </div>
+                        <div class="Coupon">
+                            <div class="coupon-tit">优惠券</div>
+                            <ul>
+                                <li>
+                                    <div class="Coupon_font_active">
+                                        ￥<span>20</span>
+                                        <p>
+                                            优惠券<br>
+                                            <em>满100元使用</em>
+                                        </p> 
+                                    </div>
+                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
+                                </li>
+                                 <li >
+                                    <div class="Coupon_font_active">
+                                        ￥<span>20</span>
+                                        <p>
+                                            优惠券<br>
+                                            <em>满100元使用</em>
+                                        </p> 
+                                    </div>
+                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
+                                </li>
+                                 <li>
+                                    <div class="Coupon_font_active">
+                                        ￥<span>20</span>
+                                        <p>
+                                            优惠券<br>
+                                            <em>满100元使用</em>
+                                        </p> 
+                                    </div>
+                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
+                                </li>
+                                <li>
+                                    <div class="Coupon_font_active">
+                                        ￥<span>20</span>
+                                        <p>
+                                            优惠券<br>
+                                            <em>满100元使用</em>
+                                        </p> 
+                                    </div>
+                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 卡券售卡 -->
+                    <div class="tab-card-module2 mark-secondContent" >
+                        <div class="sellingTicket mui-list-flex">
+                           <div class="list-sellingTicket sellingTicket-blue sellingTicket-active-blue">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-red sellingTicket-active-red">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-green sellingTicket-active-green">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-purlpe sellingTicket-active-purlpe">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="sellingTicket mui-list-flex">
+                           <div class="list-sellingTicket sellingTicket-blue">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-red">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-green">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                           <div class="list-sellingTicket sellingTicket-purlpe">
+                               <div class="sellingTicket-info">
+                                   <div class="info-txt">会员套餐</div>
+                                   <div class="info-price">¥100</div>
+                                   <div class="info-num">已售：50份</div>
+                               </div>
+                               <div class="sellingTicket-time">
+                                   有效期：<span>2016.08.05-2017.08.05</span>
+                               </div>
+                               <div class="sellingTicket-introduce">
+                                   说明:
+                                   <span>钻石综合卡</span>
+                               </div>
+                               <div class="sellingTicket-span">
+                                   <span class="sellingTicket-s">售卡</span>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 项目工时 -->
+                <div class="tab-overtime-module tab-menu-secondModule">
+                    <!-- 已选项目 -->
+                   <div class="overtime-content1 mark-secondContent" style="display: block;">
+                       <div class="content1-tit tit-search-list">
+                           <input type="text" value="" placeholder="输入编号/名称">
+                           <ul class="tit-search-xia">
+                             <li>1884</li>
+                             <li>1884</li>
+                             <li>1884</li>
+                             <li>1884</li>
+                             <li>1884</li>
+                             <li>1884</li>
+                             <li>1884</li>
+                            </ul>
+                           <span class="overtime-add">快捷添加</span>
+                           <span>已选<i class="red">5</i>个项目</span>
+                           <span>总工时<i class="red">6</i></span>
+                           <span>金额<i class="red">4650.00</i></span>
+                       </div>
+                       <div class="content1-table">
+                           <table border="1" bordercolor="#dfdfdf">
+                               <thead>
+                                   <tr>
+                                       <th>项目名称</th>
+                                       <th>计划工时</th>
+                                       <th>工时倍数</th>
+                                       <th>应收工时费</th>
+                                       <th>实收</th>
+                                       <th>施工人员</th>
+                                       <th>二次销售</th>
+                                       <th>施工提成人</th>
+                                       <th>备注</th>
+                                       <th>卡券项目</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td>更换中门导轨</td>
+                                       <td>2.0</td>
+                                       <td>1</td>
+                                       <td class="overtime-bold">200.00</td>
+                                       <td>150.00</td>
+                                       <td>小李 </td>
+                                       <td class="overtime-green">已结单</td>
+                                       <td>小李</td>
+                                       <td>小李已维修</td>
+                                       <td class="overtime-pin">是</td>
+                                   </tr>
+                                   <tr>
+                                       <td><span>更换中门导轨</span></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime-bold"><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime-green"><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime-pin">是</td>
+                                   </tr>
+                                   
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   <!-- 选择项目 -->
+                   <div class="overtime-content2 mark-secondContent">
+                       <div class="content2-tit">
+                           <div class="tit-list mui-list-flex">
+                               <div class="tit-carNo">
+                                   车架号：
+                                   <span>LMDFHFDKKFKDFDF</span>
+                               </div>
+                               <div class="tit-carType">
+                                   车型号:
+                                   <span>马自达23434343</span>
+                               </div>
+                               <div class="tit-carGray">
+                                   车型级别：
+                                   <span>D</span>
+                               </div>
+                               <div class="tit-carPrice">
+                                   车价：
+                                   <span>40万</span>
+                               </div>
+                               <div class="tit-carRoade">
+                                   当前车程：
+                                   <span>
+                                       3000公里
+                                   </span>
+                               </div>
+                           </div>
+                           <div class="tit-search tit-search-list">
+                               <input type="text" value="" placeholder="输入编号/名称">
+                               <ul class="tit-search-xia ">
+                                  <li>1884</li>
+                                  <li>1884</li>
+                                  <li>1884</li>
+                                  <li>1884</li>
+                                  <li>1884</li>
+                                  <li>1884</li>
+                                  <li>1884</li>
+                              </ul>
+                               <span>搜索</span>
+                           </div>
+                       </div>
+                       <div class="content2-table">
+                           <div class="table-tit-list">
+                               <ul class="clearfix">
+                                   <li>项目类型：</li>
+                                   <li class="tit-list-active">全部</li>
+                                   <li>保养</li>
+                                   <li>洗车养护</li>
+                                   <li>机修</li>
+                                   <li>火花塞</li>
+                                   <li>雨刷</li>
+                                   <li>车灯照明</li>
+                               </ul>
+                               <span class="content2-add">添加+</span>
+                           </div>
+                           <!-- table -->
+                           <table border="1" bordercolor="#dfdfdf">
+                               <thead>
+                                   <tr>
+                                       <th>项目编号</th>
+                                       <th>名称</th>
+                                       <th>类别</th>
+                                       <th>车型级别</th>
+                                       <th>工时</th>
+                                       <th>工时费</th>
+                                       <th>说明</th>
+                                       <th>操作</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime_red"><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime_blue">添加</td>
+                                   </tr>
+                                 
+                                  
+                               </tbody>
+                           </table>
+                            <!-- 分页control -->
+                            <div class="ep-pages"> 
+                                <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
+                             <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
+                             <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+                            </div>
+                       </div>
+                     
+                   </div>
+                </div>
+                <!-- 配件 -->
+                <div class="tab-parts-module tab-menu-secondModule" >
+                    <!-- 已选配件 -->
+                    <div class="tab-parts-module1 overtime-content1 mark-secondContent"  style="display: block;">
+                       <div class="content1-tit">
+                           <span>已选<i class="overtime-red">5</i>个项目</span>
+                           <span>金额<i class="overtime-red">4650.00</i></span>
+                           <input type="text" value="" placeholder="输入编号/名称" class="apaceAdd">
+                           <span class="overtime-add">快捷添加</span>
+                           <span >扫码出库</span>
+                           <input type="text" name="" placeholder="请去仓库拿配件扫码出库">
+                           <span class="overtime-add">开始扫码</span>
+                           <span >扫码回库</span>
+                           <input type="text" name="" placeholder="请拿配件扫码回库">
+                           <span class="overtime-return">开始扫码</span>
+                           <span class="dispatch-warehouse">急件出入库</span>
+                        </div>
+                       <div class="content1-table">
+                           <table border="1" bordercolor="#dfdfdf">
+                               <thead>
+                                   <tr>
+                                       <th>名称</th>
+                                       <th>品牌</th>
+                                       <th>型号</th>
+                                       <th>库位</th>
+                                       <th>单价</th>
+                                       <th>数量</th>
+                                       <th>应付</th>
+                                       <th>实收</th>
+                                       <th>领料人</th>
+                                       <th>销售提成人</th>
+                                       <th>备注</th>
+                                       <th>出库状态</th>
+                                       <th width="4%">操作</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td>雨刮片</td>
+                                       <td>博世</td>
+                                       <td>T109</td>
+                                       <td>1243</td>
+                                       <td>125.00 </td>
+                                       <td >3</td>
+                                       <td>375.00</td>
+                                       <td  class="overtime_red">375.00</td>
+                                       <td>小李</td>
+                                       <td>小刘</td>
+                                       <td>小刘销售</td>
+                                       <td class="overtime_red">急件出入库</td>
+                                       <td class="overtime_blue"><span>配件回库</span>删除</td>
+                                   </tr>
+                                   <tr>
+                                      <td><span>雨刮片</span></td>
+                                       <td><span>博世</span></td>
+                                       <td><span>T109</span></td>
+                                       <td><span>1243</span></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td>375.00</td>
+                                       <td class="overtime_red"><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td><input type="" name=""></td>
+                                       <td class="overtime_red">已出库（0/1）</td>
+                                       <td class="overtime_blue">删除</td>
+                                   </tr>
+                                  
+                               </tbody>
+                           </table>
+                       </div>
+                       <!-- page control -->
+                       <div class="ep-pages"> 
+                             <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
+                             <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
+                             <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+                        </div>
+                    </div>
+                    <!-- 项目适配配件 -->
+                    <div class="tab-parts-module2 mark-secondContent" >
+                      <!-- 项目一 -->
+                      <div style="display:block">
+                        <div class="now-parts">
+                            当前
+                            车架号：<span class="now_span1">LMGD135XE1123504</span>
+                            车型：<span>马自达 马自达6 2.0 手自一体 技术版2004</span>
+                        </div>
+                         <div class="project_parts">
+                            <table border="1" bordercolor="#dfdfdf">
+                                <tr>
+                                    <th colspan="3">项目一：<span>更换机油清洗剂</span></th>
+                                    <th colspan="4">对应配件：<span>机油清洗器</span></th>
+                                    <th colspan="4">规格：<span>欧蓝德04经典型BJ6450</span></th>
+                                </tr>
+                                <!-- 二 添加此结构  项目三只用此结构-->
+                                 <tr  class="noparts">
+                                    <td colspan='12'>
+                                        <!-- 库存暂无适配该车型的配件，全车配可供配件如下   -->
+                                        库存暂无适配配件，全车配暂无适配配件   
+                                         <span>
+                                            向全车配发起询价
+                                         </span>
+                                    </td>
+                                </tr>
+                            </table>
+                           
+                        </div>
+                      </div >
+                      <!-- 项目二 -->
+                      <div style="display:none">
+                        <div class="now-parts">
+                            当前
+                            车架号：<span class="now_span1">LMGD135XE1123504</span>
+                            车型：<span>马自达 马自达6 2.0 手自一体 技术版2004</span>
+                        </div>
+                         <div class="project_parts">
+                            <table border="1" bordercolor="#dfdfdf">
+                                <tr>
+                                    <th colspan="3">项目二：<span>更换机油清洗剂</span></th>
+                                    <th colspan="4">对应配件：<span>机油清洗器</span></th>
+                                    <th colspan="4">规格：<span>欧蓝德04经典型BJ6450</span></th>
+                                </tr>
+                                <!-- 二 添加此结构  项目三只用此结构-->
+                                 <tr  class="noparts">
+                                    <td colspan='12'>
+                                        库存暂无适配该车型的配件，全车配可供配件如下  
+                                    </td>
+                                </tr>
+                                <tr class="parts_title">
+                                     <td >图片</td>
+                                    <td>名称</td>
+                                    <td>品牌</td>
+                                    <td>型号</td>
+                                    <td>库位</td>
+                                    <td>库存数量</td>
+                                    <td>推荐用量</td>
+                                    <td>采购价</td>
+                                    <td>售价</td>
+                                    <td class="min-NumWidth">数量</td>
+                                    <td>操作</td>
+                                </tr>
+                                <tbody class="alltbody">
+                                     <tr class="VisbleTr">
+                                            <td >
+                                                <img src="../images/workOrder/pic.png">
+                                            </td>
+                                            <td><span>清洗车顶内饰</span></td>
+                                            <td><span>AC德科</span></td>
+                                            <td><span>A3318H</span></td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td>¥235.00</td>
+                                            <td class="overtime_red"><input type="text" name=""></td>
+                                            <td class="ctr-num-td" width="11.3%">
+                                                    <div class="ctr-nunm">
+                                                        <span class="moveBtn">-</span>
+                                                        <input type="text" value="2" class="showNum">
+                                                        <span class="addBtn">+</span>
+                                                    </div>
+                                                </td>
+                                            <td>
+                                                <span class="overtime_blue">添加</span>
+                                                <span class="overtime_red xialaView">全车配采购</span>
+                                            </td>
+                                      </tr>
+                               
+                                         <!-- 9-22 增加下拉 -->
+                                        <tr class="selectVisble">
+                                            <td colspan="2" rowspan="2" class="borderRight" >
+                                                <img src="../images/workOrder/pic.png">
+                                            </td>
+                                            <td colspan="3">
+                                                单价：<span class="overtime_red">100.00元</span>
+                                            </td>
+                                            <td colspan="4" class="ctr-num-td" width="11.3%">
+                                                数量：
+                                                <div class="ctr-nunm">
+                                                    <span class="moveBtn">-</span>
+                                                    <input type="text" value="2" class="showNum">
+                                                    <span class="addBtn">+</span>
+                                                </div>
+                                            </td>
+                                            <td colspan="2" class="borderRight">
+                                                总价：<span class="overtime_red">800元</span>
+                                            </td>
+                                        </tr>
+                                        <tr  class="selectVisble">
+                                            <td colspan="3">
+                                                交货时间：
+                                                <div class="jiaohuoTime ">
+                                                          <span><i class="iconfont icon-shandianpeisong"></i>极速达</span>
+                                                    
+                                                </div>
+                                                <div class="jiaohuoTime">
+                                                          <span><i class="iconfont icon-cirida"></i>次日达</span>
+                                                    
+                                                </div>
+                                            </td>
+                                            <td colspan="4">
+                                                运费：<span class="overtime_red" style="margin-left: 18px;">0.00元</span>
+                                            </td>
+                                            <td colspan="2" class="borderRight" >
+                                                <div  class="caigouBtn">采购</div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                                
+                                
+                            </table>
+                            <div class="info-more-shop">
+                                 <div class="info-more-shop-btn">
+                                      从全车配采购其他品牌
+                                      <img src="../images/workOrder/row.png" alt="">
+                                 </div>
+                            </div>
+                        </div>
+                      </div >
+                      <!-- 项目三 -->
+                      <div style="display: none">
+                        <div class="now-parts">
+                            当前
+                            车架号：<span class="now_span1">LMGD135XE1123504</span>
+                            车型：<span>马自达 马自达6 2.0 手自一体 技术版2004</span>
+                        </div>
+                         <div class="project_parts">
+                            <table border="1" bordercolor="#dfdfdf">
+                                <tr>
+                                    <th colspan="3">项目三：<span>更换机油清洗剂</span></th>
+                                    <th colspan="4">对应配件：<span>机油清洗器</span></th>
+                                    <th colspan="4">规格：<span>欧蓝德04经典型BJ6450</span></th>
+                                </tr>
+                               
+                                <tr class="parts_title">
+                                    <td >图片</td>
+                                    <td>名称</td>
+                                    <td>品牌</td>
+                                    <td>型号</td>
+                                    <td>库位</td>
+                                    <td>库存数量</td>
+                                    <td>推荐用量</td>
+                                    <td>采购价</td>
+                                    <td>售价</td>
+                                    <td class="min-NumWidth">数量</td>
+                                    <td>操作</td>
+                                </tr>
+
+
+
+                                <tbody class="alltbody">
+                                     <tr class="VisbleTr">
+                                            <td >
+                                                <img src="../images/workOrder/pic.png">
+                                            </td>
+                                            <td><span>清洗车顶内饰</span></td>
+                                            <td><span>AC德科</span></td>
+                                            <td><span>A3318H</span></td>
+                                            <td><span>1884</span></td>
+                                            <td>50</td>
+                                            <td>2</td>
+                                            <td>¥235.00</td>
+                                            <td class="overtime_red"><input type="text" name=""></td>
+                                            <td class="ctr-num-td" width="11.3%">
+                                                    <div class="ctr-nunm">
+                                                        <span class="moveBtn">-</span>
+                                                        <input type="text" value="2" class="showNum">
+                                                        <span class="addBtn">+</span>
+                                                    </div>
+                                                </td>
+                                            <td>
+                                                <span class="overtime_blue">添加</span>
+                                                <span class="overtime_red xialaView">采购</span>
+                                            </td>
+                                      </tr>
+                                </tbody>
+                            </table>
+                           
+                        </div>
+                      </div>
+                    </div>
+                    <!--  常用配件 -->
+                    <div class="tab-parts-module3 mark-secondContent">
+                        <!-- tit -->
+                       <div class="normal-tit">
+                           <span class="normal-b">常用配件</span>
+                           <div class="tit-carNo">
+                               当前
+                               <span>车架号：</span>
+                               <span class="overtime_red">LXKSDJS216463</span>
+                           </div>
+                           <div class="tit-carType">
+                               车型：
+                               <span class="overtime_red">马自达 马自达自动60.2一体技术2006</span>
+                           </div>
+                       </div>
+                       <!-- bar -->
+                       <div class="normal-bar clearfix">
+                           <div class="bar-lsit-left">
+                                <span class="ctrl-bar-up
+                                 ">
+                                 <!-- disabledColor -->
+                                    ︽
+                                </span>
+                                <div class="ulBox">
+                                    <ul>
+                                       <li class="bgred">机油</li>
+                                       <li>火花塞</li>
+                                       <li>轮胎</li>
+                                       <li>雨刷</li>
+                                       <li>车灯照明</li>
+                                       <li>刹车系统</li>
+                                    </ul>
+                                </div>
+                                <span class="ctrl-bar-down ">︾</span>
+                           </div>
+                           <div class="bar-list-right">
+                               <p class="bar-right-tit">
+                                    共有<span class="vertime_red">5</span>件机油适配当前车型
+                                </p>
+                                <div class="bar-right-list">
+                                    <div class="right-list-barnd">
+                                        <span>品牌：</span>
+                                    </div>
+                                    <div class="right-list-items">
+                                        <ul>
+                                            <li>全部</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>火花塞</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>火花塞</li>
+                                            <li>雨刷</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>火花塞</li>
+                                            <li>雨刷</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>火花塞</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                            <li>润滑油</li>
+                                            <li>刹车系统</li>
+                                            <li>雨刷</li>
+                                            <li>轮胎</li>
+                                            <li>车灯照明</li>
+                                            <li>蓄电</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                           </div>
+                       </div>
+                        <!-- table -->
+                        <div class="normal-table">
+                            <table border="1" bordercolor="#dfdfdf" class="mui-table">
+                                <thead>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>品牌</th>
+                                        <th>型号</th>
+                                        <th>采购价</th>
+                                        <th>售价</th>
+                                        <th>库位</th>
+                                        <th>库存</th>
+                                        <th>推荐用量</th>
+                                        <th>有效期</th>
+                                        <th class="min-NumW">数量</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>空气过滤器</span></td>
+                                        <td><span>豹王</span></td>
+                                        <td><span>TDDDFDF2</span></td>
+                                        <td><input type="text" name=""></td>
+                                        <td class="overtime_red"><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ctr-add">
+                                                <span class="overtime_blue">添加</span>
+                                                <span class="overtime_red">全车配采购</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>空气过滤器</td>
+                                        <td>豹王</td>
+                                        <td>TDDDFDF2</td>
+                                        <td>299.00</td>
+                                        <td class="overtime_red">350.00</td>
+                                        <td>1234</td>
+                                        <td>200</td>
+                                        <td>5L</td>
+                                        <td>2018-8-8</td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ctr-add">
+                                                <span class="overtime_blue">添加</span>
+                                                <span class="overtime_red">全车配采购</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- 库存配件 -->
+                    <div class="tab-parts-module4 mark-secondContent">
+                            <div class="stock-tit clearfix">
+                                库存配件
+                                <div class="stock-search">
+                                    <input type="text" placeholder="输入名称/型号">
+                                    <span>搜索</span>
+                                </div>
+                            </div>
+                            <div class="stock-list">
+                                <!-- 分类 -->
+                                <div class="stock-list-sorts list-stock-com">
+                                    <div class="list-sorts-tit list-stock-tit">
+                                        <span>分类:</span>
+                                    </div>
+                                    <div class="list-sorts-items list-stock-items">
+                                        <ul class="clearfix">
+                                            <li><a href="javscript:;">全部</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                            <li><a href="javscript:;">车灯照片</a></li>
+                                            <li><a href="javscript:;">轮胎</a></li>
+                                            <li><a href="javscript:;">蓄电</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                            <li><a href="javscript:;">车灯照片</a></li>
+                                            <li><a href="javscript:;">轮胎</a></li>
+                                            <li><a href="javscript:;">蓄电</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="list-sorts-more list-stock-more">
+                                        <select name="" id="">
+                                            <option value="" selected>更多</option>
+                                            <option value="">更多1</option>
+                                            <option value="">更多2</option>
+                                            <option value="">更多3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- 类型 -->
+                                <div class="stock-list-type list-stock-com">
+                                    <div class="list-type-tit list-stock-tit">
+                                        <span>类型:</span>
+                                    </div>
+                                    <div class="list-type-items list-stock-items">
+                                        <ul class="clearfix">
+                                            <li><a href="javscript:;">全部</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                            <li><a href="javscript:;">车灯照片</a></li>
+                                            <li><a href="javscript:;">轮胎</a></li>
+                                            <li><a href="javscript:;">蓄电</a></li>
+                                            <li><a href="javscript:;">全部</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="list-type-more list-stock-more">
+                                        <select name="" id="">
+                                            <option value="" selected>更多</option>
+                                            <option value="">更多1</option>
+                                            <option value="">更多2</option>
+                                            <option value="">更多3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- 品牌 -->
+                                <div class="stock-list-brand list-stock-com">
+                                    <div class="list-brand-tit list-stock-tit">
+                                        <span>品牌:</span>
+                                    </div>
+                                    <div class="list-brand-items list-stock-items">
+                                        <ul class="clearfix">
+                                            <li><a href="javscript:;">全部</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                            <li><a href="javscript:;">车灯照片</a></li>
+                                            <li><a href="javscript:;">轮胎</a></li>
+                                            <li><a href="javscript:;">蓄电</a></li>
+                                            <li><a href="javscript:;">润滑油</a></li>
+                                            <li><a href="javscript:;">刹车系统</a></li>
+                                            <li><a href="javscript:;">火花塞</a></li>
+                                            <li><a href="javscript:;">雨刷</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="list-brand-more list-stock-more">
+                                        <select name="" id="">
+                                            <option value="" selected>更多</option>
+                                            <option value="">更多1</option>
+                                            <option value="">更多2</option>
+                                            <option value="">更多3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stock-table">
+                                <table border="1" bordercolor="#dfdfdf" class="mui-table">
+                                    <thead>
+                                        <tr>
+                                            <th>名称</th>
+                                            <th>品牌</th>
+                                            <th>型号</th>
+                                            <th>采购价</th>
+                                            <th>销售价</th>
+                                            <th>库位</th>
+                                            <th>库存</th>
+                                            <th class="min-NumW">使用数量</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td><span>空气过滤器</span></td>
+                                        <td><span>豹王</span></td>
+                                        <td><span>TDDDFDF2</span></td>
+                                        <td><input type="text" name=""></td>
+                                        <td class="overtime_red"><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td><input type="text" name=""></td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ctr-add">
+                                                <span class="overtime_blue">添加</span>
+                                                <span class="overtime_red">全车配采购</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                        
+                                        <tr>
+                                            <td>空气过滤器</td>
+                                            <td>豹王</td>
+                                            <td>TDDDFDF2</td>
+                                            <td>299.00</td>
+                                            <td class="overtime_red">350.00</td>
+                                            <td>1234</td>
+                                            <td>200</td>
+                                            <td class="ctr-num-td">
+                                                <div class="ctr-nunm">
+                                                    <span class="moveBtn">-</span>
+                                                    <input type="text" value="2" class="showNum">
+                                                    <span class="addBtn">+</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ctr-add">
+                                                    <span class="overtime_blue">添加</span>
+                                                    <span class="overtime_red">全车配采购</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>空气过滤器</td>
+                                            <td>豹王</td>
+                                            <td>TDDDFDF2</td>
+                                            <td>299.00</td>
+                                            <td class="overtime_red">350.00</td>
+                                            <td>1234</td>
+                                            <td>200</td>
+                                            <td class="ctr-num-td">
+                                                <div class="ctr-nunm">
+                                                    <span class="moveBtn">-</span>
+                                                    <input type="text" value="2" class="showNum">
+                                                    <span class="addBtn">+</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ctr-add">
+                                                    <span class="overtime_blue">添加</span>
+                                                    <span class="overtime_red">全车配采购</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>空气过滤器</td>
+                                            <td>豹王</td>
+                                            <td>TDDDFDF2</td>
+                                            <td>299.00</td>
+                                            <td class="overtime_red">350.00</td>
+                                            <td>1234</td>
+                                            <td>200</td>
+                                            <td class="ctr-num-td">
+                                                <div class="ctr-nunm">
+                                                    <span class="moveBtn">-</span>
+                                                    <input type="text" value="2" class="showNum">
+                                                    <span class="addBtn">+</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ctr-add">
+                                                    <span class="overtime_blue">添加</span>
+                                                    <span class="overtime_red">全车配采购</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>空气过滤器</td>
+                                            <td>豹王</td>
+                                            <td>TDDDFDF2</td>
+                                            <td>299.00</td>
+                                            <td class="overtime_red">350.00</td>
+                                            <td>1234</td>
+                                            <td>200</td>
+                                            <td class="ctr-num-td">
+                                                <div class="ctr-nunm">
+                                                    <span class="moveBtn">-</span>
+                                                    <input type="text" value="2" class="showNum">
+                                                    <span class="addBtn">+</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ctr-add">
+                                                    <span class="overtime_blue">添加</span>
+                                                    <span class="overtime_red">全车配采购</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- 分页control -->
+                            <div class="ep-pages"> 
+                                <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
+                             <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
+                             <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+                            </div>
+                    </div>
+                    <div class="tab-parts-module5 mark-secondContent">
+                        全车配采购
+                    </div>
+                </div>
+                <!-- 预约 -->
+                <div class="tab-book-module tab-menu-secondModule">
+                    <!-- 当前预约 -->
+                    <div class="book-content1 mark-secondContent" style="display:block">
+                        <div class="book-time mui-list-flex">
+                            <div class="book-time-list">
+                                预约到店时间：
+                                <span class="book-red">5月16日 10:30</span>
+                            </div>
+                            <div class="book-time-list">
+                                预约开单时间：
+                                <span class="book-red">5月16日 10:30</span>
+                            </div>
+                            <div class="book-time-list">
+                                预约方式：
+                                <span>电话预约</span>
+                            </div>
+                            <div class="book-time-control">
+                                <span class="qx-book">取消预约</span>
+                                <span class="zc-book">转出工单</span>
+                                 <div class="book-time-controlClose qx-book-pop">
+                                    <span>你确认要取消预约吗？</span>
+                                    <span><em class="qx-book-ture">确认</em><em class="qx-book-false">取消</em></span>
+                                </div>
+                                <div class="zc-book-pop book-time-controlClose">
+                                    <span>你确认要转出工单吗？</span>
+                                    <span><em class="qx-book-ture">确认转出</em><em class="qx-book-false">取消</em></span>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="book-remark">
+                            预约备注：
+                            <textarea name="" id=""></textarea>
+                        </div>
+                        <div class="book-service">
+                            <div class="service-tit">
+                                预约服务内容：
+                                <span class="add-book">增加</span>
+                            </div>
+                            <div class="service-list">
+                                <ul>
+                                    <li>
+                                        1.更换机油&nbsp;&nbsp;&nbsp; <span class="book-blue delete-book">删除</span>
+                                    </li>
+                                    <li>
+                                        2.更换刹车片 <span class="book-blue delete-book">删除</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 新建预约 -->
+                    <div class="book-content2 mark-secondContent">
+                        <div class="Appointment_time">
+                            <label for="">预约到店时间：</label>
+                            <input type="text" name="AppointmentTime" value="" class="AppointmentTime" placeholder="请选择时间">
+                        </div>
+                        <div class="Appointment_way">
+                             <label for="">预约方式：</label>
+                            <select name="" id="" class="comInputWidth">
+                                <option value="" selected>电话预约</option>
+                                <option value="">服务人员邀约</option>
+                            </select>
+                        </div>
+                        <div class="Appointment_notes">
+                            <label>预约备注：</label>
+                            <textarea name="" id=""></textarea>
+                        </div>
+                        <div class="Appointment_project">
+                            <label>预约服务项目：</label>
+                            <input type="button" name="新增其他" value="新增其他">
+                            <div class="FastBilling clearfix" id="FastBillingBooking">
+                                <div class="list-FastBilling">
+                                    <p>普通洗车</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>普通洗车</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>普通洗车</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>普通洗车</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p >精洗</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>补胎</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>打蜡</p>
+                                    <i></i>
+                                </div>
+                                <div class="list-FastBilling">
+                                    <p>修车</p>
+                                    <i></i>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 活动 -->
+                <!-- <div class="tab-activity-module">
+                    活动
+                </div> -->
+                <!-- c -->
+                <div class="tab-remarks-module">
+                    <label>备注</label>
+                    <textarea cols="5" rows="3">
+                        
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <!-- tab模块结束 -->
+        <!-- 公共尾部begin -->
+        <div class="check_footer">
+            <ul>
+                <li>保存</li>
+                <li>施工</li>
+                <li>完工</li>
+                <li>结算</li>
+                <li>取消</li>
+                <li>打印估价单</li>
+            </ul>
+        </div>
+        <!-- 公共尾部end -->
+    </div>
+
+
+
+
+
+ <!-- 选择项目工时弹窗 -->
+ <div class="choose-project-pop popOuter">
+    <div class="mask"></div>
+    <div class="inner choose-project-inner">
+        <div class="ctr-off">X关闭</div>
+        <p>新增项目</p>
+        <div class="pop-parts1 mui-list-flex">
+            <div class="parts1-name">
+                 <label>名称</label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="categroy">
+                <label>类别</label>
+                <select >
+                    <option>类别1</option>
+                </select>
+            </div>
+            <div class="gong-time">
+                <label>工时</label>
+                <input type="text" name="">
+            </div>
+            <div class="gong-timeUse">
+                <label>工时费</label>
+                <input type="text" name="">
+            </div>
+        </div>
+        <div class="pop-parts2">
+            <div class="car-level-table">
+                <span>车辆级别区分&nbsp;&nbsp;
+                    <span class="pull-down">︾</span>
+                </span>
+                 <table  class="mui-table" border="1" bordercolor="#dfdfdf">
+                     <thead>
+                                     <tr>
+                                        <th>车辆类别</th>
+                                        <th>排量</th>
+                                        <th width="150px">工时</th>
+                                    </tr>
+                     </thead>
+                                    
+                                    <tr>
+                                        <td>A</td>
+                                        <td> 排量<1.6升 </td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>B</td>
+                                        <td>1.6升<=排量<=1.8升 </td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>C</td>
+                                        <td> 1.6升<=排量<=1.8升 </td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>D</td>
+                                        <td> 1.6升<=排量<=1.8升 </td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>E</td>
+                                        <td> 1.6升<=排量<=1.8升 </td>
+                                        <td class="ctr-num-td">
+                                            <div class="ctr-nunm">
+                                                <span class="moveBtn">-</span>
+                                                <input type="text" value="2" class="showNum">
+                                                <span class="addBtn">+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                 </table>
+            </div>
+            <div class="project-name">
+                <label>项目名称</label>
+                <input type="text" name="">
+            </div>
+            <div class="projrct-content">
+                <label>项目内容</label>
+                <input type="text" name="">
+            </div>
+            <div class="btnGreen">
+                添加
+            </div>
+        </div>
+        <div class="pop-controlBtn">
+            <div class="controlBtn-save">保存并继续添加</div>
+            <div class="controlBtn-add">添加</div>
+        </div>                  
+   </div>
+  </div>
+  <!-- 违章弹窗 -->
+  <div class="illicitly-pop  popOuter">
+      <div class="mask"></div>
+      <div class="inner illicitly-inner">
+                    <div class="ctr-off">X关闭</div>
+           <!-- 违章信息 -->
+           <div class="pop-content">
+                   <p>违章信息</p>
+                    <table class="mui-table" border="1" bordercolor="#dfdfdf">
+                            <thead>
+                                <tr>
+                                    <td colspan="6">苏 SZ872</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        序号
+                                    </th>
+                                    <th>违章信息</th>
+                                    <th>代码</th>
+                                    <th>扣分</th>
+                                    <th>罚款</th>
+                                    <th>处理状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                       1
+                                    </th>
+                                    <th>
+                                        <p>
+                                            违章时间：2016-09-04  18:34:21 
+                                        </p>
+                                        <p>
+                                            违章地点：上海浦东新区科苑路135号 
+                                        </p>
+                                        <p>
+                                            违章原因：机动车违反禁止标线指示的
+                                        </p>
+                                    </th>
+                                    <th>1032</th>
+                                    <th>2</th>
+                                    <th>100.00</th>
+                                    <th class="fontBlue">未处理</th>
+                                </tr>
+                                  <tr>
+                                    <th>
+                                       2
+                                    </th>
+                                    <th>
+                                        <p>
+                                            违章时间：2016-09-04  18:34:21 
+                                        </p>
+                                        <p>
+                                            违章地点：上海浦东新区科苑路135号 
+                                        </p>
+                                        <p>
+                                            违章原因：机动车违反禁止标线指示的
+                                        </p>
+                                    </th>
+                                    <th>1032</th>
+                                    <th>2</th>
+                                    <th>100.00</th>
+                                    <th>已处理</th>
+                                </tr>
+                                 <tr>
+                                    <th>
+                                       3
+                                    </th>
+                                    <th>
+                                        <p>
+                                            违章时间：2016-09-04  18:34:21 
+                                        </p>
+                                        <p>
+                                            违章地点：上海浦东新区科苑路135号 
+                                        </p>
+                                        <p>
+                                            违章原因：机动车违反禁止标线指示的
+                                        </p>
+                                    </th>
+                                    <th>1032</th>
+                                    <th>2</th>
+                                    <th>100.00</th>
+                                    <th class="fontBlue">未处理</th>
+                                </tr>
+                                 <tr>
+                                    <th>
+                                       4
+                                    </th>
+                                    <th>
+                                        <p>
+                                            违章时间：2016-09-04  18:34:21 
+                                        </p>
+                                        <p>
+                                            违章地点：上海浦东新区科苑路135号 
+                                        </p>
+                                        <p>
+                                            违章原因：机动车违反禁止标线指示的
+                                        </p>
+                                    </th>
+                                    <th>1032</th>
+                                    <th>2</th>
+                                    <th>100.00</th>
+                                    <th class="fontBlue">未处理</th>
+                                </tr>
+                                <tr class="table-total">
+                                    <td colspan="3">
+                                        合计<span class="fontRed">4</span>条
+                                    </td>
+
+                                    <td>
+                                        扣分<span class="fontRed">8</span>分
+                                    </td>
+                                    <td>
+                                        罚款<span class="fontRed">400.00</span>元
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                    </table>
+           </div>
+      </div>
+  </div>
+ <!-- 售卡弹窗 -->
+ <div class="pay_cardwin-pop  popOuter">
+      <div class="mask"></div>
+      <div class="inner pay_cardwin-inner">
+         <div class="ctr-off">X关闭</div>
+         <p>次卡出售</p>
+
+         <div class="pop-content">
+            <div class="pay_cardwin_con">
+                <div class="pay_cardwin_artical">
+                    <div class="pay_cardwin_artical_l">
+                        <ul>
+                            <li>手机号</li>
+                            <li>客户姓名</li>
+                            <li>车牌号</li>
+                            <li>卡号选择</li>
+                            <li>售价</li>
+                            <li>有效时间</li>
+                            <li>售卡人</li>
+                        </ul>
+                    </div>
+                    <div class="pay_cardwin_artical_r">
+                        <ul>
+                            <li><input type="text" name="" id="" value="13022135346" /></li>
+                            <li><input type="text" name="" id="" value="李先生" /></li>
+                            <li>
+                                <select name="">
+                                    <option value="">正式</option>
+                                    <option value="">临时</option>
+                                </select>
+                                <input type="text" name="" id="" value="" />
+                            </li>
+                            <li><input type="text" name="" id="" placeholder="不选系统随机选择" /></li>
+                            <li><input type="text" name="" id="" value="1000.00" /></li>
+                            <li>
+                                <input type="text" name="datepicker"  class="datetimepicker" value="请选择起始日期"   style="color:#e83f3c">
+                                <span>-</span>
+                                <input type="text" name="datepicker"  class="datetimepicker" value="请选择到期日期" >
+                            </li>
+                           <!--  <li><input type="text" name="" id="" value="请选择起始日期" readonly style="color:#e83f3c ;;"/><span>-</span><input type="text" name="" id="" value="请选择起始日期" readonly/></li> -->
+                            <li class="pay_cardwin_sevenli"><input type="text" name="" id="" value="售卡人" />
+                                          <ul id="pay_carPle" class="list_WorkUl">
+                                                      <li>王飞</li>
+                                                      <li>李龙</li>
+                                                      <li>李静</li>
+                                                      <li>陈有龙</li>
+                                                      <li>贺燕飞</li>
+                                                      <li>苗志鹏</li>
+                                                      <li>周鲲鹏</li>
+                                                  </ul>
+                                        
+                                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pay_cardwin_btn">
+                    <span class="pay_cardwin_button">确定</span>
+                </div>
+            </div>
+            
+        </div>  
+    </div>  
+  </div>  
+<!-- 充值弹窗 -->
+<div class="charge-pop  popOuter">
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <div class="pop-content">
+            <div>
+                <label>输入充值金额</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>选择充值方式</label>
+                <select>
+                    <option>微信</option>
+                    <option>短信</option>
+                </select>
+            </div>
+            <div class="popSure">
+                充值
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 新增预约弹窗 -->
+<div class="newAddBespeak-pop  popOuter" >
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <p>新增预约服务</p>
+        <div class="pop-conten">
+            <div class="FastBilling clearfix newAddBespeak_con" >
+                <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i></i>
+                </div>
+                 <div class="list-FastBilling">
+                    <p>普通洗车</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling list-border">
+                    <p>普通洗车</p>
+                    <i style="display: inline;"></i>
+                </div>
+                <div class="list-FastBilling list-border">
+                    <p>普通洗车</p>
+                    <i style="display: inline;"></i>
+                </div>
+                <div class="list-FastBilling list-border">
+                    <p>普通洗车</p>
+                    <i style="display: inline;"></i>
+                </div>
+                <div class="list-FastBilling list-border">
+                    <p>精洗</p>
+                    <i style="display: inline;"></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>补胎</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>打蜡</p>
+                    <i></i>
+                </div>
+                <div class="list-FastBilling">
+                    <p>修车</p>
+                    <i></i>
+
+                </div>
+            </div>
+            <div class="newAddBespeakbtn">
+                确认增加
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 急件出入库弹窗 -->
+<div class="despatch-pop  popOuter">
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <p>急件出入库</p>
+        <div class="mui-list-flex">
+            <div>
+                <label>型&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>品&nbsp;&nbsp;&nbsp;&nbsp;牌</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>名&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+                <input type="text" name="">
+            </div>
+        </div>
+        <div  class="mui-list-flex">
+            <div>
+                <label>供应商</label>
+                <input type="text" name="">
+            </div>
+            <div class="caigouPrice">
+                <label>采购价</label>
+                <input type="text" name="">
+            </div>
+            <div>
+                <label>入库数量</label>
+                <input type="text" name="">
+            </div>
+        </div>
+        <div  class="mui-list-flex">
+            <div>
+                <label>售&nbsp;&nbsp;&nbsp;&nbsp;价</label>
+                <input type="text" name="">
+            </div>
+            <div class="kuwei-pop">
+                <label>库&nbsp;&nbsp;&nbsp;&nbsp;位</label>
+                <input type="text" name="">
+            </div>
+            <div class="list-space"></div>
+        </div>
+       <div class="pop-controlBtn">
+            <div class="controlBtn-save">保存并继续添加</div>
+            <div class="controlBtn-add">添加</div>
+        </div> 
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/common/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/common/jquery.datetimepicker.min.js"></script>
+<script type="text/javascript" src="../js/common/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="../js/workOrder.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<script type="text/javascript" src="modules/common/js/main.js"></script>
+<div ng-controller='commonCtrl'>
+    <div class="warp-userInfo"  >
+        <div class="order-cell part1">
+        <div class="order-list">
+            <div class="list-cardNum" token='7aa3c38ab9ad3d0b94ebb6c05d1e928f'>
+                <label for="">会员卡</label>
+                <input type="text" value="{{vipNo}}" ng-model="vipNo" ng-keyup='VipKeyUp()' class="comInputWidth">
+                <ul class="list-cardorder list-cardmassage" ng-if='VipVal' ng-model="VipVal" style="display:block">
+                    <li ng-click='scan()' ng-repeat='item in ItemVIpNo track by $index  '>
+                        {{item}}
+                    </li>
+                </ul>
+                <span class="order-scan" ng-click='scan()'>扫描</span>
+            </div>
+        </div>
+        <div class="order-list mui-list-flex">
+           <div class="list-carCard">
+                <label for="">车牌号</label>                   
+               <select name="" id="">
+                    <option value="" selected>正式</option>
+                    <option value="">正式1</option>
+                    <option value="">正式2</option>
+               </select> 
+                <input type="text" value="{{plateNumber}}" ng-model='plateNumber'>
+                    <ul class="list-cardCardorder list-cardmassage" >
+                        <li>王飞</li>
+                        <li>李龙</li>
+                        <li>李静</li>
+                        <li>陈有龙</li>
+                        <li>贺燕飞</li>
+                        <li>苗志鹏</li>
+                        <li>周鲲鹏</li>
+                    </ul>
+           </div>
+           <div class="list-name">
+               <label for="">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+               <input type="text" value="{{senderName}}" ng-model='senderName' class="comInputWidth">
+           </div>
+           <div class="list-phone">
+               <label for="">手机号</label>
+               <input type="text" value="{{senderPhone}}" ng-model='senderPhone' class="comInputWidth">
+                <ul class="list-cardtel list-cardmassage" >
+                  <li>王飞</li>
+                  <li>李龙</li>
+                  <li>李静</li>
+                  <li>陈有龙</li>
+                  <li>贺燕飞</li>
+                  <li>苗志鹏</li>
+                  <li>周鲲鹏</li>
+              </ul>
+           </div>
+        </div>
+        <div class="order-list mui-list-flex">
+            <div class="list-pickName list_Work">
+                <label for="">接车人</label>
+                <input type="text" value="{{pickPeopleName}}" ng-model='pickPeopleName' name="" class="comInputWidth">
+                <ul id="list-pickPle" class="list_WorkUl">
+                  <li>王飞</li>
+                  <li>李龙</li>
+                  <li>李静</li>
+                  <li>陈有龙</li>
+                  <li>贺燕飞</li>
+                  <li>苗志鹏</li>
+                  <li>周鲲鹏</li>
+              </ul>
+            </div>
+            <div class="list-beginTime ">
+                <label for="">进厂时间</label>
+                <input type="text" class="comInputWidth datetimepicker today" name="datepicker" value="" >
+            </div>
+            <div class="list-workTeam list_Work">
+                <label for="">施工人</label>
+                <input type="text" value="" name="" class="comInputWidth">
+                <ul id="list-workTeamPle" class="list_WorkUl">
+                  <li>王飞</li>
+                  <li>李龙</li>
+                  <li>李静</li>
+                  <li>陈有龙</li>
+                  <li>贺燕飞</li>
+                  <li>苗志鹏</li>
+                  <li>周鲲鹏</li>
+              </ul>
+            </div>
+        </div>
+    </div><div class="order-cell-none">
+            <div class="order-cell part2">
+                    <img src="images/workOrder/icon_car.jpg" alt="">
+                    <div class="order-list mui-list-flex">
+                        <div class="list-carNo">
+                            <label for="">车&nbsp;&nbsp;架&nbsp;&nbsp;号</label>
+                            <input type="text" value="{{vinNo}}" ng-model='vinNo'>
+                        </div>
+                        <div class="list-carType">
+                            <label for="">车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型</label>
+                            <input type="text" value="{{carModelNo}}" ng-model='carModelNo'>
+                        </div>
+                        <div class="list-carPrice">
+                            <label for="">车辆价格</label>
+                            <input type="text" value="{{carPrice}}" ng-model='carPrice'>
+                        </div>
+                        <div class="list-carColor listjs">
+                            <label for="">车辆颜色</label>
+                            <input type="text" name="" id="" value="{{color}}" ng-model='color' />
+                            <ul id="colors" class="colorjs">
+                              <li>银色</li>
+                              <li>蓝色</li>
+                              <li>黑色</li>
+                              <li>白色</li>
+                              <li>黄色</li>
+                              <li>红色</li>
+                              <li>绿色</li>
+                          </ul>
+                         </div>
+                    </div>
+                    <div class="order-list mui-list-flex">
+                        <div class="list-roadNum">
+                            <label for="">当前公里数</label>
+                            <input type="text" value="{{lastMileage}}" ng-model='lastMileage'>
+                        </div>
+                        <div class="list-cardTime">
+                            <label for="">上牌时间</label>
+                            <input type="text" value="{{carOnTime}}" ng-model='carOnTime' name="datepicker"  class="datetimepicker" placeholder="请选择时间">
+                        </div>
+                        <div class="list-engineType">
+                            <label for="">发动机号</label>
+                            <input type="text" value="{{engineNo}}" ng-model='engineNo'>
+                        </div>
+                        <div class="list-space"></div>
+                    </div>
+                </div>
+            <div class="order-cell part3">
+                <img src="images/workOrder/icon_user.jpg" alt="">
+                <div class="order-list mui-list-flex" >
+                    <div class="list-userName">
+                        <label for="" >车&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;主</label>
+                        <input type="text" value="{{customerName}}" ng-model='customerName'>
+                    </div>
+                    <div class="list-userPhone" >
+                        <label for="">手&nbsp;机&nbsp;号</label>
+                        <input type="text" value="{{phone}}" ng-model='phone'>
+                    </div>
+                    <div class="list-customer">
+                        <label for="">客户来源</label>
+                        <input type="text" name="" id="" value="{{orderSourceId}}" ng-model='orderSourceId' />
+                        <ul id="where_come" class="list-company-lists">
+                          <li>无</li>
+                          <li>员工</li>
+                          <li>老带新</li>
+                          <li>其他</li>
+                          <li>附件</li>
+                          <li>外部车辆</li>
+                          <li>自主上门</li>
+                      </ul>
+                    </div>
+                    <div class="list-customerDetail">
+                        <label for="">来源详情</label>
+                        <input type="text" placeholder="">
+                    </div>
+                </div>
+                <!-- more list -->
+                    <div class="order-list " >
+                        <div class="order-list mui-list-flex">
+                            <div class="list-roadNum">
+                                <label for="">身份证号</label>
+                                <input type="text" value="{{idno}}" ng-model='idno'>
+                            </div>
+                            <div class="list-cardTime">
+                                <label for="">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日</label>
+                                <input type="text" value="{{birth}}" ng-model='birth' name="datepicker"  class="datetimepicker" placeholder="请选择时间">
+                            </div>
+                           <div class="list-space list-adress">
+                            <div class="list-customerDetailAdress">
+                                <label for="">客户联系地址</label>
+                                <input type="text" value="{{address}}" ng-model='address' placeholder="请输入联系地址">
+                            </div>
+                           </div>
+                            <div class="list-space"></div>
+                         </div>
+                    </div>
+               
+            </div>
+            <!-- 9-21新加 -->
+            <div class="order-cell part4">
+                <img src="images/chepai_icon.png" alt="">
+                <div class="order-list mui-list-flex" >
+                    <div class="list-company">
+                        <label for="" >交强险投保公司</label>
+                        <input type="text" value="{{insure}}" ng-model='insure'>
+                        <!-- 9-22 add -->
+                        <ul id="insurance-company"  class="list-company-lists">
+                                <li>平安车险</li>
+                                <li>中国人保车险</li>
+                                <li>太平洋车险</li>
+                                <li>中华联合车险</li>
+                                <li>大地车险</li>
+                                <li>天安车险</li>
+                                <li>永安车险</li>
+                                <li>阳光车险</li>
+                                <li>安邦车险</li>
+                                <li>太平车险</li>
+                            </ul>
+                        <!-- 9-22 add结束 -->
+                    </div>
+                    <div class="list-userPhone" >
+                        <label for="">保&nbsp;单&nbsp;号</label>
+                        <input type="text" ng-model='insureOrderNo' value="{{insureOrderNo}}">
+                    </div>
+                    <div class="list-customer">
+                        <label for="">到期时间</label>
+                       <input type="text" value="{{insureEndTime}}" ng-model='insureEndTime' class="comInputWidth datetimepicker " name="datepicker"  placeholder="请选择时间">
+                    </div>
+                    <div class="white">
+                         <label for="" >空白</label>
+                        <input type="text" value="">
+                    </div>
+                </div>
+                <div class="order-list " >
+                        <div class="mui-list-flex">
+                            <div  class="list-company">
+                                <label for="" >商业险投保公司</label>
+                               <input type="text" value="{{VCI}}" ng-model='VCI'>
+                               <!-- 9-22 add -->
+                               <ul id="insurances" class="list-company-lists">
+                                   <li>平安车险</li>
+                                   <li>中国人保车险</li>
+                                   <li>太平洋车险</li>
+                                   <li>中华联合车险</li>
+                                   <li>大地车险</li>
+                                   <li>天安车险</li>
+                                   <li>永安车险</li>
+                                   <li>阳光车险</li>
+                                   <li>安邦车险</li>
+                                   <li>太平车险</li>
+                               </ul>
+                               <!-- 9-22add 结束 -->
+                            </div>
+                            <div class="list-userBirth" >
+                                <label for="">保&nbsp;单&nbsp;号</label>
+                                 <input type="text" value="{{VCIOrderNo}}" ng-model='VCIOrderNo'  >
+                            </div>
+                            <div class="list-customer">
+                                <label for="">到期时间</label>
+                               <input type="text" value="{{VCIEndTime}}" ng-model='VCIEndTime'  class="comInputWidth datetimepicker " name="datepicker"  placeholder="请选择时间">
+                            </div>
+                            <div class="list-company-goods">
+                                <label for="">险种</label>
+                                <input type="text" value="{{VCIType}}" ng-model='VCIType' id='xinazhong'>
+                                <!-- 9-22 add -->
+                                 <ul id="VCITypes">
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="车辆破损险" value="车辆破损险" >车辆破损险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="玻璃破损险" value="玻璃破损险">玻璃破损险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="划痕险" value="划痕险">划痕险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="自燃险" value="自燃险">自燃险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="涉水险" value="涉水险">涉水险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="第三者责任险" value="第三者责任险">第三者责任险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="司机座位险" value="司机座位险">司机座位险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="乘客座位险" value="乘客座位险">乘客座位险</label></li>
+                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="盗抢险" value="盗抢险">盗抢险</label></li>
+                                </ul>
+                                <!-- 9-22add结束 -->
+                            </div>
+                        </div>
+                    </div>
+               
+            </div>
+        </div>
+        
+        <!-- more list end -->
+        <div class="info-more">
+            <div class="info-more-btn">
+                更多详情
+                <!-- <img src="../images/workOrder/row.png" alt=""> -->
+            </div>
+        </div>
+    </div>
+    <!-- car info -->
+    <div class="order-car-info mui-list-flex">
+      <div class="list-car-info car-info-list1">
+          <i></i>
+          <span>违章</span>
+          <p><em>{{wz_total}}</em>次</p>
+          <a href="javascipt:void(0)">详情</a>
+      </div>
+      <div class="list-car-info car-info-list2">
+           <i></i>
+           <span>年检</span>
+           <p><em>{{inspection_day}}</em>天</p>
+           <strong>{{inspection}}</strong>
+      </div>
+    
+      <div class="list-car-info car-info-list3">
+           <i></i>
+           <span>保险</span>
+           <div><p>交</p><em>{{insureDay}}</em>天</div>
+           <div><p>商</p><em>{{VCIEndDay}}</em>天</div>
+      </div>
+      <div class="list-car-info car-info-list4">
+           <i></i>
+           <span>保养</span>
+           <p>建议里程 <em> {{next_upkeep_kilometer}}</em><br>  
+           还剩天数 <em>{{next_upkeep_date}}</em> <br>  
+           当前里程<em>{{lastMileage}}</em></p>
+      </div>
+      <div class="list-car-info car-info-list5">
+          <i></i>
+          <span>客户标签</span>
+          <p>更换汽缸体，更换曲轴</p>
+      </div>
+      <div class="list-car-info car-info-list6">
+          <i></i>
+          <span>上次完工备注</span>
+          <p>更换汽缸体，更换曲轴</p>
+      </div>
+    </div>
+    
+<!-- 违章弹窗 -->
+<div class="illicitly-pop  popOuter">
+   <div class="mask"></div>
+   <div class="inner illicitly-inner">
+   <div class="ctr-off">X关闭</div>
+       <!-- 违章信息 -->
+       <div class="pop-content">
+           <p>违章信息</p>
+            <table class="mui-table" border="1" bordercolor="#dfdfdf">
+                    <thead>
+                        <tr><td colspan="6">{{plateNumber}}</td></tr>
+                        <tr>
+                            <th>序号</th>
+                            <th>违章信息</th>
+                            <th>代码</th>
+                            <th>扣分</th>
+                            <th>罚款</th>
+                            <th>处理状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                	     <tr ng-repeat='list in wzlist track by $index'>
+                            <th>{{$index+1}}</th>
+                            <th>
+                                <p>违章时间：{{list.date}} </p>
+                                <p>违章地点：{{list.area}} </p>
+                                <p>违章原因：{{list.act}} </p>
+                            </th>
+                            <th>{{list.code}}</th>
+                            <th>{{list.fen}}</th>
+                            <th>{{list.money}}</th>
+                            <th class="fontBlue">{{list.handled}}</th>
+                        </tr>
+                        
+                    </tbody>
+            </table>
+       </div>
+  </div>
+</div>
+</div>

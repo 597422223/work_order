@@ -1,0 +1,76 @@
+<script type="text/javascript" src="modules/workhours/js/yixuan.js"></script>
+<div class="overtime-content1 mark-secondContent" style="display: block;">
+   <div class="content1-tit tit-search-list">
+       <input type="text" placeholder="输入编号/名称" value="" ng-model="entryName">
+       <ul class="tit-search-xia">
+         <li>1884</li>
+         <li>1884</li>
+         <li>1884</li>
+         <li>1884</li>
+         <li>1884</li>
+         <li>1884</li>
+         <li>1884</li>
+        </ul>
+       <span class="overtime-add" ng-click="addbtn()">快捷添加</span>
+       <span>已选<i class="red">5</i>个项目</span>
+       <span>总工时<i class="red">6</i></span>
+       <span>金额<i class="red">4650.00</i></span>
+   </div>
+   <div class="content1-table">
+       <table border="1" bordercolor="#dfdfdf">
+           <thead>
+               <tr>
+                   <th>项目名称</th>
+                   <th>计划工时</th>
+                   <th>工时倍数</th>
+                   <th>应收工时费</th>
+                   <th>实收</th>
+                   <th>施工人员</th>
+                   <th>二次销售</th>
+                   <th>施工提成人</th>
+                   <th>备注</th>
+                   <th>卡券项目</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>更换中门导轨</td>
+                   <td>2.0</td>
+                   <td>1</td>
+                   <td class="overtime-bold">200.00</td>
+                   <td>150.00</td>
+                   <td>小李 </td>
+                   <td class="overtime-green">已结单</td>
+                   <td>小李</td>
+                   <td>小李已维修</td>
+                   <td class="overtime-pin">是</td>
+               </tr>
+               <tr ng-repeat="x in names track by $index" >
+                   <td>{{x.projectName}}</td>
+                   <td><input type="" name="" value="{{x.manHour}}"></td>
+                   <td><input type="" name="" value="{{x.multiple}}"></td>
+                   <td class="overtime-bold" ><input type="" name="" value="{{x.manHourPrice}}"></td>
+                   <td><input type="" name="" value="{{x.manHourPrice}}"></td>
+                   <td><input type="" name="" value="{{x.onePeople}}"></td>
+                   <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
+                   <td><input type="" name="" value="{{x.projectName}}"></td>
+                   <td><input type="" name="" value="{{x.desc}}"></td>
+                   <td class="overtime-pin">是</td>
+               </tr>
+               
+           </tbody>
+       </table>
+   </div>
+ </div>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	

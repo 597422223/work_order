@@ -1,0 +1,325 @@
+   <script type="text/javascript" src="modules/workhours/js/chooseProject.js"></script>
+   <div class="overtime-content2 mark-secondContent">
+       <div class="content2-tit">
+           <div class="tit-list mui-list-flex">
+               <div class="tit-carNo">
+                   车架号：
+                   <span>1111LMDFHFDKKFKDFDF</span>
+               </div>
+               <div class="tit-carType">
+                   车型号:
+                   <span>马自达23434343</span>
+               </div>
+               <div class="tit-carGray">
+                   车型级别：
+                   <span>D</span>
+               </div>
+               <div class="tit-carPrice">
+                   车价：
+                   <span>40万</span>
+               </div>
+               <div class="tit-carRoade">
+                   当前车程：
+                   <span>
+                       3000公里
+                   </span>
+               </div>
+           </div>
+           <div class="tit-search tit-search-list" token="dd256043bf9229a871b8fc1bd99f1272">
+               <input type="text" value="" placeholder="输入编号/名称">
+               <ul class="tit-search-xia ">
+                  <li>1884</li>
+                  <li>1884</li>
+                  <li>1884</li>
+                  <li>1884</li>
+                  <li>1884</li>
+                  <li>1884</li>
+                  <li>1884</li>
+              </ul>
+               <span ng-click="Worksearch()">搜索</span>
+           </div>
+       </div>
+       <div class="content2-table">
+           <div class="table-tit-list">
+               <ul class="clearfix">
+                   <li>项目类型：</li>
+                   <li class="tit-list-active">全部</li>
+                   <li>保养</li>
+                   <li>洗车养护</li>
+                   <li>机修</li>
+                   <li>火花塞</li>
+                   <li>雨刷</li>
+                   <li>车灯照明</li>
+               </ul>
+               <span class="content2-add">添加+</span>
+           </div>
+           <!-- table -->
+           <table border="1" bordercolor="#dfdfdf">
+               <thead>
+                   <tr>
+                       <th>项目编号</th>
+                       <th>名称</th>
+                       <th>类别</th>
+                       <th>车型级别</th>
+                       <th>工时</th>
+                       <th>工时费</th>
+                       <th>说明</th>
+                       <th>操作</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr ng-repeat="x in items">
+                       <td><input type="" name=""></td>
+                       <td><input type="" name=""></td>
+                       <td><input type="" name=""></td>
+                       <td><input type="" name=""></td>
+                       <td><input type="" name=""></td>
+                       <td class="overtime_red"><input type="" name=""></td>
+                       <td><input type="" name=""></td>
+                       <td class="overtime_blue">添加</td>
+                   </tr>
+                 
+                  
+               </tbody>
+           </table>
+            <!-- 分页control -->
+            <div class="ep-pages"> 
+                <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
+             <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
+             <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+            </div>
+       </div>
+     
+   </div>
+
+
+   <!-- 选择项目工时弹窗 -->
+   <div class="choose-project-pop popOuter">
+      <div class="mask"></div>
+      <div class="inner choose-project-inner">
+          <div class="ctr-off">X关闭</div>
+          <p>新增项目</p>
+          <div class="pop-parts1 mui-list-flex">
+              <div class="parts1-name">
+                   <label>名称</label>
+                  <input type="text" name="" value="">
+              </div>
+              <div class="categroy">
+                  <label>类别</label>
+                  <select >
+                      <option>类别1</option>
+                  </select>
+              </div>
+              <div class="gong-time">
+                  <label>工时</label>
+                  <input type="text" name="">
+              </div>
+              <div class="gong-timeUse">
+                  <label>工时费</label>
+                  <input type="text" name="">
+              </div>
+          </div>
+          <div class="pop-parts2">
+              <div class="car-level-table">
+                  <span>车辆级别区分&nbsp;&nbsp;
+                      <span class="pull-down">︾</span>
+                  </span>
+                   <table  class="mui-table" border="1" bordercolor="#dfdfdf">
+                       <thead>
+                                       <tr>
+                                          <th>车辆类别</th>
+                                          <th>排量</th>
+                                          <th width="150px">工时</th>
+                                      </tr>
+                       </thead>
+                                      
+                                      <tr>
+                                          <td>A</td>
+                                          <td> 排量<1.6升 </td>
+                                          <td class="ctr-num-td">
+                                              <div class="ctr-nunm">
+                                                  <span class="moveBtn">-</span>
+                                                  <input type="text" value="2" class="showNum">
+                                                  <span class="addBtn">+</span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                       <tr>
+                                          <td>B</td>
+                                          <td>1.6升<=排量<=1.8升 </td>
+                                          <td class="ctr-num-td">
+                                              <div class="ctr-nunm">
+                                                  <span class="moveBtn">-</span>
+                                                  <input type="text" value="2" class="showNum">
+                                                  <span class="addBtn">+</span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                       <tr>
+                                          <td>C</td>
+                                          <td> 1.6升<=排量<=1.8升 </td>
+                                          <td class="ctr-num-td">
+                                              <div class="ctr-nunm">
+                                                  <span class="moveBtn">-</span>
+                                                  <input type="text" value="2" class="showNum">
+                                                  <span class="addBtn">+</span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                       <tr>
+                                          <td>D</td>
+                                          <td> 1.6升<=排量<=1.8升 </td>
+                                          <td class="ctr-num-td">
+                                              <div class="ctr-nunm">
+                                                  <span class="moveBtn">-</span>
+                                                  <input type="text" value="2" class="showNum">
+                                                  <span class="addBtn">+</span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                       <tr>
+                                          <td>E</td>
+                                          <td> 1.6升<=排量<=1.8升 </td>
+                                          <td class="ctr-num-td">
+                                              <div class="ctr-nunm">
+                                                  <span class="moveBtn">-</span>
+                                                  <input type="text" value="2" class="showNum">
+                                                  <span class="addBtn">+</span>
+                                              </div>
+                                          </td>
+                                      </tr>
+                   </table>
+              </div>
+              <div class="project-name">
+                  <label>项目名称</label>
+                  <input type="text" name="">
+              </div>
+              <div class="projrct-content">
+                  <label>项目内容</label>
+                  <input type="text" name="">
+              </div>
+              <div class="btnGreen">
+                  添加
+              </div>
+          </div>
+          <div class="pop-controlBtn">
+              <div class="controlBtn-save">保存并继续添加</div>
+              <div class="controlBtn-add">添加</div>
+          </div>                  
+     </div>
+    </div>
+    <!-- 选择项目工时弹窗 -->
+    <div class="choose-project-pop popOuter">
+       <div class="mask"></div>
+       <div class="inner choose-project-inner">
+           <div class="ctr-off">X关闭</div>
+           <p>新增项目</p>
+           <div class="pop-parts1 mui-list-flex">
+               <div class="parts1-name">
+                    <label>名称</label>
+                   <input type="text" name="" value="">
+               </div>
+               <div class="categroy">
+                   <label>类别</label>
+                   <select >
+                       <option>类别1</option>
+                   </select>
+               </div>
+               <div class="gong-time">
+                   <label>工时</label>
+                   <input type="text" name="">
+               </div>
+               <div class="gong-timeUse">
+                   <label>工时费</label>
+                   <input type="text" name="">
+               </div>
+           </div>
+           <div class="pop-parts2">
+               <div class="car-level-table">
+                   <span>车辆级别区分&nbsp;&nbsp;
+                       <span class="pull-down">︾</span>
+                   </span>
+                    <table  class="mui-table" border="1" bordercolor="#dfdfdf">
+                        <thead>
+                                        <tr>
+                                           <th>车辆类别</th>
+                                           <th>排量</th>
+                                           <th width="150px">工时</th>
+                                       </tr>
+                        </thead>
+                                       
+                                       <tr>
+                                           <td>A</td>
+                                           <td> 排量<1.6升 </td>
+                                           <td class="ctr-num-td">
+                                               <div class="ctr-nunm">
+                                                   <span class="moveBtn">-</span>
+                                                   <input type="text" value="2" class="showNum">
+                                                   <span class="addBtn">+</span>
+                                               </div>
+                                           </td>
+                                       </tr>
+                                        <tr>
+                                           <td>B</td>
+                                           <td>1.6升<=排量<=1.8升 </td>
+                                           <td class="ctr-num-td">
+                                               <div class="ctr-nunm">
+                                                   <span class="moveBtn">-</span>
+                                                   <input type="text" value="2" class="showNum">
+                                                   <span class="addBtn">+</span>
+                                               </div>
+                                           </td>
+                                       </tr>
+                                        <tr>
+                                           <td>C</td>
+                                           <td> 1.6升<=排量<=1.8升 </td>
+                                           <td class="ctr-num-td">
+                                               <div class="ctr-nunm">
+                                                   <span class="moveBtn">-</span>
+                                                   <input type="text" value="2" class="showNum">
+                                                   <span class="addBtn">+</span>
+                                               </div>
+                                           </td>
+                                       </tr>
+                                        <tr>
+                                           <td>D</td>
+                                           <td> 1.6升<=排量<=1.8升 </td>
+                                           <td class="ctr-num-td">
+                                               <div class="ctr-nunm">
+                                                   <span class="moveBtn">-</span>
+                                                   <input type="text" value="2" class="showNum">
+                                                   <span class="addBtn">+</span>
+                                               </div>
+                                           </td>
+                                       </tr>
+                                        <tr>
+                                           <td>E</td>
+                                           <td> 1.6升<=排量<=1.8升 </td>
+                                           <td class="ctr-num-td">
+                                               <div class="ctr-nunm">
+                                                   <span class="moveBtn">-</span>
+                                                   <input type="text" value="2" class="showNum">
+                                                   <span class="addBtn">+</span>
+                                               </div>
+                                           </td>
+                                       </tr>
+                    </table>
+               </div>
+               <div class="project-name">
+                   <label>项目名称</label>
+                   <input type="text" name="">
+               </div>
+               <div class="projrct-content">
+                   <label>项目内容</label>
+                   <input type="text" name="">
+               </div>
+               <div class="btnGreen">
+                   添加
+               </div>
+           </div>
+           <div class="pop-controlBtn">
+               <div class="controlBtn-save">保存并继续添加</div>
+               <div class="controlBtn-add">添加</div>
+           </div>                  
+      </div>
+     </div>
