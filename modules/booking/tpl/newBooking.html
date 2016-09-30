@@ -1,6 +1,6 @@
 
 <!-- modules/card/tpl/card.html -->
-<script type="text/javascript" src="modules/bespeak/js/newbook.js"></script>
+<script type="text/javascript" src="modules/booking/js/newBooking.js"></script>
 <!-- 新建预约 -->
 <div class="book-content2 mark-secondContent">
     <div class="Appointment_time">
@@ -22,8 +22,8 @@
         <label>预约服务项目：</label>
         <input type="button" name="新增其他" value="新增其他">
         <div class="FastBilling clearfix" id="FastBillingBooking">
-            <div class="list-FastBilling">
-                <p>普通洗车</p>
+            <div class="list-FastBilling" ng-repeat='items in newProject'>
+                <p id={{items.projectID}}>{{items.projectName}}</p>
                 <i></i>
             </div>
         </div>

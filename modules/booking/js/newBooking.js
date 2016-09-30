@@ -7,8 +7,12 @@
 				 newpage.setDateTime();
 			//点击新增
 				$('.Appointment_project>input').click(function(){
-					var _html = '<div class="list-FastBilling"><input type="text" name=""><i></i></div>';
-					$('#FastBillingBooking').append(_html);
+					if ($('.Appointment_project .list-FastBilling input:last').val()=="") {
+						alert("请输入服务项目")
+					}else{
+						var _html = '<div class="list-FastBilling"><input type="text" name=""><i></i></div>';
+						$('#FastBillingBooking').append(_html);
+					}
 				})  
 
 			},
@@ -30,7 +34,12 @@
 			$(this).toggleClass('list-border');
 		})
 
+
+
+
 		  	//获取新建预约单数据 
+						
+
 					$('.check_footer').click(function(){
 						var Addarr = [];
 						var newAddarr = [];
@@ -46,9 +55,40 @@
 
 
 						$('.Appointment_project .list-border input').each(function(){
-							var pText = $(this).val()
-							newAddarr.push(pText)
+							var pText = $(this).val().replace(/\s+/g,"")
+							// 去掉空格正则
+							// console.log(pText)
+
+							// 为空不添加数组
+							if (pText=='') {
+								return;
+							}else{
+								newAddarr.push(pText)
+							}
 						})
+
+						// 获取到新建新增服务项目
+						var	allArr = newAddarr.concat(Addarr)
+
+						//数组去重
+						function unique(arr){
+						  var tmpArr = [];
+						  for(var i=0; i<arr.length; i++){
+						    //如果当前数组的第i已经保存进了临时数组，那么跳过，
+						    //否则把当前项push到临时数组里面
+						    if(tmpArr.indexOf(arr[i]) == -1){
+						      tmpArr.push(arr[i]);
+						    }
+						  }
+						  return tmpArr;
+						}
+						unique(allArr)
+						
+						// console.log(AppointTime)
+						// console.log(AppointWay)
+						// console.log(AppointRemark)
+						// console.log(unique(allArr))
+						// 传送数据
 
 
 					})

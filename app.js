@@ -14,6 +14,8 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 						   	'modules/common/controllers/controllers.js',
 						   	'modules/workhours/workservice/workservice.js',
 						   	'modules/workhours/controllers/workhours.js',
+						   	'modules/booking/controllers/BookingCtrl.js',
+						   	'modules/booking/bookingService/bookingService.js',
 						   ])
 					   }
 				   }
@@ -104,21 +106,23 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		templateUrl: 'modules/parts/tpl/stock.html',
 	  })
 	  .state('index.tab-book',{
-	  		url: '/book',
+	  		url: '/booking',
             views: {
                 'tblmain@index': {
-                    templateUrl: 'modules/bespeak/tpl/bespeak.html',
+                    templateUrl: 'modules/booking/tpl/booking.html',
                 }
             }
 	  })
 	  .state('index.tab-book.nowbook',{
-	  	url:'/nowbook',
-		templateUrl: 'modules/bespeak/tpl/nowbook.html',
+	  	controller: 'BookingCtrl',
+	  	url:'/nowBooking',
+		templateUrl: 'modules/booking/tpl/nowBooking.html',
 	  	
 	  })
 	  .state('index.tab-book.newbook',{
-	  	url:'/newbook',
-		templateUrl: 'modules/bespeak/tpl/newbook.html',
+	  	controller:'BookingCtrl',
+	  	url:'/newBooking',
+		templateUrl: 'modules/booking/tpl/newBooking.html',
 	  })
 	  .state('index.tab-remarks',{
 	  		url: '/remarks',
