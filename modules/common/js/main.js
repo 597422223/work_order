@@ -43,7 +43,7 @@ $(function(){
 	    }
 	    setTimeout(hiddenColor,200)
 	  });
-	  $(".colorjs li").click(function(){
+	  $(document).on('click','.colorjs li',function(){
 	    $('.listjs input').val($(this).text());
 	    $(".colorjs").css("display","none")
 	  });
@@ -58,7 +58,7 @@ $(function(){
 	      }
 	      setTimeout(hiddenColor,200);
 	    });
-	  	$(".list-company-lists li").click(function(){
+	    $(document).on('click','.list-company-lists li',function(){
 	  	  $(this).parent().prev().val($(this).text());
 	  	  $(this).parent().css("display","none");
 	  	});
@@ -75,15 +75,13 @@ $(function(){
 	  			$('#VCITypes').hide();
 	  		}
 		  });
-		$('#VCITypes li').click(function(event){
-				
-				check_val.checkval();			
+		   $(document).on('click','#VCITypes li',function(event){			
 				event.stopPropagation();
 		})	
 
 	  	// 险种多选框
-  		 $('[data-type="checkbox"]').click(function() {
-  				var data_value = $(this).attr('data-value'),
+	  	$(document).on('click','[data-type="checkbox"]',function(){
+  				var data_value = $(this).attr('value'),
   					txtalso = $.trim($("#xinazhong").val());
   				if($(this).prop("checked")) {
   					if(txtalso.length > 0) {
@@ -105,20 +103,25 @@ $(function(){
 	  
   		 // 接车人 施工人 客户来源
 
-	  	$(".list_Work input").focus(function(){
+		$(".list_Work input").focus(function(){
 	  		$(this).siblings(".list_WorkUl").css("display","block");
-	  	});
-	  	$('.list_Work input').blur(function(){
+		});
+		$('.list_Work input').blur(function(){
 	  		var self=this;
 	      	var hiddenColor=function (){
-	  		$(self).siblings(".list_WorkUl").css("display","none");
-	      }
-	      setTimeout(hiddenColor,200);
-	    });
-	  	  $(".list_WorkUl li").click(function(){
+		  		$(self).siblings(".list_WorkUl").css("display","none");
+	        }
+		    setTimeout(hiddenColor,200);
+		});
+		$(document).on('click','#where_come li',function(){
+	  	    //$(this).parent().prev().val($(this).text().trim());
+	  	    $(this).parent().css("display","none");
+	  	});
+
+	  	$(document).on('click','.list_WorkUl li',function(){
 	  	    $(this).parent().prev().val($(this).text());
 	  	    $(this).parent().css("display","none");
-	  	  });
+	  	});
 	  	  $(".list-customer input").focus(function(){
 	  		$(this).siblings(".list-company-lists").css("display","block");
 	  	});
@@ -228,4 +231,5 @@ $(function(){
 	
 	
 })
+
 

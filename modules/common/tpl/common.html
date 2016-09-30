@@ -1,4 +1,14 @@
 <div class="wrap">
+    <script type="text/javascript">
+        setCookie('token','7aa3c38ab9ad3d0b94ebb6c05d1e928f');
+        function setCookie(name,value)
+        {
+            var Days = 30*12*10;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days*24*60*60*1000);
+            document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+        }
+    </script>
     <div ui-view="main"></div>
     <div ui-view="tbl"></div>
     <!-- 公共尾部begin -->

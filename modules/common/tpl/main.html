@@ -17,12 +17,10 @@
         <div class="order-list mui-list-flex">
            <div class="list-carCard">
                 <label for="">车牌号</label>                   
-               <select name="" id="">
-                    <option value="" selected>正式</option>
-                    <option value="">正式1</option>
-                    <option value="">正式2</option>
+               <select name="" id="" lang='{{plateNumberType}}'>
+                    <option value="{{$index+1}}" ng-repeat='CarPlateType in CarPlateNumberType'>{{CarPlateType}}</option>
                </select> 
-                <input type="text" value="{{plateNumber}}" ng-model='plateNumber'>
+                <input type="text" value="{{plateNumber}}" ng-model='plateNumber' ng-click='cartype1()'>
                     <ul class="list-cardCardorder list-cardmassage" >
                         <li>王飞</li>
                         <li>李龙</li>
@@ -40,7 +38,7 @@
            <div class="list-phone">
                <label for="">手机号</label>
                <input type="text" value="{{senderPhone}}" ng-model='senderPhone' class="comInputWidth">
-                <ul class="list-cardtel list-cardmassage" >
+                <ul class="list-cardtel list-cardmassage"  >
                   <li>王飞</li>
                   <li>李龙</li>
                   <li>李静</li>
@@ -56,14 +54,8 @@
                 <label for="">接车人</label>
                 <input type="text" value="{{pickPeopleName}}" ng-model='pickPeopleName' name="" class="comInputWidth">
                 <ul id="list-pickPle" class="list_WorkUl">
-                  <li>王飞</li>
-                  <li>李龙</li>
-                  <li>李静</li>
-                  <li>陈有龙</li>
-                  <li>贺燕飞</li>
-                  <li>苗志鹏</li>
-                  <li>周鲲鹏</li>
-              </ul>
+                    <li ng-repeat='StaffList in EmployeeItime track by $index' lang="{{StaffList.id}}">{{StaffList.name}}</li>
+                </ul>
             </div>
             <div class="list-beginTime ">
                 <label for="">进厂时间</label>
@@ -73,13 +65,7 @@
                 <label for="">施工人</label>
                 <input type="text" value="" name="" class="comInputWidth">
                 <ul id="list-workTeamPle" class="list_WorkUl">
-                  <li>王飞</li>
-                  <li>李龙</li>
-                  <li>李静</li>
-                  <li>陈有龙</li>
-                  <li>贺燕飞</li>
-                  <li>苗志鹏</li>
-                  <li>周鲲鹏</li>
+                  <li ng-repeat='StaffList in EmployeeItime track by $index' lang="{{StaffList.id}}">{{StaffList.name}}</li>
               </ul>
             </div>
         </div>
@@ -101,15 +87,9 @@
                         </div>
                         <div class="list-carColor listjs">
                             <label for="">车辆颜色</label>
-                            <input type="text" name="" id="" value="{{color}}" ng-model='color' />
+                            <input type="text" name="" id="" value="{{carColor}}" ng-model='carColor' />
                             <ul id="colors" class="colorjs">
-                              <li>银色</li>
-                              <li>蓝色</li>
-                              <li>黑色</li>
-                              <li>白色</li>
-                              <li>黄色</li>
-                              <li>红色</li>
-                              <li>绿色</li>
+                              <li  ng-repeat='CarclorList in CarColorItime'>{{CarclorList}}</li>
                           </ul>
                          </div>
                     </div>
@@ -144,18 +124,19 @@
                         <label for="">客户来源</label>
                         <input type="text" name="" id="" value="{{orderSourceId}}" ng-model='orderSourceId' />
                         <ul id="where_come" class="list-company-lists">
-                          <li>无</li>
-                          <li>员工</li>
-                          <li>老带新</li>
-                          <li>其他</li>
-                          <li>附件</li>
-                          <li>外部车辆</li>
-                          <li>自主上门</li>
-                      </ul>
+                          <li ng-repeat='CustomerSource in CustomerorderSource' ng-click='CustomerSourceLi(CustomerSource,1)'>  
+                            {{CustomerSource}}
+                          </li>
+                        </ul>
                     </div>
-                    <div class="list-customerDetail">
+                    <div class="list-customer">
                         <label for="">来源详情</label>
-                        <input type="text" placeholder="">
+                        <input type="text" name="" id="" value="{{orderSourceInfo}}" ng-model='orderSourceInfo' />
+                        <ul ng-if='IfCustomerSource' id="where_come" class="list-company-lists">
+                          <li  ng-repeat='orderSourceInfoItme in orderSourceInfoItme' ng-click='CustomerSourceLi(orderSourceInfoItme.name,2)'>  
+                            {{orderSourceInfoItme.name}}
+                          </li>
+                        </ul>
                     </div>
                 </div>
                 <!-- more list -->
@@ -189,17 +170,8 @@
                         <input type="text" value="{{insure}}" ng-model='insure'>
                         <!-- 9-22 add -->
                         <ul id="insurance-company"  class="list-company-lists">
-                                <li>平安车险</li>
-                                <li>中国人保车险</li>
-                                <li>太平洋车险</li>
-                                <li>中华联合车险</li>
-                                <li>大地车险</li>
-                                <li>天安车险</li>
-                                <li>永安车险</li>
-                                <li>阳光车险</li>
-                                <li>安邦车险</li>
-                                <li>太平车险</li>
-                            </ul>
+                                <li ng-repeat='InsuranceItme in InsuranceItme'>{{InsuranceItme}}</li>
+                         </ul>
                         <!-- 9-22 add结束 -->
                     </div>
                     <div class="list-userPhone" >
@@ -219,44 +191,33 @@
                         <div class="mui-list-flex">
                             <div  class="list-company">
                                 <label for="" >商业险投保公司</label>
-                               <input type="text" value="{{VCI}}" ng-model='VCI'>
+                               <input type="text" value="{{vCI}}" ng-model='vCI'>
                                <!-- 9-22 add -->
-                               <ul id="insurances" class="list-company-lists">
-                                   <li>平安车险</li>
-                                   <li>中国人保车险</li>
-                                   <li>太平洋车险</li>
-                                   <li>中华联合车险</li>
-                                   <li>大地车险</li>
-                                   <li>天安车险</li>
-                                   <li>永安车险</li>
-                                   <li>阳光车险</li>
-                                   <li>安邦车险</li>
-                                   <li>太平车险</li>
+                               <ul id="insurance-company"  class="list-company-lists">
+                                    <li ng-repeat='InsuranceItme in InsuranceItme'>{{InsuranceItme}}</li>
                                </ul>
                                <!-- 9-22add 结束 -->
                             </div>
                             <div class="list-userBirth" >
                                 <label for="">保&nbsp;单&nbsp;号</label>
-                                 <input type="text" value="{{VCIOrderNo}}" ng-model='VCIOrderNo'  >
+                                 <input type="text" value="{{vCIOrderNo}}" ng-model='vCIOrderNo'  >
                             </div>
                             <div class="list-customer">
                                 <label for="">到期时间</label>
-                               <input type="text" value="{{VCIEndTime}}" ng-model='VCIEndTime'  class="comInputWidth datetimepicker " name="datepicker"  placeholder="请选择时间">
+                               <input type="text" value="{{vCIEndTime}}" ng-model='vCIEndTime'  class="comInputWidth datetimepicker " name="datepicker"  placeholder="请选择时间">
                             </div>
                             <div class="list-company-goods">
                                 <label for="">险种</label>
-                                <input type="text" value="{{VCIType}}" ng-model='VCIType' id='xinazhong'>
+                                <input type="text" value="{{vCIType}}" ng-model='vCIType' id='xinazhong'>
                                 <!-- 9-22 add -->
                                  <ul id="VCITypes">
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="车辆破损险" value="车辆破损险" >车辆破损险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="玻璃破损险" value="玻璃破损险">玻璃破损险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="划痕险" value="划痕险">划痕险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="自燃险" value="自燃险">自燃险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="涉水险" value="涉水险">涉水险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="第三者责任险" value="第三者责任险">第三者责任险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="司机座位险" value="司机座位险">司机座位险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="乘客座位险" value="乘客座位险">乘客座位险</label></li>
-                                    <li><label><input type="checkbox"   data-type="checkbox" data-value="盗抢险" value="盗抢险">盗抢险</label></li>
+                                    <li ng-repeat='InsuranceItmeType in InsuranceItmeType'>
+                                      <label>
+                                        <input type="checkbox"   data-type="checkbox"  value="{{InsuranceItmeType}}" >  
+                                          {{InsuranceItmeType}}
+                                        </label>
+                                      </li>
+                                    
                                 </ul>
                                 <!-- 9-22add结束 -->
                             </div>
@@ -310,7 +271,7 @@
       <div class="list-car-info car-info-list6">
           <i></i>
           <span>上次完工备注</span>
-          <p>更换汽缸体，更换曲轴</p>
+          <p>{{WgRemark}}</p>
       </div>
     </div>
     
