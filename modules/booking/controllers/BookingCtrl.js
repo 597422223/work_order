@@ -42,4 +42,15 @@ app.controller('BookingCtrl', ["$scope","$http","bookingServiceInfo",function($s
      // console.log( $scope.newProject[0])
    })
 
+   
+   $scope.Financial_show=false;
+   $scope.Operational_show=true;
+   $scope.Opportunity_show=false;
+   $scope.show=function(ele){
+       
+       return $scope.ele=!$scope.ele;
+   }
+
 }]);
+
+
