@@ -16,4 +16,8 @@ $(function(){
 		}
 	}
 	page.init();
+	
+	$(document).on("click",".list-FastBilling",function(){
+		$(this).toggleClass('list-border');
+	})
 })

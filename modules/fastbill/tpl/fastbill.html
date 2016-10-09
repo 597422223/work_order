@@ -1,30 +1,12 @@
 <script type="text/javascript" src="modules/fastbill/js/fastbill.js"></script>
-<div class="tab-order-module" >
-    <div class="FastBilling mui-list-flex" id="FastBillingOrder">
-        <div class="list-FastBilling" ng-click='fast_project'>
-            <p>普通洗车</p>
-            <span>2时20元</span>
+<div class="tab-order-module" ng-controller="FastCtrl">
+    <div class="FastBilling clearfix" id="FastBillingOrder">
+        <div class="list-FastBilling" if-class='check' ng-class='xuanzhong($index)'   ng-repeat="x in fastName" ng-click='fast_project($index)'  >
+            <p>{{x.projectName}}(自动)</p>
+            <span>{{x.manHour}}时{{(x.manHour)*(x.manHourPrice)}}元{{x.projectID}}</span>
             <i></i>
         </div>
-        <div class="list-FastBilling" ng-click='fast_project'>
-            <p >精洗</p>
-            <span>2时20元</span>
-            <i></i>
-        </div>
-        <div class="list-FastBilling" ng-click='fast_project'>
-            <p>补胎</p>
-            <span>2时20元</span>
-            <i></i>
-        </div>
-        <div class="list-FastBilling" ng-click='fast_project'>
-            <p>打蜡</p>
-            <span>2时20元</span>
-            <i></i>
-        </div>
-        <div class="list-FastBilling" ng-click='fast_project'>
-            <p>修车</p>
-            <span>2时20元</span>
-            <i></i>
-        </div>
+
+      
     </div>
 </div>

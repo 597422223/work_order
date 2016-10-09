@@ -43,6 +43,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/fastbill/tpl/fastbill.html',
+				                    resolve:{
+									  loadMyCtrl:function ($ocLazyLoad) {
+										  return $ocLazyLoad.load([
+										   	'modules/fastbill/controllers/fastbillHomeController.js',
+										   	"modules/workhours/workservice/workservice.js",
+										   	
+										   ])
+									   }
+								   }
                 }
             }
 	  })
