@@ -100,7 +100,7 @@
                         </div>
                         <div class="list-cardTime">
                             <label for="">上牌时间</label>
-                            <input type="text" value="{{carOnTime}}" ng-model='carOnTime' name="datepicker"  class="datetimepicker" placeholder="请选择时间">
+                            <input type="text" value="{{carRegDate}}" ng-model='carRegDate' name="datepicker"  class="datetimepicker" placeholder="请选择时间">
                         </div>
                         <div class="list-engineType">
                             <label for="">发动机号</label>
@@ -124,18 +124,14 @@
                         <label for="">客户来源</label>
                         <input type="text" name="" id="" value="{{orderSourceId}}" ng-model='orderSourceId' />
                         <ul id="where_come" class="list-company-lists">
-                          <li ng-repeat='CustomerSource in CustomerorderSource' ng-click='CustomerSourceLi(CustomerSource,1)'>  
-                            {{CustomerSource}}
-                          </li>
+                          <li ng-repeat='CustomerSource in CustomerorderSource' ng-click='CustomerSourceLi(CustomerSource.sourceName,1)'>{{CustomerSource.sourceName}}</li>
                         </ul>
                     </div>
                     <div class="list-customer">
                         <label for="">来源详情</label>
                         <input type="text" name="" id="" value="{{orderSourceInfo}}" ng-model='orderSourceInfo' />
                         <ul ng-if='IfCustomerSource' id="where_come" class="list-company-lists">
-                          <li  ng-repeat='orderSourceInfoItme in orderSourceInfoItme' ng-click='CustomerSourceLi(orderSourceInfoItme.name,2)'>  
-                            {{orderSourceInfoItme.name}}
-                          </li>
+                          <li  ng-repeat='orderSourceInfoItme in orderSourceInfoItme' ng-click='CustomerSourceLi(orderSourceInfoItme.name,2)'>{{orderSourceInfoItme.name}}</li>
                         </ul>
                     </div>
                 </div>

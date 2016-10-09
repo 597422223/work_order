@@ -77,7 +77,7 @@ $(function(){
 		  });
 		   $(document).on('click','#VCITypes li',function(event){			
 				event.stopPropagation();
-		})	
+		   })	
 
 	  	// 险种多选框
 	  	$(document).on('click','[data-type="checkbox"]',function(){

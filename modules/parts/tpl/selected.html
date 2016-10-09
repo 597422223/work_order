@@ -1,10 +1,12 @@
 <!--modules/parts/tpl/selectde.html-->
 <script type="text/javascript" src="modules/parts/js/selected.js"></script>
 <!-- 已选配件 -->
-<div class="tab-parts-module1 overtime-content1 mark-secondContent"  style="display: block;">
+<div class="tab-parts-module1 overtime-content1 mark-secondContent" ng-controller='SelectedPart'  style="display:block">
    <div class="content1-tit">
-       <span>已选<i class="overtime-red">5</i>个项目</span>
-       <span>金额<i class="overtime-red">4650.00</i></span>
+       <span ng-if='NoOrderNo == 0'>已选<i class="overtime-red">0</i>个项目</span>
+       <span ng-if='NoOrderNo == 1'>已选<i class="overtime-red">5555</i>个项目</span>
+       <span ng-if='NoOrderNo == 0'>金额<i class="overtime-red AllPrice" >0.00</i></span>
+       <span ng-if='NoOrderNo == 1'>金额<i class="overtime-red AllPrice" >4650.00</i></span>
        <input type="text" value="" placeholder="输入编号/名称" class="apaceAdd">
        <span class="overtime-add">快捷添加</span>
        <span >扫码出库</span>
@@ -35,37 +37,26 @@
                </tr>
            </thead>
            <tbody>
-               <tr>
-                   <td>雨刮片</td>
-                   <td>博世</td>
-                   <td>T109</td>
-                   <td>1243</td>
-                   <td>125.00 </td>
-                   <td >3</td>
-                   <td>375.00</td>
-                   <td  class="overtime_red">375.00</td>
-                   <td>小李</td>
-                   <td>小刘</td>
-                   <td>小刘销售</td>
-                   <td class="overtime_red">急件出入库</td>
-                   <td class="overtime_blue"><span>配件回库</span>删除</td>
+               <tr ng-repeat='SelectedList in SelectedList' ng-if='NoOrderNo == 1'>
+                   <td><span>{{SelectedList.goodsName}}</span></td>
+                   <td><span>{{SelectedList.brandName}}</span></td>
+                   <td><span>{{SelectedList.model}}</span></td>
+                   <td><span>{{SelectedList.wp}}</span></td>
+                   <td><input value="{{SelectedList.price}}" name="" class="SUnitPrice SkeyUp"></td>
+                   <td><input value="{{SelectedList.buyNum}}" name="" class="SNumber SkeyUp"></td>
+                   <td class="SPriceNum">{{SelectedList.price*SelectedList.buyNum}}</td>
+                   <td class="overtime_red"><input value="{{SelectedList.discountPrice}}" name="" class="SumMoney"></td>
+                   <td><input value="{{SelectedList.orderPeople}}" name=""></td>
+                   <td><input value="{{SelectedList.twiceSalePeople}}" name=""></td>
+                   <td><input value="{{SelectedList.desc}}" name=""></td>
+                   <td class="overtime_red" ng-if='SelectedList.urgent == 1'>急件出入库</td>
+                   <td class="overtime_red" ng-if='SelectedList.urgent == 0'>{{SelectedList.status}}（0/{{SelectedList.buyNum}}）</td>
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 1'><span>配件回库</span><span>删除</span></td>
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 0'>删除</td>
                </tr>
-               <tr>
-                  <td><span>雨刮片</span></td>
-                   <td><span>博世</span></td>
-                   <td><span>T109</span></td>
-                   <td><span>1243</span></td>
-                   <td><input type="" name=""></td>
-                   <td><input type="" name=""></td>
-                   <td>375.00</td>
-                   <td class="overtime_red"><input type="" name=""></td>
-                   <td><input type="" name=""></td>
-                   <td><input type="" name=""></td>
-                   <td><input type="" name=""></td>
-                   <td class="overtime_red">已出库（0/1）</td>
-                   <td class="overtime_blue">删除</td>
+               <tr ng-if='NoOrderNo == 0'>
+                    <td colspan="13">暂无数据</td>
                </tr>
-              
            </tbody>
        </table>
    </div>
@@ -129,3 +120,4 @@
         </div> 
     </div>
 </div>
+

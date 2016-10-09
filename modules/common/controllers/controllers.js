@@ -1,31 +1,25 @@
 var app = angular.module('myApp');
-app.controller('commonCtrl', ['$scope','$http','RequestService','myService',function($scope,$http,RequestService,myService) {
+app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','myService',function($scope,$rootScope,$http,RequestService,myService) {
 
-	$scope.token = RequestService.getCookie('token');
-	$scope.vipNo = 12345678;
 
+	//$rootScope.vipNo = 12345678;
 	//根据会员账号查找客户信息
 	$scope.scan = function(){
 		if($scope.vipNo)
 		{	
 			$scope.RequestUrl ='/customer/customer/exists';
 			$scope.Parameter = $.param({
-				'token':$scope.token,
+				'token':$rootScope.token,
 				'vipNo':$scope.vipNo,
 			});
 			$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 			$scope.data.success(function(data) {
 				if( data.status == 1 )
 				{
-					
 					$.each(data.data[0],function(index,value){
 						$scope[index] = value;
 					})
-
-					console.log(data.data[0]);
-
 					$scope.VCITypesChecked = $scope.vCIType.split(",");
-					console.log($scope.VCITypesChecked);
 					$.each($scope.VCITypesChecked,function(index,value){
 						$scope.VCITypesCheckedVal = value;
 						$('#VCITypes input[type=checkbox]').each(function(){
@@ -34,8 +28,6 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 							{
 									$(this).prop('checked','true');
 							}
-
-
 						})
 					})
 
@@ -65,9 +57,7 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 					})
 					
 					//违章、年检、保险、保养
-					$scope.IllegalAll($scope.localCarId,$scope.customerId);
-
-
+					$rootScope.IllegalAll($scope.localCarId,$scope.customerId);
 				}
 				else
 				{
@@ -80,11 +70,11 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 	}
 	
 	//违章、年检、保险、保养
-	$scope.IllegalAll = function(localCarId,customerId)
+	$rootScope.IllegalAll = function(localCarId,customerId)
 	{
 		$scope.RequestUrl ='/car/chewu/summary';
 		$scope.Parameter = $.param({
-			'token':$scope.token,
+			'token':$rootScope.token,
 			'localCarId':$scope.localCarId,
 			'customerId':$scope.customerId,
 		});
@@ -189,7 +179,7 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 		{
 			$scope.RequestUrl ='/customer/customer/exists';
 			$scope.Parameter = $.param({
-				'token':$scope.token,
+				'token':$rootScope.token,
 				'vipNo':$scope.vipNo,
 			});
 			$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
@@ -225,11 +215,10 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 	{
 		$scope.RequestUrl ='/customer/configure/index';
 		$scope.Parameter = $.param({
-			'token':$scope.token,
+			'token':$rootScope.token,
 		});
 		$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 		$scope.data.success(function(data) {
-
 			if( data.status == 1 )
 			{
 				//员工
@@ -279,28 +268,32 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
 		{
 			$scope.orderSourceInfo =  CustomerSource;
 		}
+
 	}
+
+
 
 	//客户员工
 	$scope.CustomerName = function(type)
 	{
 		$scope.RequestUrl ='/customer/configure/employee';
 		$scope.Parameter = $.param({
-			'token':$scope.token,
+			'token':$rootScope.token,
 			'type':type,
 		});
 		$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 		$scope.data.success(function(data) {
 			$scope.orderSourceInfoItme =data.data;
-			console.log($scope.orderSourceInfoItme);
+			
 		})
 		
 	}
 	
 	//初始化信息
-	angular.element(window).bind('load', function() {  
+	$scope.$on('$viewContentLoaded', function() {  
         $scope.cartype();
-    });  
+    });
+	
 
 
 //快速开单
@@ -311,7 +304,7 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
     var unmInedx;
     $scope.RequestUrl ='/customer/project/quick';
     $scope.Parameter = $.param({
-      "token":"7aa3c38ab9ad3d0b94ebb6c05d1e928f",
+      "token":"3c25a936a9e06c16f62cecb0d13c6282",
       'localCarId':18,
       'carDis':2.4,
     });
@@ -329,16 +322,15 @@ app.controller('commonCtrl', ['$scope','$http','RequestService','myService',func
           });
           myService.set(fastAry);
           
-          
-          
-
-          
         }
     });
   }
   fastbill();
   
 }]);
+
+
+
 
 
 

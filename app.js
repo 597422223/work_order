@@ -7,6 +7,16 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 		  views: {
 			  '': {
 				  templateUrl: 'modules/common/tpl/common.html',
+				  resolve:{
+					  loadMyCtrl:function ($ocLazyLoad) {
+						  return $ocLazyLoad.load([
+						   	'modules/common/controllers/AllCtrl.js',
+						   ])
+					   }
+				   }
+			  },
+			  'main@index': {
+				  templateUrl: 'modules/common/tpl/main.html',
 				  controller: 'commonCtrl',
 				  resolve:{
 					  loadMyCtrl:function ($ocLazyLoad) {
@@ -19,9 +29,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 						   ])
 					   }
 				   }
-			  },
-			  'main@index': {
-				  templateUrl: 'modules/common/tpl/main.html'
 			  },
 			  'tbl@index': {
 				  templateUrl: 'modules/common/tpl/tbl.html'
@@ -92,6 +99,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  .state('index.tab-parts.selected',{ //配件--已选配件
 	  	url:'/selected',
 		templateUrl: 'modules/parts/tpl/selected.html',
+		resolve:{
+			  loadMyCtrl:function ($ocLazyLoad) {
+				  return $ocLazyLoad.load([
+				   	'modules/parts/controllers/SelectedPart.js',
+				   ])
+			   }
+		   }
 	  })
 	  .state('index.tab-parts.project',{ //配件--已选配件
 	  	url:'/project',
