@@ -13,7 +13,7 @@
 		$(this).parent().prev().val($.trim($(this).html()));
 	});
   $(".tit-search-xia li").click(function(){
-  	   $(this).parent().prev().val($(this).html());
+  	   $(this).parent().prev().val($(this).text());
   })
 	$(document).on("click",".overtime-shanchu",function(){
 		$(this).parent().css("display","none");

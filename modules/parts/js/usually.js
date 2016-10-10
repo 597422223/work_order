@@ -17,7 +17,7 @@
 
 			});
 
-			$(".ulBox li").click(function(){ //点击li
+			$(document).on('click','.ulBox li', function(){//点击li
 				var _this = $(this)
 				page.barActive(_this);
 

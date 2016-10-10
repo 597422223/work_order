@@ -17,7 +17,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 				if( data.status == 1 )
 				{
 					$.each(data.data[0],function(index,value){
-						$scope[index] = value;
+						$rootScope[index] = value;
 					})
 					$scope.VCITypesChecked = $scope.vCIType.split(",");
 					$.each($scope.VCITypesChecked,function(index,value){
@@ -274,7 +274,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 
 
 	//客户员工
-	$scope.CustomerName = function(type)
+	$rootScope.CustomerName = function(type)
 	{
 		$scope.RequestUrl ='/customer/configure/employee';
 		$scope.Parameter = $.param({
@@ -283,7 +283,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 		});
 		$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 		$scope.data.success(function(data) {
-			$scope.orderSourceInfoItme =data.data;
+			$rootScope.orderSourceInfoItme =data.data;
 			
 		})
 		
