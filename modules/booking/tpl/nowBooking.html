@@ -19,11 +19,11 @@
             <span class="zc-book">转出工单</span>
              <div class="book-time-controlClose qx-book-pop" ng-hide="hideCtrl">
                 <span>你确认要取消预约吗？</span>
-                <span><em class="qx-book-ture" ng-click="cancelOrder()">确认</em><em class="qx-book-false">取消</em></span>
+                <span><em class="qx-book-ture" ng-click="cancelOrder()" ui-sref='index.tab-book.newbook'>确认</em><em class="qx-book-false">取消</em></span>
             </div>
             <div class="zc-book-pop book-time-controlClose">
                 <span>你确认要转出工单吗？</span>
-                <span><em class="qx-book-ture">确认转出</em><em class="qx-book-false">取消</em></span>
+                <span><em class="qx-book-ture" ui-sref="index.tab-overtime.yixuan">确认转出</em><em class="qx-book-false">取消</em></span>
             </div>
         </div>
       
@@ -39,10 +39,10 @@
         </div>
         <div class="service-list">
             <ol>
+               <!--  <li ng-repeat="items in projectAdd">
+                    <span class="service-con" id={{items.projectID}}>{{items.projectName}}</span> <span class="book-blue delete-book">删除</span>
+                </li> -->
                <!--  <li>
-                    <span class="service-con">更换机油</span> <span class="book-blue delete-book">删除</span>
-                </li>
-                <li>
                     <span class="service-con">更换刹车片</span> <span class="book-blue delete-book">删除</span>
                 </li> -->
             </ol>

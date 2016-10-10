@@ -1,11 +1,14 @@
 var app = angular.module('myApp');
-app.controller('workconl', ["$scope","$http","workServicUserInfo",'myService',function($scope,$http,workServicUserInfo,myService) {
+app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",function($scope,$http,workServicUserInfo,myService) {
    var newdata=[];//最终结果数组
    var newdataLen=[];//项目名称和项目ID
    var Arry=[];//模糊判断数组
    var jsondata={};//去重对象
    var dataname;//项目名称
    var unmInedx;//是否存在的条件
+
+   
+
    $scope.setValue=function(index){
 		var val=$.trim($(".tit-search-xia li").eq(index).text());		
 		$scope.entryName=val;
@@ -88,4 +91,9 @@ app.controller('workconl', ["$scope","$http","workServicUserInfo",'myService',fu
 			$scope.workPro = false;
 		}
 	}
+
+  // 韩盼盼 当前预约数据添加10-9
+	// $scope.projectAdd=myService.get().projectAdd;
+	// end
+	
 }]);

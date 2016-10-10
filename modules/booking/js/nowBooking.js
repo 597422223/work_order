@@ -10,6 +10,7 @@ $(function(){
 		});
 	$('.qx-book-ture').click(function(){
 		$('.service-list li').remove()
+		$(".qx-book-pop").css("display","none");
 	})
 	$(".qx-book-false").click(function(){
 		$(".qx-book-pop").css("display","none");
@@ -38,42 +39,8 @@ $(function(){
 		})
 	
 	
-	// 弹窗选中新增
-		$('.newAddBespeakbtn').click(function(){
-
-			$('.newAddBespeak-pop').hide();//弹窗隐藏
-
-				// 获取选中服务项目
-				var pVal = $('.newAddBespeak-pop .list-border p');
-				var nowObj={}
-				var jsonArr =[]
-				pVal.each(function(index){
-					// 获取选中的项目名称和id
-					var pText = $(this).text();
-					var idText = $(this).attr('id')
-
-					/*[{}]数组对象*/
-						nowObj[index]={
-							projectID:idText,
-							projectName:pText
-						}
-					jsonArr[index]=nowObj[index]//将对象添加到数组
-				})
-
-				// console.log(jsonArr)
-				// 删除页面已有
-				$('.service-con').each(function(){
-					var pText = $(this).text();
-					$('.service-list li').has('.service-con').text(pText).remove()
-				})
-				// 重新添加对象 服务内容到页面
-				$(jsonArr).each(function(index){
-					// console.log(jsonArr[index].projectID)
-					var liText = '<li><span class="service-con" id='+jsonArr[index].projectID+'>'+jsonArr[index].projectName+'</span> <span class="book-blue delete-book">删除</span></li>' 
-						$('.service-list ol').append(liText)
-				})
-			
-		})
+	
+	
 	// 删除预约服务内容
 		$(document).on("click",".delete-book",function(){
 			$(this).parent('li').remove();

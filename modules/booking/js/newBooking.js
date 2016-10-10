@@ -40,7 +40,7 @@
 		  	//获取新建预约单数据 
 						
 
-					$('.check_footer').click(function(){
+					$('.newBookSave').click(function(){
 						var Addarr = [];
 						var newAddarr = [];
 						var AppointTime =  $('.Appointment_time input').val();//获取预约到店时间
@@ -89,8 +89,6 @@
 						// console.log(AppointRemark)
 						// console.log(unique(allArr))
 						// 传送数据
-
-
 					})
 	})
 	
