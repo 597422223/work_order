@@ -32,9 +32,11 @@ var SelectedPart = new Object({
 	{
 		$('.overtime-content1 table tbody tr').each(function(){
 			var SPriceNum = parseFloat($(this).find('.SUnitPrice').val())*parseFloat($(this).find('.SNumber').val());
-			$(this).find('.SPriceNum').html(SPriceNum);
+			$(this).find('.SPriceNum').html(SPriceNum.toFixed(2));
 		})
-	}
+	},
+
+
 
 })
 
@@ -45,6 +47,9 @@ $(document).on('keyup','.SumMoney',function(){
 $(document).on('keyup','.SkeyUp',function(){
 	SelectedPart.PayAble();
 })
+
+
+
 
 
 

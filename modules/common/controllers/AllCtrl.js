@@ -2,6 +2,7 @@ var app = angular.module('myApp');
 app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$location',function($scope,$rootScope,$http,RequestService,$location) {
 	$rootScope.orderNo = $location.search().orderNo; 
 	$rootScope.token = RequestService.getCookie('token');
+	$rootScope.selectedReady = 1;
 	if ($rootScope.orderNo) 
 	{  
 	    $scope.RequestUrl ='/customer/ordermaster/detail';
@@ -21,13 +22,13 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 				$.each(data.data.customer,function(index,value){
 					$rootScope[index] = value;
 				})
+				console.log($rootScope.customerId)
 				$.each(data.data.insurance,function(index,value){
 					$rootScope[index] = value;
 				})
 				$.each(data.data.order,function(index,value){
 					$rootScope[index] = value;
 				})
-
 				$rootScope.IllegalAll($scope.localCarId,$scope.customerId);
 			}
 
