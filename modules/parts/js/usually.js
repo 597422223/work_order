@@ -78,3 +78,7 @@
 				num_b += 1;
 				$(this).parent().find(".showNum").val(num_b);
 			})
+
+//分页
+
+PageCommon();

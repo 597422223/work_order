@@ -15,21 +15,36 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 
 
 	//选择品牌配件
-	$scope.BrandPart = function(brandName,standardName)
+	$scope.BrandPart = function(standardName,brandName,page)
 	{
 		$scope.RequestUrl ='/customer/stock/searchStockPartInfo';
 		$scope.Parameter = $.param({
 			'token':$rootScope.token,
 			'customerId':$rootScope.customerId,
-			'standardName':brandName,
+			'standardName':standardName,
 			'vinNo':$rootScope.vinNo,
 			'car_code':$rootScope.car_code,
+			'brandName':brandName,
+			'page':page,
+
 		});
 		var partdata =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 		partdata.success(function(data){
 			if( data.status == 1 )
 			{
 				$scope.brandNameList = data.data.list;
+				$scope.PageNo = data.data.total;  //总条数
+				if( $scope.PageNo < 10 )
+				{
+					$scope.IsPage = 0;
+				}
+				else
+				{
+					$scope.IsPage = 1;
+					$rootScope.PageNoF($scope.PageNo);
+					
+
+				}
 				if( $scope.brandNameList.length >= 1)
 				{
 					$scope.PartListNo= 1;
@@ -52,8 +67,10 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 
 
 	//品牌查询
-	$scope.brandsearch= function(standardName)
+	$scope.brandsearch= function(standardName,brandName)
 	{
+		console.log(standardName);
+		$scope.standardName = standardName;
 		$scope.RequestUrl ='/customer/stock/stockBrandName';
 		$scope.Parameter = $.param({
 			'token':$rootScope.token,
@@ -62,15 +79,33 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 		var branddata =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 		branddata.success(function(data){
 			$scope.UsuallyPartBrand = data.data.list;
-			console.log($scope.UsuallyPartBrand);
 		})
 
-		$scope.BrandPart(standardName,standardName);
+		$scope.BrandPart(standardName,brandName);
 
 	}
 	$scope.brandsearch();
 
-
+	//分页
+	$rootScope.PageNoF = function()
+	{
+		var AllPageNo = Math.ceil($scope.PageNo/10)
+		if( AllPageNo >= 5 )
+		{
+			var a_html='';
+			for (var i = 1; i < 6; i++) {
+				a_html = a_html + '<a>'+i+'</a>'
+			}
+		}
+		else
+		{
+			var a_html='';
+			for (var i = 1; i < AllPageNo; i++) {
+				a_html = a_html + '<a>'+i+'</a>'
+			}
+		}
+		$('.tab-module .ep-pages section').html(a_html);
+	}
 	
 
 	

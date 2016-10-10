@@ -1,5 +1,5 @@
 var app=angular.module("myApp",[]);
-app.controller("FastCtrl",['$scope','$http','RequestService',"myService",function($scope,$http,RequestService,myService){
+app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"myService",function($scope,$rootScope,$http,RequestService,myService){
 	var fastbill=function(){
 		var fastAry=[];//项目
 		var fastNameary=[];//项目名称
@@ -23,11 +23,23 @@ app.controller("FastCtrl",['$scope','$http','RequestService',"myService",functio
 		                   unmInedx=1;
 	               		}
 					});
+					var isActive = 'isActive'+index;
+					if($rootScope[isActive] )
+					{
+						$rootScope[isActive] = '';
+					}
+					else
+					{
+						$rootScope[isActive] = 'list-border';
+					}
+
 					myService.set(fastAry);	
 				}
 		});
 		
 	}
 	fastbill();
+
+
 	
 }])
