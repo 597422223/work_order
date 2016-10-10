@@ -1,12 +1,12 @@
 <!--modules/parts/tpl/selectde.html-->
 <script type="text/javascript" src="modules/parts/js/selected.js"></script>
 <!-- 已选配件 -->
-<div class="tab-parts-module1 overtime-content1 mark-secondContent" ng-controller='SelectedPart'  style="display:block">
+<div class="tab-parts-module1 overtime-content1 mark-secondContent" ng-controller='SelectedPart'  style="display:block"  data-ng-init="dothis()">
    <div class="content1-tit">
        <span ng-if='NoOrderNo == 0'>已选<i class="overtime-red">0</i>个项目</span>
-       <span ng-if='NoOrderNo == 1'>已选<i class="overtime-red">5555</i>个项目</span>
-       <span ng-if='NoOrderNo == 0'>金额<i class="overtime-red AllPrice" >0.00</i></span>
-       <span ng-if='NoOrderNo == 1'>金额<i class="overtime-red AllPrice" >4650.00</i></span>
+       <span ng-if='NoOrderNo == 1'>已选<i class="overtime-red">{{selectedLength}}</i>个项目</span>
+       <span ng-if='NoOrderNo == 0'>金额<i class="overtime-red AllPrice" >0</i></span>
+       <span ng-if='NoOrderNo == 1'>金额<i class="overtime-red AllPrice" >{{discountPrice}}</i></span>
        <input type="text" value="" placeholder="输入编号/名称" class="apaceAdd">
        <ul class="tit-search-xia2">
            <li>1880</li>
@@ -41,22 +41,32 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat='SelectedList in SelectedList' ng-if='NoOrderNo == 1'>
+               <tr ng-repeat='SelectedList in SelectedList' ng-if='NoOrderNo == 1' lang = '{{$index}}'>
                    <td><span>{{SelectedList.goodsName}}</span></td>
                    <td><span>{{SelectedList.brandName}}</span></td>
                    <td><span>{{SelectedList.model}}</span></td>
                    <td><span>{{SelectedList.wp}}</span></td>
-                   <td><input value="{{SelectedList.price}}" name="" class="SUnitPrice SkeyUp"></td>
-                   <td><input value="{{SelectedList.buyNum}}" name="" class="SNumber SkeyUp"></td>
+                   <td><input value="{{SelectedList.price}}" ng-model='SelectedList.price' name="" class="SUnitPrice SkeyUp" ng-keyup='selectedModify($index,"price",SelectedList.price)'></td>
+                   <td><input value="{{SelectedList.buyNum}}" ng-model='SelectedList.buyNum' name="" class="SNumber SkeyUp" ng-keyup='selectedModify($index,"buyNum",SelectedList.buyNum)'></td>
                    <td class="SPriceNum">{{SelectedList.price*SelectedList.buyNum}}</td>
-                   <td class="overtime_red"><input value="{{SelectedList.discountPrice}}" name="" class="SumMoney"></td>
-                   <td><input value="{{SelectedList.orderPeople}}" name=""></td>
-                   <td><input value="{{SelectedList.twiceSalePeople}}" name=""></td>
-                   <td><input value="{{SelectedList.desc}}" name=""></td>
+                   <td class="overtime_red"><input value="{{SelectedList.discountPrice}}" ng-model='SelectedList.discountPrice' ng-keyup='selectedModify($index,"discountPrice",SelectedList.discountPrice)'  name="" class="SumMoney"></td>
+                   <td>
+                      <select>
+                        <option>无</option>
+                        <option ng-click='selectedModify($index,"orderPeople",orderSourceInfoItme.id)' ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
+                      </select>
+                   </td>
+                   <td>
+                      <select>
+                        <option>无</option>
+                        <option ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
+                      </select>
+                   </td>
+                   <td><input value="{{SelectedList.desc}}" name="" ng-model='SelectedList.desc' ng-keyup='selectedModify($index,"desc",SelectedList.desc)'></td>
                    <td class="overtime_red" ng-if='SelectedList.urgent == 1'>急件出入库</td>
                    <td class="overtime_red" ng-if='SelectedList.urgent == 0'>{{SelectedList.status}}（0/{{SelectedList.buyNum}}）</td>
-                   <td class="overtime_blue" ng-if='SelectedList.urgent == 1'><span>配件回库</span><span>删除</span></td>
-                   <td class="overtime_blue" ng-if='SelectedList.urgent == 0'>删除</td>
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 1'><span>配件回库</span><span  ng-click='SelectedDel($index)'>删除</span></td>
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 0'><span class="SelectedDel"  ng-click='SelectedDel($index)'>删除</span></td>
                </tr>
                <tr ng-if='NoOrderNo == 0'>
                     <td colspan="13">暂无数据</td>
@@ -138,4 +148,3 @@
         </div> 
     </div>
 </div>
-

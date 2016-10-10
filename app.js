@@ -123,6 +123,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  .state('index.tab-parts.usually',{ //配件--常用配件
 	  	url:'/usually',
 		templateUrl: 'modules/parts/tpl/usually.html',
+		resolve:{
+			  loadMyCtrl:function ($ocLazyLoad) {
+				  return $ocLazyLoad.load([
+				   	'modules/parts/controllers/UsuallyContrl.js',
+				   ])
+			   }
+		   }
 	  })
 	  .state('index.tab-parts.stock',{ //配件--库存配件
 	  	url:'/stock',

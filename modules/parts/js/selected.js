@@ -32,9 +32,11 @@ var SelectedPart = new Object({
 	{
 		$('.overtime-content1 table tbody tr').each(function(){
 			var SPriceNum = parseFloat($(this).find('.SUnitPrice').val())*parseFloat($(this).find('.SNumber').val());
-			$(this).find('.SPriceNum').html(SPriceNum);
+			$(this).find('.SPriceNum').html(SPriceNum.toFixed(2));
 		})
-	}
+	},
+
+
 
 });
 
@@ -46,6 +48,7 @@ $(document).on('keyup','.SkeyUp',function(){
 	SelectedPart.PayAble();
 });
 
+<<<<<<< HEAD
 $(".apaceAdd").click(function () {
 	$(".tit-search-xia2").css("display","block");
 });
@@ -62,3 +65,8 @@ $(".tit-search-xia2").prev().blur(function () {
    }
    setTimeout(none,100);
 });
+=======
+
+
+
+>>>>>>> 81ac86c1d3c638e9235576c67ff64e552ac8e349

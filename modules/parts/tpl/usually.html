@@ -1,18 +1,18 @@
 <!--modules/parts/tpl/usually.html-->
 <script type="text/javascript" src="modules/parts/js/usually.js"></script>
 <!--  常用配件 -->
-<div class="tab-parts-module3 mark-secondContent">
+<div class="tab-parts-module3 mark-secondContent" ng-controller='UsuallyContrl'>
     <!-- tit -->
    <div class="normal-tit">
        <span class="normal-b">常用配件</span>
        <div class="tit-carNo">
            当前
            <span>车架号：</span>
-           <span class="overtime_red">LXKSDJS216463</span>
+           <span class="overtime_red">{{vinNo}}</span>
        </div>
        <div class="tit-carType">
            车型：
-           <span class="overtime_red">马自达 马自达自动60.2一体技术2006</span>
+           <span class="overtime_red">{{carModelNo}}</span>
        </div>
    </div>
    <!-- bar -->
@@ -25,15 +25,12 @@
             </span>
             <div class="ulBox">
                 <ul>
-                   <li class="bgred">机油</li>
-                   <li>火花塞</li>
-                   <li>轮胎</li>
-                   <li>雨刷</li>
-                   <li>车灯照明</li>
-                   <li>刹车系统</li>
+                   <!-- <li class="bgred">机油</li> -->
+                   <li ng-click='PartCheckBrand(UsuallyPartName)' ng-repeat='UsuallyPartName in  UsuallyPartName'>{{UsuallyPartName}}</li>
+     
                 </ul>
             </div>
-            <span class="ctrl-bar-down ">︾</span>
+            <span class="ctrl-bar-down">︾</span>
        </div>
        <div class="bar-list-right">
            <p class="bar-right-tit">
@@ -45,73 +42,8 @@
                 </div>
                 <div class="right-list-items">
                     <ul>
-                        <li>全部</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>火花塞</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>火花塞</li>
-                        <li>雨刷</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>火花塞</li>
-                        <li>雨刷</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>火花塞</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
-                        <li>润滑油</li>
-                        <li>刹车系统</li>
-                        <li>雨刷</li>
-                        <li>轮胎</li>
-                        <li>车灯照明</li>
-                        <li>蓄电</li>
+                        <li ng-click='BrandPart()'>全部</li>
+                        <li ng-click='BrandPart(UsuallyPartBrand.brandName)' ng-repeat='UsuallyPartBrand in UsuallyPartBrand'>{{UsuallyPartBrand.brandName}}</li>
                     </ul>
                 </div>
             </div>
@@ -130,61 +62,36 @@
                     <th>库位</th>
                     <th>库存</th>
                     <th>推荐用量</th>
-                    <th>有效期</th>
                     <th class="min-NumW">数量</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><span>空气过滤器</span></td>
-                    <td><span>豹王</span></td>
-                    <td><span>TDDDFDF2</span></td>
-                    <td><input type="text" name=""></td>
-                    <td class="overtime_red"><input type="text" name=""></td>
-                    <td><input type="text" name=""></td>
-                    <td><input type="text" name=""></td>
-                    <td><input type="text" name=""></td>
-                    <td><input type="text" name=""></td>
+                <tr ng-if='PartListNo==1' ng-repeat='brandNameList in brandNameList'>
+                    <td><span>{{brandNameList.goodsName}}</span></td>
+                    <td><span>{{brandNameList.brandName}}</span></td>
+                    <td><span>{{brandNameList.modelName}}</span></td>
+                    <td><input value='{{brandNameList.purchasePrice}}' type="text" name=""></td>
+                    <td class="overtime_red"><input value='{{brandNameList.goodsSalePrice}}' type="text" name=""></td>
+                    <td><input value='{{brandNameList.storageLocation}}' type="text" name=""></td>
+                    <td><input value='{{brandNameList.storages}}' type="text" name=""></td>
+                    <td>{{brandNameList.storages}}</td>
                     <td class="ctr-num-td">
                         <div class="ctr-nunm">
                             <span class="moveBtn">-</span>
-                            <input type="text" value="2" class="showNum">
+                            <input type="text" value="{{brandNameList.buynum}}" class="showNum">
                             <span class="addBtn">+</span>
                         </div>
                     </td>
                     <td>
                         <div class="ctr-add">
-                            <span class="overtime_blue">添加</span>
-                            <span class="overtime_red">全车配采购</span>
+                            <span class="overtime_blue" ng-click=''>添加</span>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>空气过滤器</td>
-                    <td>豹王</td>
-                    <td>TDDDFDF2</td>
-                    <td>299.00</td>
-                    <td class="overtime_red">350.00</td>
-                    <td>1234</td>
-                    <td>200</td>
-                    <td>5L</td>
-                    <td>2018-8-8</td>
-                    <td class="ctr-num-td">
-                        <div class="ctr-nunm">
-                            <span class="moveBtn">-</span>
-                            <input type="text" value="2" class="showNum">
-                            <span class="addBtn">+</span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ctr-add">
-                            <span class="overtime_blue">添加</span>
-                            <span class="overtime_red">全车配采购</span>
-                        </div>
-                    </td>
+                <tr ng-if='PartListNo==0'>
+                    <td colspan='11'>暂无数据</td>
                 </tr>
-               
             </tbody>
         </table>
     </div>
