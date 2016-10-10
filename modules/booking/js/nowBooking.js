@@ -10,6 +10,7 @@ $(function(){
 		});
 	$('.qx-book-ture').click(function(){
 		$('.service-list li').remove()
+		$(".qx-book-pop").css("display","none");
 	})
 	$(".qx-book-false").click(function(){
 		$(".qx-book-pop").css("display","none");
@@ -72,8 +73,31 @@ $(function(){
 					var liText = '<li><span class="service-con" id='+jsonArr[index].projectID+'>'+jsonArr[index].projectName+'</span> <span class="book-blue delete-book">删除</span></li>' 
 						$('.service-list ol').append(liText)
 				})
-			
+				$(jsonArr).each(function(index){
+					var a = jsonArr[index].projectName;
+					$('.workvalue').css('background','red')
+					$('.workvalue').val(a)
+					console.log(a)
+				})
 		})
+	// 确认转出跳转页面 获取数据
+		// $('.qx-book-ture').click(function(){
+		// 	var spVal = $('.service-con');
+		// 	var nowObj={}
+		// 	var jsonArr =[]
+		// 	spVal.each(function(index){
+		// 		// 获取选中的项目名称和id
+		// 		var pText = $(this).text();
+		// 		var idText = $(this).attr('id')
+
+		// 		/*[{}]数组对象*/
+		// 			nowObj[index]={
+		// 				projectID:idText,
+		// 				projectName:pText
+		// 			}
+		// 		jsonArr[index]=nowObj[index]//将对象添加到数组
+		// 	})
+		// })
 	// 删除预约服务内容
 		$(document).on("click",".delete-book",function(){
 			$(this).parent('li').remove();

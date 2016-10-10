@@ -3,14 +3,14 @@
 //急件出入库弹窗出现
 	$('.dispatch-warehouse').click(function(){
 		$('.despatch-pop').show()
-	})
+	});
 	$('.mask').click(function(){
 		$('.despatch-pop').hide();
-	})
+	});
 
 	$('.ctr-off').click(function(){
 		$('.despatch-pop').hide();
-	})
+	});
 
 
 var SelectedPart = new Object({
@@ -23,7 +23,7 @@ var SelectedPart = new Object({
 			{
 				SumMoney  = SumMoney + parseFloat(this.value);
 			}
-		})
+		});
 		$('.AllPrice').text(SumMoney);
 	},
 
@@ -36,15 +36,29 @@ var SelectedPart = new Object({
 		})
 	}
 
-})
+});
 
 $(document).on('keyup','.SumMoney',function(){
 	SelectedPart.SumMoney();
-})
+});
 
 $(document).on('keyup','.SkeyUp',function(){
 	SelectedPart.PayAble();
-})
+});
 
-
-
+$(".apaceAdd").click(function () {
+	$(".tit-search-xia2").css("display","block");
+});
+$(".tit-search-xia2 li").click(function () {
+	$(this).parent().prev().val($.trim($(this).html()));
+	$(this).parent().css("display","none");
+});
+$(".tit-search-xia2").prev().focus(function () {
+	$(this).next().css("display","block");
+});
+$(".tit-search-xia2").prev().blur(function () {
+   function none() {
+       $(".tit-search-xia2").css("display","none");
+   }
+   setTimeout(none,100);
+});
