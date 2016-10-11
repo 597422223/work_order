@@ -94,14 +94,15 @@
                 </tr>
             </tbody>
         </table>
-        <div class="ep-pages" ng-if='IsPage == 1'> 
-             <a class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</a>
-             <section>
-                 <a class="current">1</a>
-                 <a>2</a> 
-                 <a>3</a>
-             </section>
-             <a class="ep-pages-ctrl">&gt;</a>
+        <div class="ep-pages" ng-if='IsPage == 1' pagenum ='{{PageNo}}'> 
+            <a class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</a>
+            <!-- <a class="current">1</a> -->
+            <font>
+            <a ng-repeat='RepeatArr in RepeatArr' ng-click='BrandPart(standardNameP,brandNameP,RepeatArr,10)'>
+                {{RepeatArr}}
+            </a> 
+            </font>
+            <a class="ep-pages-ctrl">&gt;</a>
         </div>
     </div>
 </div>
