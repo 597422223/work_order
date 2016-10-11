@@ -4,9 +4,9 @@
 	})
 
 // 充值弹窗
-	$('.chargeClick').click(function(){
-		$('.charge-pop').show();
-	})
+	// $('.chargeClick .btnRed').click(function(){
+	// 	$('.charge-pop').show();
+	// }) 10-11
 	$('.mask').click(function(){
 		$('.charge-pop').hide();
 	})

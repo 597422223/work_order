@@ -12,21 +12,21 @@
                                     <td>金额</td>
                                     <td>操作</td>
                                 </tr>
-                                <tr>
-                                    <td>会员充值卡一</td>
-                                    <td>123456789123</td>
-                                    <td>2016-08-02 10:39:27</td>
-                                    <td>200元</td>
-                                    <td class="chargeClick">充值</td>
+                                <tr ng-repeat="x in xianyou">
+                                    <td>{{x.valueName}}</td>
+                                    <td id={{x.cardId}}>{{x.cardNo}}</td>
+                                    <td>{{x.time}}</td>
+                                    <td class="fontRed">{{x.money}}</td>
+                                    <td class="chargeClick" ng-click='chargeClick()'><div class="btnRed">充值</div></td>
                                 </tr>
                             </table>
                         </div>
                         <div class="card2">
                             <table border="1">
-                               <tr>
+                               <tr ng-repeat='items in onecard'>
                                     <th>次卡：全车配次卡</th>
-                                    <th>卡号：123456789123</th>
-                                    <th colspan="2">办卡时间：2016-08-02 10:39:27</th>
+                                    <th id={{items.cardId}}>卡号：{{items.cardNo}}</th>
+                                    <th colspan="2">办卡时间：{{items.start_time}}</th>
                                </tr>
                                <tr>
                                     <td width="22.3%">项目名称</td>
@@ -34,10 +34,10 @@
                                     <td width="27%">剩余次数</td>
                                     <td>操作</td>
                                </tr>
-                                <tr>
-                                    <td>洗车</td>
-                                    <td>5次</td>
-                                    <td>0次</td>
+                                <tr ng-repeat='items in onecard'>
+                                    <td>{{items.projectName}}</td>
+                                    <td>{{items.num}}</td>
+                                    <td>{{items.leftNum}}</td>
                                     <td  class="card2-caozuo">
                                         <input type="checkbox" name="">
                                     </td>
@@ -47,46 +47,18 @@
                         <div class="Coupon">
                             <div class="coupon-tit">优惠券</div>
                             <ul>
-                                <li>
+                                <li ng-repeat='items in ticketcard'>
                                     <div class="Coupon_font_active">
-                                        ￥<span>20</span>
+                                        ￥<span>{{items.value}}</span>
                                         <p>
                                             优惠券<br>
-                                            <em>满100元使用</em>
+                                            <em>满{{items.condition}}元使用</em>
                                         </p> 
                                     </div>
-                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
+                                    <em class="Coupon_em_active valueTime">有效时间：
+                                    {{items.time}}-{{items.expireTime}}</em>
                                 </li>
-                                 <li >
-                                    <div class="Coupon_font_active">
-                                        ￥<span>20</span>
-                                        <p>
-                                            优惠券<br>
-                                            <em>满100元使用</em>
-                                        </p> 
-                                    </div>
-                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
-                                </li>
-                                 <li>
-                                    <div class="Coupon_font_active">
-                                        ￥<span>20</span>
-                                        <p>
-                                            优惠券<br>
-                                            <em>满100元使用</em>
-                                        </p> 
-                                    </div>
-                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
-                                </li>
-                                <li>
-                                    <div class="Coupon_font_active">
-                                        ￥<span>20</span>
-                                        <p>
-                                            优惠券<br>
-                                            <em>满100元使用</em>
-                                        </p> 
-                                    </div>
-                                    <em class="Coupon_em_active valueTime">有效时间：2016.08.05-2016.08.20</em>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>

@@ -48,6 +48,7 @@ app.service('myService', function() {
    return {
     set: set,
     get: get
-   }  
+   }
+  
 });
 

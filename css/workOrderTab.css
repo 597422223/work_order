@@ -7,3 +7,11 @@
 	height: 20px;
 	line-height: 20px;
 }
+/* // 修改充值点击手型 10-11号 韩盼盼*/
+.chargeClick .btnRed{
+	cursor: pointer;
+	width: 30px;
+	height: 15px;
+	line-height: 15px;
+	margin: 0 auto;
+}
