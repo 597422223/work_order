@@ -37,17 +37,23 @@ app.service('RequestService',['$http', function ($http) {
 
 
 //赵飞扬
-app.service('myService', function() {
-   var savedData = {}
-   function set(data) {
-     savedData = data;
-   };
-   function get() {
-    return savedData;
-   };  
-   return {
-    set: set,
-    get: get
-   }  
-});
+app.service('myService',["$http" ,function($http) {
+	function ReturnData(RequestUrl,Parameter)
+	{
+		return $http.post(API_URL+RequestUrl+"?"+Parameter);
+	}
+	var savedData = {};
+	function set(data) {
+		savedData = data;
+	};
+	function get() {
+		return savedData;
+	};
+	return {
+		ReturnData:ReturnData,
+		set: set,
+		get: get
+	}
+}]);
+
 

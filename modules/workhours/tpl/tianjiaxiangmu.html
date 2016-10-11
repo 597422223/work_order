@@ -26,30 +26,19 @@
                </div>
            </div>
            <div class="tit-search tit-search-list">
-               <input type="text" value="" placeholder="输入编号/名称">
-               <ul class="tit-search-xia ">
-                  <li>1884</li>
-                  <li>1884</li>
-                  <li>1884</li>
-                  <li>1884</li>
-                  <li>1884</li>
-                  <li>1884</li>
-                  <li>1884</li>
-              </ul>
+               <input type="text" value="" placeholder="输入编号/名称" value="{{entryName}}" ng-model="entryName" ng-keyup="workeyup()">
                <span ng-click="Worksearch()">搜索</span>
            </div>
        </div>
        <div class="content2-table">
            <div class="table-tit-list">
-               <ul class="clearfix">
+               <ul class="clearfix" >
                    <li>项目类型：</li>
-                   <li class="tit-list-active">全部</li>
+                   <li class="tit-list-active">项目列表</li>
                    <li>保养</li>
-                   <li>洗车养护</li>
-                   <li>机修</li>
-                   <li>火花塞</li>
-                   <li>雨刷</li>
-                   <li>车灯照明</li>
+               </ul>
+               <ul ng-repeat="Id in projectTypeId">
+                   <li ng-click="projectTypeName($index)">{{Id}}</li>
                </ul>
                <span class="content2-add">添加+</span>
            </div>
@@ -68,14 +57,14 @@
                    </tr>
                </thead>
                <tbody>
-                   <tr ng-repeat="x in items">
-                       <td><input type="" name=""></td>
-                       <td><input type="" name=""></td>
-                       <td><input type="" name=""></td>
-                       <td><input type="" name=""></td>
-                       <td><input type="" name=""></td>
-                       <td class="overtime_red"><input type="" name=""></td>
-                       <td><input type="" name=""></td>
+                   <tr ng-repeat="x in projectTy  track by $index">
+                       <td>{{x.projectID}}</td>
+                       <td>{{x.projectName}}</td>
+                       <td>{{x.projectType}}</td>
+                       <td>{{x.carLevel}}</td>
+                       <td>{{x.manHour}}</td>
+                       <td class="overtime_red">{{x.manHourPrice}}</td>
+                       <td><input type="text"></td>
                        <td class="overtime_blue">添加</td>
                    </tr>
                  

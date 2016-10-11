@@ -18,7 +18,7 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 					fastNameary.push(data.data.list[index].projectName);				
 					$.each(fastNameary,function(key,value){
 						if(!jsondata[fastNameary[key]]){
-		                   	fastAry.push(data.data.list[index])
+		                   	fastAry.push(data.data.list[index]);
 		                   jsondata[fastNameary[key]]=1;
 		                   unmInedx=1;
 	               		}
@@ -37,9 +37,9 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 				}
 		});
 		
-	}
+	};
 	fastbill();
 
 
 	
-}])
+}]);

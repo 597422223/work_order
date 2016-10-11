@@ -31,7 +31,7 @@
 <<<<<<< HEAD
 
 =======
-.mark-secondContent .content1-tit .tit-search-xia2{
+.tit-search-xia2{
     z-index: 9999;
     position: absolute;
     display: none;
@@ -44,14 +44,15 @@
     box-shadow: 1px 2px 5px #d6d6d6;
     color: #000;
     top: 29px;
-    left: 131px;
+    left: 114px;
 }
-.mark-secondContent .content1-tit .tit-search-xia2 li{
+ .tit-search-xia2 li{
     height: 20px;
     line-height: 20px;
     padding-left: 10px;
     font-size: 15px;
     cursor: pointer;
+    width: 100%;
 }
 .mui-list-flex .tit-search-xia2 {
     z-index: 9999;
@@ -84,4 +85,18 @@
 .despatch-pop .inner .kuwei-pop select{
     width: 146px;
     background: #eef1f5;}
-
+#tit-search-xia2{
+    z-index: 9999;
+    position: absolute;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100px;
+    width: 133px;
+    background-color: #dbe5e7;
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px #d6d6d6;
+    color: #000;
+    top: 29px;
+    left: 114px;
+}

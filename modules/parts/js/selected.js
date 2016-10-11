@@ -49,8 +49,15 @@ $(document).on('keyup','.SkeyUp',function(){
 });
 
 
-$(".apaceAdd").click(function () {
-	$(".tit-search-xia2").css("display","block");
+$(".apaceAdd").focus(function () {
+	$(this).next().css("display","block");
+});
+$(".apaceAdd").blur(function () {
+	var self=this;
+	function none() {
+		$(self).next().css("display","none");
+	}
+	setTimeout(none,200);
 });
 $(".tit-search-xia2 li").click(function () {
 	$(this).parent().prev().val($.trim($(this).html()));
@@ -60,10 +67,11 @@ $(".tit-search-xia2").prev().focus(function () {
 	$(this).next().css("display","block");
 });
 $(".tit-search-xia2").prev().blur(function () {
-   function none() {
-       $(".tit-search-xia2").css("display","none");
-   }
-   setTimeout(none,100);
+	var self=this;
+	function none() {
+		$(self).next().css("display","none");
+	}
+	setTimeout(none,200);
 });
 
 
