@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c05f0da2-1ce1-446f-9f78-f99a888f20bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workOrder.css" afterPath="$PROJECT_DIR$/css/workOrder.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/common/service/RequestService.js" afterPath="$PROJECT_DIR$/modules/common/service/RequestService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/fastbill/controllers/fastbillHomeController.js" afterPath="$PROJECT_DIR$/modules/fastbill/controllers/fastbillHomeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/fastbill/fastservice/fastservice.js" afterPath="$PROJECT_DIR$/modules/fastbill/fastservice/fastservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/fastbill/tpl/fastbill.html" afterPath="$PROJECT_DIR$/modules/fastbill/tpl/fastbill.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parts/js/selected.js" afterPath="$PROJECT_DIR$/modules/parts/js/selected.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/parts/tpl/selected.html" afterPath="$PROJECT_DIR$/modules/parts/tpl/selected.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" afterPath="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/tpl/tianjiaxiangmu.html" afterPath="$PROJECT_DIR$/modules/workhours/tpl/tianjiaxiangmu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/tpl/yixuan.html" afterPath="$PROJECT_DIR$/modules/workhours/tpl/yixuan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/workservice/workservice.js" afterPath="$PROJECT_DIR$/modules/workhours/workservice/workservice.js" />
-    </list>
+    <list default="true" id="c05f0da2-1ce1-446f-9f78-f99a888f20bc" name="Default" comment="" />
     <ignored path="work_order.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -56,12 +43,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workOrder.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/workOrder.css">
+      <file leaf-file-name="workservice.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/workhours/workservice/workservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+            <state relative-caret-position="330">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+              <folding>
+                <marker date="1476154734701" expanded="true" signature="479:552" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,8 +97,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-102" />
-    <option name="y" value="4" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -165,26 +164,8 @@
               <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="work_order" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work_order" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tpl" />
+              <option name="myItemId" value="workhours" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -199,32 +180,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work_order" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="work_order" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="parts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,15 +220,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1476155226391</updated>
-      <workItem from="1476155227763" duration="927000" />
+      <workItem from="1476155227763" duration="3688000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="927000" />
+    <option name="totallyTimeSpent" value="3688000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-102" y="4" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -326,6 +281,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/workOrder.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/parts/tpl/selected.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -334,11 +297,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/workOrder.css">
+    <entry file="file://$PROJECT_DIR$/modules/workhours/workservice/workservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        <state relative-caret-position="330">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+          <folding>
+            <marker date="1476154734701" expanded="true" signature="479:552" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
