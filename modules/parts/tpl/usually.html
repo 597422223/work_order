@@ -1,5 +1,5 @@
 <!--modules/parts/tpl/usually.html-->
-<script type="text/javascript" src="modules/parts/js/usually.js"></script>
+
 <!--  常用配件 -->
 <div class="tab-parts-module3 mark-secondContent" ng-controller='UsuallyContrl'>
     <!-- tit -->
@@ -42,8 +42,8 @@
                 </div>
                 <div class="right-list-items">
                     <ul>
-                        <li ng-click='BrandPart()'>全部</li>
-                        <li ng-click='BrandPart(UsuallyPartBrand.brandName)' ng-repeat='UsuallyPartBrand in UsuallyPartBrand'>{{UsuallyPartBrand.brandName}}</li>
+                        <li ng-click='BrandPart(standardName)'>全部</li>
+                        <li ng-click='BrandPart(standardName,UsuallyPartBrand.brandName)' ng-repeat='UsuallyPartBrand in UsuallyPartBrand'>{{UsuallyPartBrand.brandName}}</li>
                     </ul>
                 </div>
             </div>
@@ -94,5 +94,17 @@
                 </tr>
             </tbody>
         </table>
+        <div class="ep-pages" ng-if='IsPage == 1' pagenum ='{{PageNo}}'> 
+            <a class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</a>
+            <!-- <a class="current">1</a> -->
+            <font>
+            <a ng-repeat='RepeatArr in RepeatArr' ng-click='BrandPart(standardNameP,brandNameP,RepeatArr,10)'>
+                {{RepeatArr}}
+            </a> 
+            </font>
+            <a class="ep-pages-ctrl">&gt;</a>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript" src="modules/parts/js/usually.js"></script>

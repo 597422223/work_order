@@ -1,12 +1,10 @@
 <script type="text/javascript" src="modules/fastbill/js/fastbill.js"></script>
 <div class="tab-order-module" ng-controller="FastCtrl">
-    <div class="FastBilling clearfix" id="FastBillingOrder">
-        <div class="list-FastBilling" if-class='check' ng-class='xuanzhong($index)'   ng-repeat="x in fastName" ng-click='fast_project($index)'  >
+    <div class="FastBilling clearfix" id="FastBillin"gOrder">
+            <div class="list-FastBilling"  ng-class='{{"isActive"+$index}}' ng-class='xuanzhong($index)'   ng-repeat="x in fastName" ng-click='fast_project($index)'  >
             <p>{{x.projectName}}(自动)</p>
             <span>{{x.manHour}}时{{(x.manHour)*(x.manHourPrice)}}元{{x.projectID}}</span>
             <i></i>
         </div>
-
-      
     </div>
 </div>

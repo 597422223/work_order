@@ -71,10 +71,12 @@
 					num_b -= 1;
 					$(this).parent().find(".showNum").val(num_b);
 				}
-				
 			})
 			$(".addBtn").click(function(){ //加
 				var num_b = Number($(this).parent().find(".showNum").val());
 				num_b += 1;
 				$(this).parent().find(".showNum").val(num_b);
 			})
+
+
+

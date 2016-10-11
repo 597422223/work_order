@@ -41,6 +41,7 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 	fastbill();
 
 
+<<<<<<< HEAD
 	
 }])
 var app=angular.module("myApp",[]);
@@ -86,5 +87,7 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 	fastbill();
 
 
+=======
+>>>>>>> 8e63c2d8ea81da1bcb6916459922a6f6830b6603
 	
 }])

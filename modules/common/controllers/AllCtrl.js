@@ -15,7 +15,6 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 			if( data.status == 1 )
 			{
 				//基本信息查询
-				//console.log(data.data);
 				$.each(data.data.car,function(index,value){
 					$rootScope[index] = value;
 				})
@@ -34,6 +33,44 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 		})
 	}  
+
+
+	//分页
+	$rootScope.PageNoF = function(PageNoT,page)
+	{
+
+		$scope.PageNo = Math.ceil(PageNoT/10);  //总条数
+		if( $scope.PageNo <= 1 )
+		{
+			$scope.IsPage = 0;
+		}
+		else
+		{
+			$scope.IsPage = 1;
+		}
+		$scope.RepeatArr = [];
+		
+		if( page == undefined )
+		{
+			page = 1;
+		}
+		page1= page+4;
+		if( page1 > $scope.PageNo)
+		{
+			page1 = $scope.PageNo;
+			page = $scope.PageNo -4;
+			if( page <=0 )
+			{
+				page = 1;
+			}
+		}
+		for (var i = page; i <= page1; i++) 
+		{
+			$scope.RepeatArr.push(i);
+		}
+		
+		
+	}
 
 }]);
 
