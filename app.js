@@ -26,6 +26,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 						   	'modules/workhours/controllers/workhours.js',
 						   	'modules/booking/controllers/BookingCtrl.js',
 						   	'modules/booking/bookingService/bookingService.js',
+						   	'modules/card/controllers/cardCtrl.js',
 						   ])
 					   }
 				   }
@@ -43,15 +44,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/fastbill/tpl/fastbill.html',
-				                    resolve:{
-									  loadMyCtrl:function ($ocLazyLoad) {
-										  return $ocLazyLoad.load([
-										   	'modules/fastbill/controllers/fastbillHomeController.js',
-										   	"modules/workhours/workservice/workservice.js",
-										   	
-										   ])
-									   }
-								   }
+	                    resolve:{
+						  loadMyCtrl:function ($ocLazyLoad) {
+							  return $ocLazyLoad.load([
+							   	'modules/fastbill/controllers/fastbillHomeController.js',
+							   	"modules/workhours/workservice/workservice.js",
+							   	
+							   ])
+						   }
+					   }
                 }
             }
 	  })
@@ -69,6 +70,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-card.xianyou',{
 	  		url: '/xianyou',
+	  		controller: 'cardCtrl',
             templateUrl: 'modules/card/tpl/xianyou.html',
 	  	
 	  })

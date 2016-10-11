@@ -83,12 +83,11 @@
 						  return tmpArr;
 						}
 						unique(allArr)
-						
 						// console.log(AppointTime)
 						// console.log(AppointWay)
 						// console.log(AppointRemark)
 						// console.log(unique(allArr))
-						// 传送数据
+						// 处理新建预约数据
 					})
 	})
 	

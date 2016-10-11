@@ -1,44 +1,46 @@
 var app = angular.module('myApp');
-app.controller('BookingCtrl', ["$scope","$http","bookingServiceInfo","myService",'RequestService',function($scope,$http,bookingServiceInfo,RequestService,myService) {
-   var data=bookingServiceInfo.nowBooking();	 
-   data.success(function(data){
-   	// console.log(data)
-   	// 时间戳函数 begin
-   	 function getLocalTime(nS) {     
-       return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");      
+app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo",'RequestService',"myService",function($scope,$rootScope,$http,bookingServiceInfo,RequestService,myService) {
+    // alert($rootScope.orderNo)
+    // 判断是否有工单存在v
+    if ($rootScope.orderNo) {
+      var data=bookingServiceInfo.nowBooking();  
+      data.success(function(data){
+        // console.log(data)
+        // 时间戳函数 begin
+         function getLocalTime(nS) {     
+          return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");      
+       }
+       // 时间戳函数 end 
+          if(data.status ==1){
+            $scope.toShopTime = data.data.order.bookGetInTime; //预约到店时间
+            $scope.openOrder = getLocalTime(data.data.order.cTime); //预约开单时间 
+            $scope.bookingStyle = data.data.order.bookTypeName; //预约方式
+            $scope.bookingMark = data.data.order.desc; //预约备注
+
+
+           //    // 获取已生成的工单号--取消预约接口参数  'RequestService',???
+           // $scope.orderNo = data.data.order.orderNo;  
+           // // console.log(orderNo)  服务获取数据
+             
+
+            $scope.cancelOrder = function(){
+             // 清空数据
+              $scope.toShopTime = $scope.openOrder =$scope.bookingStyle=$scope.bookTypeName = $scope.bookingMark = "";
+              $scope.hideCtrl = true;
+
+             // 取消预约 接口
+             var cancelBooking = bookingServiceInfo.cancelBooking();
+             cancelBooking.success(function(res){
+              console.log(res)
+             })
+            }
+          }
+      })
     }
-    // 时间戳函数 end 
+  
 
-   		if(data.status ==1){
-   			$scope.toShopTime = data.data.order.bookGetInTime; //预约到店时间
-   			$scope.openOrder = getLocalTime(data.data.order.cTime); //预约开单时间 
-   			$scope.bookingStyle = data.data.order.bookTypeName; //预约方式
-   			$scope.bookingMark = data.data.order.desc; //预约备注
+   // 转出工单、修改、保存post提交数据
 
-
-           // 获取已生成的工单号--取消预约接口参数  'RequestService',
-        $scope.orderNo = data.data.order.orderNo;  
-        // console.log(orderNo)  服务获取数据
-
-
-   			$scope.cancelOrder = function(){
-          // 清空数据
-   				$scope.toShopTime = $scope.openOrder =$scope.bookingStyle=$scope.bookTypeName = $scope.bookingMark = "";
-   				$scope.hideCtrl = true;
-          // 取消预约 接口
-
-          var cancelBooking = bookingServiceInfo.cancelBooking();
-          cancelBooking.success(function(res){
-           console.log(res)
-          })
-   			}
-
-   		}
-
-     
-   })
-
-   
 
    // 当前预约  全部已存在项目
    var serviceData = bookingServiceInfo.nowBookingAdd();
@@ -53,16 +55,17 @@ app.controller('BookingCtrl', ["$scope","$http","bookingServiceInfo","myService"
    })
 
 
-
-   // 新建预约
+   // 新建预约 服务项目
    var newServiceData=bookingServiceInfo.newBookingAdd();
+
    newServiceData.success(function(res){
     if (res.status==1) {
       $scope.newProject=res.data.list;
     }
      // console.log( $scope.newProject[0])
    })
-  
+
+
   // set当前预约客户已选项目数据服务
 
   // 弹窗选中新增
@@ -104,13 +107,13 @@ app.controller('BookingCtrl', ["$scope","$http","bookingServiceInfo","myService"
           // var jsonArr1 ={"projectAdd":[{
           //   "projectID":"2",
           //   "projectName":"5"
-          // }]}
+          // }]}  //测试数据
           var jsonArr = {
             "projectAdd":jsonArr
           }
          // console.log(jsonArr)//测试数据
          myService.set(jsonArr); 
-         // $scope.projectAdd=myService.get();
+         $scope.projectAdd=myService.get();
     })
 
 

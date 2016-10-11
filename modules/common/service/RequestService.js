@@ -37,6 +37,7 @@ app.service('RequestService',['$http', function ($http) {
 
 
 //赵飞扬
+<<<<<<< HEAD
 app.service('myService',["$http" ,function($http) {
 	function ReturnData(RequestUrl,Parameter)
 	{
@@ -56,4 +57,20 @@ app.service('myService',["$http" ,function($http) {
 	}
 }]);
 
+=======
+app.service('myService', function() {
+   var savedData = {}
+   function set(data) {
+     savedData = data;
+   };
+   function get() {
+    return savedData;
+   };  
+   return {
+    set: set,
+    get: get
+   }
+  
+});
+>>>>>>> 007361e8da3ebdd1add44c688c4d366c97cb2d9b
 
