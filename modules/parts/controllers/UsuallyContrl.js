@@ -98,22 +98,11 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 	$scope.brandsearch();
 
 	
-	
-
-	
-
-
-
-
-
-	
-
-
-
-
-
-
-
+	//添加新配件到已选
+	$rootScope.AddSelectedData = function()
+	{
+		$rootScope.selectedData;
+	}
 
 }]);
 
