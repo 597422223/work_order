@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c05f0da2-1ce1-446f-9f78-f99a888f20bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/workOrder.css" afterPath="$PROJECT_DIR$/css/workOrder.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/fastbill/controllers/fastbillHomeController.js" afterPath="$PROJECT_DIR$/modules/fastbill/controllers/fastbillHomeController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" afterPath="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/workhours/tpl/yixuan.html" afterPath="$PROJECT_DIR$/modules/workhours/tpl/yixuan.html" />
-    </list>
+    <list default="true" id="c05f0da2-1ce1-446f-9f78-f99a888f20bc" name="Default" comment="" />
     <ignored path="work_order.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -73,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/modules/parts/controllers/SelectedPart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2670">
-              <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
+              <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -104,8 +98,8 @@
       <file leaf-file-name="workhours.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/workhours/controllers/workhours.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+            <state relative-caret-position="612">
+              <caret line="243" column="21" selection-start-line="243" selection-start-column="21" selection-end-line="243" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -149,8 +143,8 @@
         <option value="$PROJECT_DIR$/modules/fastbill/tpl/fastbill.html" />
         <option value="$PROJECT_DIR$/modules/fastbill/controllers/fastbillHomeController.js" />
         <option value="$PROJECT_DIR$/modules/workhours/tpl/yixuan.html" />
-        <option value="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" />
         <option value="$PROJECT_DIR$/css/workOrder.css" />
+        <option value="$PROJECT_DIR$/modules/workhours/controllers/workhours.js" />
       </list>
     </option>
   </component>
@@ -553,12 +547,12 @@
       <updated>1476155226391</updated>
       <workItem from="1476155227763" duration="6328000" />
       <workItem from="1476167416451" duration="17353000" />
-      <workItem from="1476235363241" duration="12130000" />
+      <workItem from="1476235363241" duration="12231000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35811000" />
+    <option name="totallyTimeSpent" value="35912000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -905,7 +899,7 @@
     <entry file="file://$PROJECT_DIR$/modules/parts/controllers/SelectedPart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2670">
-          <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
+          <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -928,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/workhours/controllers/workhours.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="241" column="21" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+        <state relative-caret-position="612">
+          <caret line="243" column="21" selection-start-line="243" selection-start-column="21" selection-end-line="243" selection-end-column="21" />
           <folding />
         </state>
       </provider>
