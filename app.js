@@ -76,6 +76,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-card.shouka',{
 	  		url: '/shouka',
+	  		controller: 'cardCtrl',
             templateUrl: 'modules/card/tpl/shouka.html',
 	  })
 	  .state('index.tab-overtime',{
@@ -101,6 +102,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-parts',{ //配件
 	  		url: '/parts',
+
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/parts/tpl/parts.html',

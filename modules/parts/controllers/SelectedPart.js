@@ -105,6 +105,8 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 			$rootScope.NoOrderNo = 1; 
 		}
 
+		
+
 	}
 
 

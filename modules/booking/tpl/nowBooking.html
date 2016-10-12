@@ -61,7 +61,7 @@
         <p>新增预约服务</p>
         <div class="pop-conten">
             <div class="FastBilling clearfix newAddBespeak_con"  >
-                <div class="list-FastBilling"   ng-repeat="items in project">
+                <div class="list-FastBilling"   ng-repeat="items in project" ng-click='projectClick1($index)'  ng-class='{{"isActive"+$index}}'>
                     <p  id={{items.projectID}} >{{items.projectName}}</p>
                     <i></i>
                 </div>

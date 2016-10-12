@@ -1,8 +1,33 @@
 var app = angular.module('myApp');
 app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo",'RequestService',"myService",function($scope,$rootScope,$http,bookingServiceInfo,RequestService,myService) {
+    
+    // 项目点击变色
+    $scope.projectClick=function(index){
+        var isActive = 'isActive'+index;
+        if($rootScope[isActive])
+        {
+          $rootScope[isActive] = '';
+        }
+        else
+        {
+          $rootScope[isActive] = 'list-border';
+        }
+    }
+    // 当前预约项目点击变色
+    $scope.projectClick1=function(index){
+        var isActive = 'isActive'+index;
+        if($rootScope[isActive])
+        {
+          $rootScope[isActive] = '';
+        }
+        else
+        {
+          $rootScope[isActive] = 'list-border';
+        }
+    }
     // alert($rootScope.orderNo)
     // 判断是否有工单存在v
-    if ($rootScope.orderNo) {
+    // if ($rootScope.orderNo) {
       var data=bookingServiceInfo.nowBooking();  
       data.success(function(data){
         // console.log(data)
@@ -34,9 +59,10 @@ app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo
               console.log(res)
              })
             }
+
           }
       })
-    }
+    // }
   
 
    // 转出工单、修改、保存post提交数据

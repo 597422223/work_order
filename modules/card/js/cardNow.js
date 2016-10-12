@@ -1,7 +1,7 @@
 // 优惠券js
-	$('.Coupon li').click(function(){
-		$(this).toggleClass('active-coupon')
-	})
+	// $('.Coupon li').click(function(){
+	// 	$(this).toggleClass('active-coupon')
+	// })
 
 // 充值弹窗
 	// $('.chargeClick .btnRed').click(function(){
@@ -13,3 +13,6 @@
 	$('.ctr-off').click(function(){
 		$('.charge-pop').hide();
 	})
+
+	// 现有次卡操作次数
+		
