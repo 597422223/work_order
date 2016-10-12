@@ -102,6 +102,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-parts',{ //配件
 	  		url: '/parts',
+
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/parts/tpl/parts.html',

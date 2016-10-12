@@ -107,7 +107,7 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 
 			if( index == value )
 			{
-				$scope.brandNameList[index]['buyNum'] += 1;
+				$scope.brandNameList[index]['buyNum'] =parseInt($scope.brandNameList[index]['buyNum'])+  1;
 				$scope.brandNameList[index]['discountPrice'] =  $scope.brandNameList[index]['buyNum'] *$scope.brandNameList[index]['goodsSalePrice'] ;
 				yi = false;
 			}

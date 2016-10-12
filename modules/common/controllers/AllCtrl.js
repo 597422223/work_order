@@ -50,35 +50,35 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	$rootScope.SubmitOrderInfo = function()
 	{
 		// order[''] = $rootScope.;
-		$rootScope.order['flag'] = 0;   //工单类型
-		$rootScope.order['status'] = 4;  //状态
+		$rootScope.order['flag'] = $rootScope.flag;   //工单类型
+		$rootScope.order['status'] = $rootScope.status;  //状态
 		$rootScope.order['orderType'] = 1;  //默认1
 		$rootScope.order['senderName'] = $rootScope.senderName;   //送修人姓名
 		$rootScope.order['senderPhone'] = $rootScope.senderPhone;  //送修人电话
 		$rootScope.order['orderSourceId'] = $rootScope.orderSourceId; //用户来源ID
 		$rootScope.order['orderSourceInfo'] = $rootScope.orderSourceInfo; //用户来源详情
 		$rootScope.order['orderSourceInfoId'] = $rootScope.orderSourceInfoId;  //用户来源详情ID   未知  
-		$rootScope.order['orderPeople'] = '';  //接单人ID
-		$rootScope.order['orderPeopleName'] = $rootScope.pickPeople;  // 接单人姓名
-		$rootScope.order['pickPeople'] = '';  //接车人ID
-		$rootScope.order['pickPeopleName'] = $rootScope.pickPeople;  //接车人ID
-		$rootScope.order['getInTime'] = ''; //进场时间
-		$rootScope.order['desc']= ''; //施工备注
-		$rootScope.order['completeTime'] = ''; //完工时间
-		$rootScope.order['bookType'] ='';  //预约类型
-		$rootScope.order['bookTypeName'] = '';  //预约类型名
-		$rootScope.order['bookPeople'] = ''; //预约人ID
-		$rootScope.order['bookPeopleName'] = ''; //预约人姓名
-		$rootScope.order['bookGetInTime'] = ''; //预约到店时间
-		$rootScope.order['exceptedEndTime'] = ''; // 期望完成时间
-
+		$rootScope.order['orderPeople'] = $rootScope.orderPeople;  //接单人ID
+		$rootScope.order['orderPeopleName'] = $rootScope.orderPeopleName;  // 接单人姓名
+		$rootScope.order['pickPeople'] = $rootScope.pickPeople;  //接车人ID
+		$rootScope.order['pickPeopleName'] = $rootScope.orderPeopleName;  //接车人ID
+		$rootScope.order['getInTime'] = $rootScope.getInTime;; //进场时间
+		$rootScope.order['desc']= $rootScope.desc; //施工备注
+		$rootScope.order['completeTime'] = $rootScope.completeTime; //完工时间
+		$rootScope.order['bookType'] = $rootScope.bookingStyle;  //预约类型
+		$rootScope.order['bookTypeName'] =  $rootScope.bookTypeName;  //预约类型名
+		$rootScope.order['bookPeople'] = $rootScope.bookPeople; //预约人ID
+		$rootScope.order['bookPeopleName'] = $rootScope.bookPeopleName; //预约人姓名
+		$rootScope.order['bookGetInTime'] = $rootScope.toShopTime; //预约到店时间
+		$rootScope.order['exceptedEndTime'] = $rootScope.exceptedEndTime; // 期望完成时间
 		return $rootScope.order;
 	}
+
+	
 
 	//工单保存
 	$scope.SaveOrder = function()
 	{
-		$rootScope.order['status'] = 0;
 		console.log($rootScope.SubmitOrderInfo());
 	}
 
@@ -127,7 +127,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	//新开工单重置
 	$rootScope.ResetAllData = function(){
 		$rootScope.selectedData.length = 0;
-		$location.url('/index/parts/selected');  //设置为起始页
+		//$location.url('/index/');  //设置为起始页
 	}
 
 

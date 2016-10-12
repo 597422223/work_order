@@ -19,7 +19,9 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 				{
 					$.each(data.data[0],function(index,value){
 						$rootScope[index] = value;
+
 					})
+
 					$scope.VCITypesChecked = $scope.vCIType.split(",");
 					$.each($scope.VCITypesChecked,function(index,value){
 						$scope.VCITypesCheckedVal = value;
@@ -54,7 +56,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 								value = 'ewvev';
 							}
 						}
-						$scope[index] = value;
+						$rootScope[index] = value;
 					})
 					
 					//违章、年检、保险、保养
