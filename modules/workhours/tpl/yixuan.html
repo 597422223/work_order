@@ -43,6 +43,19 @@
                    <td class="overtime-pin overtime-shanchu" ng-click="overtime-shanchu()">删除</td>
                    
                </tr>
+               <tr ng-repeat="x in agoName" >
+                   <td>{{x.projectName}}</td>
+                   <td><input type="" name="" value="{{x.manHour}}"></td>
+                   <td><input type="" name="" value="{{x.multiple}}"></td>
+                   <td class="overtime-bold" ><input type="" name="" value="{{x.manHourPrice}}"></td>
+                   <td><input type="" name="" value="{{x.manHourPrice}}"></td>
+                   <td><input type="" name="" value="{{x.onePeople}}"></td>
+                   <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
+                   <td><input type="" name="" value="{{x.projectID}}"></td>
+                   <td><input type="" name="" value="{{x.desc}}"></td>
+                   <td class="overtime-pin">是</td>
+                   <td class="overtime-pin overtime-shanchu" ng-click="shanchu($index)">删除</td>
+               </tr>
                <tr ng-repeat="x in names" >
                    <td>{{x.projectName}}</td>
                    <td><input type="" name="" value="{{x.manHour}}"></td>
@@ -51,11 +64,12 @@
                    <td><input type="" name="" value="{{x.manHourPrice}}"></td>
                    <td><input type="" name="" value="{{x.onePeople}}"></td>
                    <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
-                   <td><input type="" name="" ></td>
+                   <td><input type="" name="" value="{{x.projectID}}"></td>
                    <td><input type="" name="" value="{{x.desc}}"></td>
                    <td class="overtime-pin">是</td>
                    <td class="overtime-pin overtime-shanchu" ng-click="shanchu($index)">删除</td>                   
                </tr>
+
                <!-- 测试添加预约项目 韩盼盼 -->
               <!-- <tr ng-repeat="items in projectAdd">
                    <td id={{items.projectID}}>{{items.projectName}}</td>

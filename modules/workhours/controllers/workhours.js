@@ -1,34 +1,79 @@
 var app = angular.module('myApp');
-app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",function($scope,$http,workServicUserInfo,myService) {
-   var newdata=[];//最终结果数组
+app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'myService',function($scope,$rootScope,$http,workServicUserInfo,myService) {
+    $rootScope.newdata={'data':[]};//最终结果数组
+	var delArry=[];
    var newdataLen=[];//项目名称和项目ID
    var Arry=[];//模糊判断数组
    var jsondata={};//去重对象
-   var dataname;//项目名称
+   var dataname=[];//项目名称
    var unmInedx;//是否存在的条件
-
-   
-
+   var TypeArry=[];//选择项目添加
    $scope.setValue=function(index){
-		var val=$.trim($(".tit-search-xia li").eq(index).text());		
+		var val=$.trim($(".tit-search-xia li").eq(index).text());
 		$scope.entryName=val;
-		console.log($scope.entryName);
 	};
-   $scope.addbtn=function()	{  
-   	var data=workServicUserInfo.workInfo();	 
-	   	data.success(function(data){
+	// 已有项目
+	if ($rootScope.orderNo){
+		$scope.RequestUrl ='/customer/ordermaster/projects';
+		$scope.Parameter = $.param({
+			'token':$rootScope.token,
+			'orderNo':$rootScope.orderNo,
+		});
+		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.data.success(function (data) {
+			if (data.status==1){
+				console.log($rootScope.orderNo);
+				$scope.agoName=data.data;
+			}
+		})
+	}else {
+	}
+	//其他页面传来的数据
+	function Passsuccess() {
+		$scope.RequestUrl ='/customer/project/query';
+		$scope.Parameter = $.param({
+			'token':$rootScope.token,
+		});
+		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.data.success(function(data) {
+			if (data.status == 1) {
+				$.each(myService.putOut(),function (k,v) {
+					$rootScope.newdata.data.push(v);
+				});
+				$.each(myService.get(),function (k,v) {
+					$rootScope.newdata.data.push(v);
+				});
+
+				$scope.shanchu=function (index) {
+					$rootScope.newdata.data.splice(index,1);
+					myService.delIn($rootScope.newdata.data);
+				};
+				$scope.names=myService.delOut();
+			}
+		})
+	}
+	Passsuccess();
+	//end
+	//点击搜索
+	$scope.addbtn=function(){
+   	console.log($rootScope.newdata.data);
+	   $scope.RequestUrl ='/customer/project/query';
+	   $scope.Parameter = $.param({
+		   'token':$rootScope.token,
+		   'projectType':0,
+	   });
+	   $scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+	   $scope.data.success(function(data){
 	   		if(data.status==1){
-	   			console.log($scope.entryName);
 				$.each(data.data.list, function (i, v){					
 					if($scope.entryName==v.projectName||$scope.entryName==v.projectID){
-						newdataLen.push(v.projectName+","+v.projectID);
-						dataname=data.data.list[i];
+						newdataLen.push(v.projectName+v.projectID);
+						dataname.push(data.data.list[i]);
 					} 		
 				});
 				$.each(newdataLen, function(k,n) {
-					console.log(newdataLen[k])
 					if(!jsondata[newdataLen[k]]){
-	                   newdata.push(dataname);
+						$rootScope.newdata.data.push(dataname[k]);
 	                   jsondata[newdataLen[k]]=1;
                		}else{
 	               			unmInedx=0;
@@ -37,24 +82,21 @@ app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",fu
 				if(unmInedx==0){
 					alert("项目已添加");
 				}
-				$scope.names=newdata;
+				$scope.names=$rootScope.newdata.data;
 	   		}
-	   		
+
 		}	   	
    	)};
-	$scope.names=myService.get();
-    $scope.Worksearch=function(){
-	   	var data=workServicUserInfo.projectName();
-	   	data.success(function(data){
-	   		console.log(data);
-	   	});
-    }
-    $scope.shanchu=function(index){
-    	var  delDate=$scope.names;
-    	console.log(delDate[index]);
-    	
-    	
-    }
+   	//END
+
+    //
+	// $scope.Worksearch=function(){
+	//   	var data=workServicUserInfo.projectName();
+	//   	data.success(function(data){
+	//   		console.log(data);
+	//   	});
+	// };
+
     //联想    
     $scope.workeyup = function(){
 		if( $scope.entryName )
@@ -69,15 +111,15 @@ app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",fu
 							if( index == 'projectName')
 							{
 								Arry.push(value);
+								
 								$.each(Arry, function(k,v) {
 									if(Arry[k].indexOf($scope.entryName)!=-1){
 										$scope.ItemProjact.push(Arry[k]);
 									}
 								});
-								
 							}
 						})
-					})
+					});
 					$scope.workPro = true;
 				}
 				else
@@ -90,11 +132,123 @@ app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",fu
 		{
 			$scope.workPro = false;
 		}
+	};
+	//选择项目
+    //点击搜索
+	$scope.Worksearch=function(){
+		var data=workServicUserInfo.workInfo();
+		data.success(function(data){
+				if(data.status==1){
+					$scope.projectTy=[];
+					$.each(data.data.list, function (i, v){
+						$.each(data.data.list[i],function(index,value){
+							if( index == 'projectName')
+							{
+								Arry.push(value);
+								dataname.push(data.data.list[i]);
+								// console.log(Arry);
+								$.each(Arry, function(k,v) {
+									if(Arry[k].indexOf($scope.entryName)!=-1){
+										if(dataname[k]!=undefined){
+											newdataLen.push(dataname[k]);
+										}
+									}
+								});
+							}
+						})
+					});
+					$.each(newdataLen, function(k,n) {
+						if(!jsondata[n.projectID]){
+							$rootScope.newdata.data.push(n);
+							jsondata[n.projectID]=1;
+						}
+					});
+					$scope.projectTy=$rootScope.newdata.data;
+				}
+			}
+		)};
+//	项目列表
+	//1,列表按钮
+	$scope.TypeList=function () {
+		$scope.RequestUrl ='/customer/project/query';
+		$scope.Parameter = $.param({
+			'token':$rootScope.token,
+			'projectType':0,
+		});
+		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.data.success(function (data) {
+			if (data.status==1){
+				$scope.projectTy=data.data.list;
+			}
+		})
+	};
+		//保养
+	if ($rootScope.orderNo){
+		$scope.projectTypebaoyang=function () {
+			$scope.RequestUrl ='/customer/project/query';
+			$scope.Parameter = $.param({
+				'token':$rootScope.token,
+				'projectType':1,
+			});
+			$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+			$scope.data.success(function (data) {
+				if (data.status==1){
+					$scope.projectTy=data.data.list;
+				}
+			})
+		};
 	}
+	//点击列表搜索和传输数据
+	var projectTypeId=function () {
+		var name=[];
+		var num=[];
+		$scope.RequestUrl ='/customer/configure/project';
+		$scope.Parameter = $.param({
+			'token':$rootScope.token
+		});
+		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.data.success(function (data) {
+			if (data.status==1){
+				$.each(data.data.type,function (key,value) {
+					name.push(value);
+					num.push(key);
+				});
+				$scope.projectTypeId=name;
+				$scope.projectTypeName=function (index) {
+					$scope.RequestUrl ='/customer/project/query';
+					$scope.Parameter = $.param({
+						'token':$rootScope.token,
+						"projectTypeId":num[index],
+						'projectType':0
+					});
+					$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+					$scope.data.success(function (data) {
+						if (data.status == 1) {
+							myService.give(data.data.list);
+						}
+						$scope.projectTy=myService.pass();
+						$(document).on('click',".overtime_blue",function () {
+							var Index=$(this).parent().index();
+							dataname.push(data.data.list[Index]);
+							$.each(dataname, function(k,n) {
+								if(!jsondata[n.projectID]){
+									TypeArry.push(n);
+									jsondata[n.projectID]=1;
+								}
+							});
+							myService.putIn(TypeArry);
+						})
+					});
+				}
+			}
+		});
+	};
+	projectTypeId();
+	$scope.projectTy=myService.pass();
 
   // 韩盼盼 当前预约数据添加10-9
 	// $scope.projectAdd=myService.get().projectAdd;
 	// $scope.CardprojectAdd=myService.get().CardprojectAdd;
 	// end
-	
+
 }]);

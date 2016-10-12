@@ -7,6 +7,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 	$scope.scan = function(){
 		if($scope.vipNo)
 		{	
+			$rootScope.ResetAllData(); //清空配件所有数据
 			$scope.RequestUrl ='/customer/customer/exists';
 			$scope.Parameter = $.param({
 				'token':$rootScope.token,

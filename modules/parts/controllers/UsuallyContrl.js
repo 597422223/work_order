@@ -38,7 +38,7 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 			if( data.status == 1 )
 			{
 				$scope.brandNameList = data.data.list;
-				console.log($scope.brandNameList);
+
 				$rootScope.PageNoF(data.data.total,page); //分页
 
 				if( $scope.brandNameList.length >= 1)
@@ -79,9 +79,9 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 			'token':$rootScope.token,
 			'standardName':standardName
 		});
-		var branddata =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.branddata =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 
-		branddata.success(function(data){
+		$scope.branddata.success(function(data){
 			if( data.status == 1 )
 			{
 				$scope.UsuallyPartBrand = data.data.list;
@@ -98,21 +98,31 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 	$scope.brandsearch();
 
 	
-	
+	//添加新配件到已选
+	$scope.AddSelectedArr = [];  //将已添加的配件下标加入数组
+	$rootScope.AddSelectedData = function(index)
+	{
+		var yi = true;
+		$.each($scope.AddSelectedArr,function(xia,value){
 
-	
+			if( index == value )
+			{
+				$scope.brandNameList[index]['buyNum'] += 1;
+				$scope.brandNameList[index]['discountPrice'] =  $scope.brandNameList[index]['buyNum'] *$scope.brandNameList[index]['goodsSalePrice'] ;
+				yi = false;
+			}
+		})
+		
+		if(yi)
+		{
 
-
-
-
-
-	
-
-
-
-
-
-
+			$scope.brandNameList[index]['status'] = 0; 
+			$scope.brandNameList[index]['urgent'] = 0;
+			$rootScope.selectedData.push( $scope.brandNameList[index]);
+			$scope.AddSelectedArr.push(index);
+		}
+		
+	}
 
 
 }]);

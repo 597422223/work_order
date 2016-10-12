@@ -70,22 +70,22 @@
                 <tr ng-if='PartListNo==1' ng-repeat='brandNameList in brandNameList'>
                     <td><span>{{brandNameList.goodsName}}</span></td>
                     <td><span>{{brandNameList.brandName}}</span></td>
-                    <td><span>{{brandNameList.modelName}}</span></td>
+                    <td><span>{{brandNameList.model}}</span></td>
                     <td><input value='{{brandNameList.purchasePrice}}' type="text" name=""></td>
-                    <td class="overtime_red"><input value='{{brandNameList.goodsSalePrice}}' type="text" name=""></td>
+                    <td class="overtime_red"><input value='{{brandNameList.price}}' type="text" name=""></td>
                     <td><input value='{{brandNameList.storageLocation}}' type="text" name=""></td>
                     <td><input value='{{brandNameList.storages}}' type="text" name=""></td>
                     <td>{{brandNameList.storages}}</td>
                     <td class="ctr-num-td">
                         <div class="ctr-nunm">
                             <span class="moveBtn">-</span>
-                            <input type="text" value="{{brandNameList.buynum}}" class="showNum">
+                            <input type="text" value="{{brandNameList.buyNum}}" class="showNum">
                             <span class="addBtn">+</span>
                         </div>
                     </td>
                     <td>
                         <div class="ctr-add">
-                            <span class="overtime_blue" ng-click=''>添加</span>
+                            <span class="overtime_blue" ng-click='AddSelectedData($index)'>添加</span>
                         </div>
                     </td>
                 </tr>
