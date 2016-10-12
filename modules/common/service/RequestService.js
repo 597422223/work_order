@@ -42,6 +42,27 @@ app.service('myService',["$http" ,function($http) {
 		return $http.post(API_URL+RequestUrl+"?"+Parameter);
 	}
 	var savedData = {};
+	var projactList={};
+	var TypeArry={};
+	var delArry={};
+	function delIn(data) {
+		delArry = data;
+	};
+	function delOut() {
+		return delArry;
+	};
+	function putIn(data) {
+		TypeArry = data;
+	};
+	function putOut() {
+		return TypeArry;
+	};
+	function give(data) {
+		projactList = data;
+	};
+	function pass() {
+		return projactList;
+	};
 	function set(data) {
 		savedData = data;
 	};
@@ -51,7 +72,13 @@ app.service('myService',["$http" ,function($http) {
 	return {
 		ReturnData:ReturnData,
 		set: set,
-		get: get
+		get: get,
+		give:give,
+		pass:pass,
+		putIn:putIn,
+		putOut:putOut,
+		delIn:delIn,
+		delOut:delOut
 	}
 }]);
 

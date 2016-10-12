@@ -15,6 +15,6 @@
   $(".tit-search-xia li").click(function(){
   	   $(this).parent().prev().val($(this).text());
   })
-	$(document).on("click",".overtime-shanchu",function(){
-		$(this).parent().css("display","none");
-	});
+	// $(document).on("click",".overtime-shanchu",function(){
+	// 	$(this).parent().css("display","none");
+	// });

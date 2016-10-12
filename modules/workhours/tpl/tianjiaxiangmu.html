@@ -34,8 +34,8 @@
            <div class="table-tit-list">
                <ul class="clearfix" >
                    <li>项目类型：</li>
-                   <li class="tit-list-active">项目列表</li>
-                   <li>保养</li>
+                   <li class="tit-list-active" ng-click="TypeList()" >项目列表</li>
+                   <li ng-click="projectTypebaoyang()">保养</li>
                </ul>
                <ul ng-repeat="Id in projectTypeId">
                    <li ng-click="projectTypeName($index)">{{Id}}</li>
@@ -64,8 +64,8 @@
                        <td>{{x.carLevel}}</td>
                        <td>{{x.manHour}}</td>
                        <td class="overtime_red">{{x.manHourPrice}}</td>
-                       <td><input type="text"></td>
-                       <td class="overtime_blue">添加</td>
+                       <td><input type="text" ng-keyup=""></td>
+                       <td class="overtime_blue" ng-click="projectTyAdd($index)">添加</td>
                    </tr>
                  
                   
