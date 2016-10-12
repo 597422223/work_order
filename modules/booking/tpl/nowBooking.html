@@ -16,17 +16,16 @@
         </div>
         <div class="book-time-control">
             <span class="qx-book">取消预约</span>
-            <span class="zc-book">转出工单</span>
+            <span class="zc-book">转成工单</span>
              <div class="book-time-controlClose qx-book-pop" ng-hide="hideCtrl">
                 <span>你确认要取消预约吗？</span>
                 <span><em class="qx-book-ture" ng-click="cancelOrder()" ui-sref='index.tab-book.newbook'>确认</em><em class="qx-book-false">取消</em></span>
             </div>
             <div class="zc-book-pop book-time-controlClose">
-                <span>你确认要转出工单吗？</span>
-                <span><em class="qx-book-ture" ui-sref="index.tab-overtime.yixuan">确认转出</em><em class="qx-book-false">取消</em></span>
+                <span>你确认要转成工单吗？</span>
+                <span><em class="qx-book-ture" ng-click="transformOrder()"  >确认转成</em><em class="qx-book-false">取消</em></span>
             </div>
         </div>
-      
     </div>
     <div class="book-remark">
         <label>预约备注：</label>

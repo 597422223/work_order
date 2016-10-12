@@ -1,6 +1,7 @@
 var app = angular.module('myApp');
-app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo",'RequestService',"myService",function($scope,$rootScope,$http,bookingServiceInfo,RequestService,myService) {
-    
+app.controller('BookingCtrl', ["$scope",'$rootScope',"$location","$http","bookingServiceInfo",'RequestService',"myService",function($scope,$rootScope,$location,$http,bookingServiceInfo,RequestService,myService) {
+ 
+
     // 项目点击变色
     $scope.projectClick=function(index){
         var isActive = 'isActive'+index;
@@ -30,23 +31,23 @@ app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo
     // if ($rootScope.orderNo) {
       var data=bookingServiceInfo.nowBooking();  
       data.success(function(data){
-        // console.log(data)
         // 时间戳函数 begin
          function getLocalTime(nS) {     
           return new Date(parseInt(nS) * 1000).toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");      
        }
        // 时间戳函数 end 
           if(data.status ==1){
-            $scope.toShopTime = data.data.order.bookGetInTime; //预约到店时间
-            $scope.openOrder = getLocalTime(data.data.order.cTime); //预约开单时间 
-            $scope.bookingStyle = data.data.order.bookTypeName; //预约方式
-            $scope.bookingMark = data.data.order.desc; //预约备注
-
-
+            $rootScope.toShopTime = data.data.order.bookGetInTime; //预约到店时间
+            $rootScope.openOrder = getLocalTime(data.data.order.cTime); //预约开单时间 
+            $rootScope.bookingStyle = data.data.order.bookTypeName; //预约方式
+            $rootScope.bookingMark = data.data.order.desc; //预约备注
+            $rootScope.exceptedEndTime=data.data.order.exceptedEndTime//期望完成时间
+            $rootScope.bookPeople=data.data.order.bookPeople//预约人id
+            $rootScope.bookPeopleName=data.data.order.bookPeopleName//预约操作人姓名
+            $rootScope.bookTypeName = data.data.order.bookTypeName//预约类型名称
            //    // 获取已生成的工单号--取消预约接口参数  'RequestService',???
-           // $scope.orderNo = data.data.order.orderNo;  
-           // // console.log(orderNo)  服务获取数据
-             
+            $rootScope.orderNoNew = data.data.order.orderNo;  
+           // console.log($rootScope.bookTypeName) // 服务获取数据
 
             $scope.cancelOrder = function(){
              // 清空数据
@@ -56,6 +57,7 @@ app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo
              // 取消预约 接口
              var cancelBooking = bookingServiceInfo.cancelBooking();
              cancelBooking.success(function(res){
+              alert(0)
               console.log(res)
              })
             }
@@ -66,7 +68,20 @@ app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo
   
 
    // 转出工单、修改、保存post提交数据
-
+   $scope.transformOrder=function(){
+     $scope.RequestUrl ='/customer/ordermaster/transTo';
+     $scope.Parameter = $.param({
+       'token':$rootScope.token,
+       'orderNo':$rootScope.orderNoNew,
+     });
+     $scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
+     $scope.data.success(function(data) {
+       // 服务获取数据
+       console.log(data)
+       $location.url('/index/overtime/yixuan?orderNo=$rootScope.orderNoNew');
+     })
+   }
+   // 转出工单end
 
    // 当前预约  全部已存在项目
    var serviceData = bookingServiceInfo.nowBookingAdd();
@@ -141,7 +156,6 @@ app.controller('BookingCtrl', ["$scope",'$rootScope',"$http","bookingServiceInfo
          myService.set(jsonArr); 
          $scope.projectAdd=myService.get();
     })
-
 
 }]);
 

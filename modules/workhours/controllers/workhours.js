@@ -1,7 +1,6 @@
 var app = angular.module('myApp');
 app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'myService',function($scope,$rootScope,$http,workServicUserInfo,myService) {
     $rootScope.newdata={'data':[]};//最终结果数组
-	var delArry=[];
    var newdataLen=[];//项目名称和项目ID
    var Arry=[];//模糊判断数组
    var jsondata={};//去重对象
@@ -30,33 +29,24 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	}
 	//其他页面传来的数据
 	function Passsuccess() {
-		$scope.RequestUrl ='/customer/project/query';
-		$scope.Parameter = $.param({
-			'token':$rootScope.token,
-		});
-		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
-		$scope.data.success(function(data) {
-			if (data.status == 1) {
+
 				$.each(myService.putOut(),function (k,v) {
 					$rootScope.newdata.data.push(v);
 				});
 				$.each(myService.get(),function (k,v) {
 					$rootScope.newdata.data.push(v);
 				});
-
-				$scope.shanchu=function (index) {
-					$rootScope.newdata.data.splice(index,1);
-					myService.delIn($rootScope.newdata.data);
-				};
-				$scope.names=myService.delOut();
 			}
-		})
-	}
 	Passsuccess();
+	$scope.shanchu=function (index) {
+		$rootScope.newdata.data.splice(index,1);
+	};
+	myService.delIn($rootScope.newdata.data);
+	$scope.names=myService.delOut();
 	//end
 	//点击搜索
 	$scope.addbtn=function(){
-   	console.log($rootScope.newdata.data);
+   	console.log($rootScope.test);
 	   $scope.RequestUrl ='/customer/project/query';
 	   $scope.Parameter = $.param({
 		   'token':$rootScope.token,
@@ -65,6 +55,7 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	   $scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
 	   $scope.data.success(function(data){
 	   		if(data.status==1){
+	   			$scope.addNames=$rootScope.test;
 				$.each(data.data.list, function (i, v){					
 					if($scope.entryName==v.projectName||$scope.entryName==v.projectID){
 						newdataLen.push(v.projectName+v.projectID);
@@ -202,6 +193,7 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	var projectTypeId=function () {
 		var name=[];
 		var num=[];
+		$rootScope.test=[];
 		$scope.RequestUrl ='/customer/configure/project';
 		$scope.Parameter = $.param({
 			'token':$rootScope.token
@@ -227,12 +219,13 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 							myService.give(data.data.list);
 						}
 						$scope.projectTy=myService.pass();
-						$(document).on('click',".overtime_blue",function () {
+						$(document).on('click',".overtime_blue",function (){
 							var Index=$(this).parent().index();
 							dataname.push(data.data.list[Index]);
 							$.each(dataname, function(k,n) {
 								if(!jsondata[n.projectID]){
 									TypeArry.push(n);
+									$rootScope.test.push(n);
 									jsondata[n.projectID]=1;
 								}
 							});
