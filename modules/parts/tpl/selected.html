@@ -41,7 +41,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat='SelectedList in SelectedList'  ng-if='NoOrderNo == 1'>
+               <tr ng-repeat='SelectedList in SelectedList'  ng-if='NoOrderNo == 1' lang="{{$index}}">
                    <td><span>{{SelectedList.goodsName}}</span></td>
                    <td><span>{{SelectedList.brandName}}</span></td>
                    <td><span>{{SelectedList.model}}</span></td>

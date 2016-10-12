@@ -6,6 +6,11 @@ app.service('RequestService',['$http', function ($http) {
 			return $http.post(API_URL+RequestUrl+"?"+Parameter);
 		}
 
+		function ReturnData1(RequestUrl,Parameter)
+		{
+			return $http.post(API_URL+RequestUrl,Parameter);
+		}
+
 		function getCookie(name)
 		{
 			var strCookie=document.cookie; 
@@ -27,6 +32,7 @@ app.service('RequestService',['$http', function ($http) {
 		return {
 			ReturnData :ReturnData,
 			getCookie:getCookie,
+			ReturnData1:ReturnData1,
 		}
 
 		//获取cook值
