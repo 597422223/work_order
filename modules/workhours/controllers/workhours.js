@@ -94,6 +94,7 @@ app.controller('workconl', ["$scope","$http","workServicUserInfo","myService",fu
 
   // 韩盼盼 当前预约数据添加10-9
 	// $scope.projectAdd=myService.get().projectAdd;
+	// $scope.CardprojectAdd=myService.get().CardprojectAdd;
 	// end
 	
 }]);

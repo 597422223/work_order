@@ -12,12 +12,12 @@
                                     <td>金额</td>
                                     <td>操作</td>
                                 </tr>
-                                <tr ng-repeat="x in xianyou">
+                                <tr ng-repeat="x in xianyou" >
                                     <td>{{x.valueName}}</td>
                                     <td id={{x.cardId}}>{{x.cardNo}}</td>
                                     <td>{{x.time}}</td>
                                     <td class="fontRed">{{x.money}}</td>
-                                    <td class="chargeClick" ng-click='chargeClick()'><div class="btnRed">充值</div></td>
+                                    <td class="chargeClick" ng-click='chargeClick(x.payType,x.scale,x.value,x.payAmount)'><div class="btnRed">充值</div></td>
                                 </tr>
                             </table>
                         </div>
@@ -26,7 +26,7 @@
                                <tr ng-repeat='items in onecard'>
                                     <th>次卡：全车配次卡</th>
                                     <th id={{items.cardId}}>卡号：{{items.cardNo}}</th>
-                                    <th colspan="2">办卡时间：{{items.start_time}}</th>
+                                    <th colspan="2">办卡时间：{{items.startTime}}</th>
                                </tr>
                                <tr>
                                     <td width="22.3%">项目名称</td>
@@ -39,7 +39,7 @@
                                     <td>{{items.num}}</td>
                                     <td>{{items.leftNum}}</td>
                                     <td  class="card2-caozuo">
-                                        <input type="checkbox" name="">
+                                        <input type="checkbox" name="" ng-hide="{{items.leftNum}}==0" checked>
                                     </td>
                                </tr>
                          </table>
@@ -47,16 +47,16 @@
                         <div class="Coupon">
                             <div class="coupon-tit">优惠券</div>
                             <ul>
-                                <li ng-repeat='items in ticketcard'>
+                                <li ng-repeat='items in ticketcard'  ng-click='ticketClick($index)'  ng-class='{{"isActive"+$index}}'>
                                     <div class="Coupon_font_active">
-                                        ￥<span>{{items.value}}</span>
+                                        <span>{{items.value}}</span>{{items.valueUnit}}
                                         <p>
-                                            优惠券<br>
+                                            {{items.typeName}}<br>
                                             <em>满{{items.condition}}元使用</em>
                                         </p> 
                                     </div>
                                     <em class="Coupon_em_active valueTime">有效时间：
-                                    {{items.time}}-{{items.expireTime}}</em>
+                                    {{items.time}}至{{items.expireTime}}</em>
                                 </li>
                                 
                             </ul>
@@ -71,15 +71,19 @@
             <div class="pop-content">
                 <div>
                     <label>输入充值金额</label>
-                    <input type="text" name="">
+                    <input type="text" name=""  disabled="disabled"  ng-model="card_pay_money">
                 </div>
                 <div>
+                    <label>实收金额</label>
+                    <input type="text" name="PAY_AMOUNT" ng-disabled="expression" ng-model="card_get_money">
+                </div>
+                <!-- <div>
                     <label>选择充值方式</label>
                     <select>
                         <option>微信</option>
                         <option>短信</option>
                     </select>
-                </div>
+                </div> -->
                 <div class="popSure">
                     充值
                 </div>

@@ -1,8 +1,47 @@
 <script type="text/javascript" src="modules/card/js/shouka.js"></script>
 <!-- 卡券售卡 -->
 <div class="tab-card-module2" >
-        <div class="sellingTicket mui-list-flex">
-           <div class="list-sellingTicket sellingTicket-blue sellingTicket-active-blue">
+        <div class="sellingTicket clearfix">
+          <!-- 储值卡循环蓝色 -->
+           <div class="list-sellingTicket sellingTicket-blue  " ng-repeat='item in svaluecard' ng-class="{'sellingTicket-active-blue': item.buy ==1? true:false}">
+           <!-- sellingTicket-active-blue  buy = 1-->
+               <div class="sellingTicket-info">
+                   <div class="info-txt">{{item.name}}</div>
+                   <div class="info-price" id={{item.id}}>¥{{item.value}}</div>
+                   <div class="info-num">{{item.typeName}}</div>
+               </div>
+               <div class="sellingTicket-time foreverTime">
+                   创建时间：<span>{{item.time}}</span>
+               </div>
+               <div class="sellingTicket-introduce">
+                   说明:
+                   <span>{{item.desc}}</span>
+               </div>
+               <div class="sellingTicket-span" ng-class="{'none': item.buy ==1? true:false}">
+                   <span class="sellingTicket-s" ng-click="sellingTickets(item.payAmount,item.projectCategory)">售卡</span>
+                   <!--  -->
+               </div>
+           </div>
+            <!-- 次卡红色 -->
+           <div class="list-sellingTicket sellingTicket-red " ng-repeat='item in sonecard' ng-class="{'sellingTicket-active-red': item.buy ==1? true:false}">
+           <!-- sellingTicket-active-red -->
+               <div class="sellingTicket-info">
+                   <div class="info-txt">{{item.name}}</div>
+                   <div class="info-price"  id={{item.id}}>¥{{item.price}}</div>
+                   <div class="info-num">已售：{{item.num}}份</div>
+               </div>
+               <div class="sellingTicket-time">
+                   有效期：<span><input type="text" class="today" disabled>至{{item.endTime}}</span>
+               </div>
+               <div class="sellingTicket-introduce">
+                   说明:
+                   <span>{{item.desc}}</span>
+               </div>
+               <div class="sellingTicket-span">
+                   <span class="sellingTicket-s" ng-click="sellingTickets(item.payAmount,item.endTime,item.projectCategory)">售卡</span>
+               </div>
+           </div>
+          <!--  <div class="list-sellingTicket sellingTicket-green sellingTicket-active-green ">
                <div class="sellingTicket-info">
                    <div class="info-txt">会员套餐</div>
                    <div class="info-price">¥100</div>
@@ -18,8 +57,8 @@
                <div class="sellingTicket-span">
                    <span class="sellingTicket-s">售卡</span>
                </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-red sellingTicket-active-red">
+           </div> -->
+          <!--  <div class="list-sellingTicket sellingTicket-purlpe sellingTicket-active-purlpe">
                <div class="sellingTicket-info">
                    <div class="info-txt">会员套餐</div>
                    <div class="info-price">¥100</div>
@@ -35,111 +74,9 @@
                <div class="sellingTicket-span">
                    <span class="sellingTicket-s">售卡</span>
                </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-green sellingTicket-active-green">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-purlpe sellingTicket-active-purlpe">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
-        </div>
-        <div class="sellingTicket mui-list-flex">
-           <div class="list-sellingTicket sellingTicket-blue">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-red">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-green">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
-           <div class="list-sellingTicket sellingTicket-purlpe">
-               <div class="sellingTicket-info">
-                   <div class="info-txt">会员套餐</div>
-                   <div class="info-price">¥100</div>
-                   <div class="info-num">已售：50份</div>
-               </div>
-               <div class="sellingTicket-time">
-                   有效期：<span>2016.08.05-2017.08.05</span>
-               </div>
-               <div class="sellingTicket-introduce">
-                   说明:
-                   <span>钻石综合卡</span>
-               </div>
-               <div class="sellingTicket-span">
-                   <span class="sellingTicket-s">售卡</span>
-               </div>
-           </div>
+           </div> -->
+         
+           
         </div>
     </div>
 
@@ -148,7 +85,7 @@
          <div class="mask"></div>
          <div class="inner pay_cardwin-inner">
             <div class="ctr-off">X关闭</div>
-            <p>次卡出售</p>
+            <p>卡券出售</p>
 
             <div class="pop-content">
                <div class="pay_cardwin_con">
@@ -160,41 +97,37 @@
                                <li>车牌号</li>
                                <li>卡号选择</li>
                                <li>售价</li>
-                               <li>有效时间</li>
+                               <li ng-hide="hideTime">有效时间</li>
                                <li>售卡人</li>
                            </ul>
                        </div>
                        <div class="pay_cardwin_artical_r">
                            <ul>
-                               <li><input type="text" name="" id="" value="13022135346" /></li>
-                               <li><input type="text" name="" id="" value="李先生" /></li>
+                               <li><input type="text" name="" id="" value="{{senderPhone}}" /></li>
+                               <li><input type="text" name="" id="" value="{{senderName}}" /></li>
                                <li>
                                    <select name="">
                                        <option value="">正式</option>
                                        <option value="">临时</option>
                                    </select>
-                                   <input type="text" name="" id="" value="" />
+                                   <input type="text" name="" id="" value="{{plateNumber}}" />
                                </li>
                                <li><input type="text" name="" id="" placeholder="不选系统随机选择" /></li>
-                               <li><input type="text" name="" id="" value="1000.00" /></li>
-                               <li>
-                                   <input type="text" name="datepicker"  class="datetimepicker" value="请选择起始日期"   style="color:#e83f3c">
+                               <li><input type="text" name="" id="" ng-model="card_get_payAmount" /></li>
+                               <li ng-hide="hideTime" >
+                               <!-- ng-hide="{{item.projectCategory}}=='储值卡'" -->
+                                   <input type="text" name="datepicker"  class="datetimepicker today" value=""   style="color:#e83f3c">
                                    <span>-</span>
                                    <input type="text" name="datepicker"  class="datetimepicker" value="请选择到期日期" >
                                </li>
                               <!--  <li><input type="text" name="" id="" value="请选择起始日期" readonly style="color:#e83f3c ;;"/><span>-</span><input type="text" name="" id="" value="请选择起始日期" readonly/></li> -->
-                               <li class="pay_cardwin_sevenli"><input type="text" name="" id="" value="售卡人" />
-                                             <ul id="pay_carPle" class="list_WorkUl">
-                                                         <li>王飞</li>
-                                                         <li>李龙</li>
-                                                         <li>李静</li>
-                                                         <li>陈有龙</li>
-                                                         <li>贺燕飞</li>
-                                                         <li>苗志鹏</li>
-                                                         <li>周鲲鹏</li>
-                                                     </ul>
+                               <li class="pay_cardwin_sevenli">
+                                             <input type="text" name="" id=""  value="{{pickPeopleName}}" />
+                                             <ul id="pay_carPle" class="list_WorkUl" >
+                                                      <li id="{{items.id}}" ng-repeat='items in orderSourceInfoItme'>{{items.name}}</li>
+                                            </ul>
                                            
-                                           </li>
+                              </li>
                            </ul>
                        </div>
                    </div>

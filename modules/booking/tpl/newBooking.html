@@ -22,7 +22,7 @@
         <label>预约服务项目：</label>
         <input type="button" name="新增其他" value="新增其他">
         <div class="FastBilling clearfix" id="FastBillingBooking">
-            <div class="list-FastBilling" ng-repeat='items in newProject'>
+            <div class="list-FastBilling" ng-repeat='items in newProject'  ng-click='projectClick($index)'  ng-class='{{"isActive"+$index}}'>
                 <p id={{items.projectID}}>{{items.projectName}}</p>
                 <i></i>
             </div>

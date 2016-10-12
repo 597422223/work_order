@@ -76,6 +76,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-card.shouka',{
 	  		url: '/shouka',
+	  		controller: 'cardCtrl',
             templateUrl: 'modules/card/tpl/shouka.html',
 	  })
 	  .state('index.tab-overtime',{
