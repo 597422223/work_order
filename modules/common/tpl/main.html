@@ -33,7 +33,7 @@
                   <div class="kaidanBtn">开单</div>
            </div>
            <div class="list-name">
-               <label for="">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+               <label for="">送&nbsp;&nbsp;修&nbsp;&nbsp;人</label>
                <input type="text" value="{{senderName}}" ng-model='senderName' class="comInputWidth">
            </div>
            <div class="list-phone">
@@ -52,7 +52,7 @@
         </div>
         <div class="order-list mui-list-flex">
             <div class="list-pickName list_Work">
-                <label for="">接车人</label>
+                <label for="">接单人</label>
                 <input type="text" value="{{pickPeopleName}}" ng-model='pickPeopleName' name="" class="comInputWidth">
                 <ul id="list-pickPle" class="list_WorkUl">
                     <li ng-repeat='StaffList in EmployeeItime track by $index' lang="{{StaffList.id}}">{{StaffList.name}}</li>
@@ -60,7 +60,7 @@
             </div>
             <div class="list-beginTime ">
                 <label for="">进厂时间</label>
-                <input type="text" class="comInputWidth datetimepicker today" name="datepicker" value="" >
+                <input type="text" value='{{getInTime}}' ng-model='getInTime' class="comInputWidth datetimepicker today" name="datepicker" value="" >
             </div>
             <div class="list-workTeam list_Work">
                 <label for="">施工人</label>

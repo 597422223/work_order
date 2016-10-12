@@ -41,7 +41,7 @@
                </tr>
            </thead>
            <tbody>
-               <tr ng-repeat='SelectedList in SelectedList' ng-if='NoOrderNo == 1' lang = '{{$index}}'>
+               <tr ng-repeat='SelectedList in SelectedList'  ng-if='NoOrderNo == 1'>
                    <td><span>{{SelectedList.goodsName}}</span></td>
                    <td><span>{{SelectedList.brandName}}</span></td>
                    <td><span>{{SelectedList.model}}</span></td>
@@ -62,11 +62,18 @@
                         <option ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
                       </select>
                    </td>
-                   <td><input value="{{SelectedList.desc}}" name="" ng-model='SelectedList.desc' ng-keyup='selectedModify($index,"desc",SelectedList.desc)'></td>
+                   <td>
+                   <input value="{{SelectedList.desc}}" name="" ng-model='SelectedList.desc' ng-keyup='selectedModify($index,"desc",SelectedList.desc)'></td>
                    <td class="overtime_red" ng-if='SelectedList.urgent == 1'>急件出入库</td>
                    <td class="overtime_red" ng-if='SelectedList.urgent == 0'>{{SelectedList.status}}（0/{{SelectedList.buyNum}}）</td>
-                   <td class="overtime_blue" ng-if='SelectedList.urgent == 1'><span>配件回库</span><span  ng-click='SelectedDel($index)'>删除</span></td>
-                   <td class="overtime_blue" ng-if='SelectedList.urgent == 0'><span class="SelectedDel"  ng-click='SelectedDel($index)'>删除</span></td>
+
+
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 1'>
+                      <span>配件回库</span>
+                      <span  ng-click='SelectedDel($index)'>删除</span></td>
+                   <td class="overtime_blue" ng-if='SelectedList.urgent == 0'>
+                      <span class="SelectedDel"  ng-click='SelectedDel($index)'>删除</span>
+                   </td>
                </tr>
                <tr ng-if='NoOrderNo == 0'>
                     <td colspan="13">暂无数据</td>
