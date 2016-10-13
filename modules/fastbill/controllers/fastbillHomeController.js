@@ -20,9 +20,8 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 					fastNameary.push(data.data.list[index].projectName);
 					$.each(fastNameary,function(key,value){
 						if(!jsondata[fastNameary[key]]){
-							$rootScope.fastAry.push(data.data.list[index]);
+							$rootScope.newdata.data.push(data.data.list[index]);
 							jsondata[fastNameary[key]]=1;
-							unmInedx=1;
 						}
 					});
 					var isActive = 'isActive'+index;
@@ -30,7 +29,7 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 					{
 						$rootScope[isActive] = '';
 
-						fastAry.splice(index,1);
+						$rootScope.newdata.data.splice(index,1);
 						console.log(index);
 						console.log($rootScope.fastAry);
 					}

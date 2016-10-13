@@ -8,8 +8,8 @@
          </li>        
        </ul>
        <span class="overtime-add" ng-click="addbtn()">快捷添加</span>
-       <span>已选<i class="red">5</i>个项目</span>
-       <span>总金额<i class="red">4650.00</i></span>
+       <span>已选<i class="red">{{howMany}}</i>个项目</span>
+       <span>总金额<i class="red">{{HowMuch}}</i></span>
    </div>
    <div class="content1-table">
        <table border="1" bordercolor="#dfdfdf">
@@ -43,42 +43,16 @@
                    <td class="overtime-pin overtime-shanchu" ng-click="overtime-shanchu()">删除</td>
                    
                </tr>
-               <tr ng-repeat="x in agoName" >
-                   <td>{{x.projectName}}</td>
-                   <td><input type="" name="" value="{{x.manHour}}"></td>
-                   <td><input type="" name="" value="{{x.multiple}}"></td>
-                   <td class="overtime-bold" ><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.onePeople}}"></td>
-                   <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
-                   <td><input type="" name="" value="{{x.projectID}}"></td>
-                   <td><input type="" name="" value="{{x.desc}}"></td>
-                   <td class="overtime-pin">是</td>
-                   <td class="overtime-pin overtime-shanchu" ng-click="shanchu($index)">删除</td>
-               </tr>
-               <tr ng-repeat="x in names" >
-                   <td>{{x.projectName}}</td>
-                   <td><input type="" name="" value="{{x.manHour}}"></td>
-                   <td><input type="" name="" value="{{x.multiple}}"></td>
-                   <td class="overtime-bold" ><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.onePeople}}"></td>
-                   <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
-                   <td><input type="" name="" value="{{x.projectID}}"></td>
-                   <td><input type="" name="" value="{{x.desc}}"></td>
-                   <td class="overtime-pin">是</td>
-                   <td class="overtime-pin overtime-shanchu" ng-click="shanchu($index)">删除</td>                   
-               </tr>
-               <tr ng-repeat="x in addNames" >
-                   <td>{{x.projectName}}</td>
-                   <td><input type="" name="" value="{{x.manHour}}"></td>
-                   <td><input type="" name="" value="{{x.multiple}}"></td>
-                   <td class="overtime-bold" ><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.manHourPrice}}"></td>
-                   <td><input type="" name="" value="{{x.onePeople}}"></td>
-                   <td class="overtime-green" ><input type="" name="" value="{{x.twiceSalePeople}}"></td>
-                   <td><input type="" name="" value="{{x.projectID}}"></td>
-                   <td><input type="" name="" value="{{x.desc}}"></td>
+               <tr ng-repeat="projectChild in names" >
+                   <td>{{projectChild.projectName}}</td>
+                   <td><input type="" name="" value="{{projectChild.manHour}}" ng-model='projectChild.manHour' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td><input type="number" name="" value="{{projectChild.multiple}}" ng-model='projectChild.multiple' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td class="overtime-bold" ><input type="" name="" value="{{projectChild.manHourPrice*x.multiple*x.manHour}}"  ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td><input type="" name="" value="{{projectChild.manHourPrice}}" ng-model='projectChild.manHourPrice' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td><input type="" name="" value="{{projectChild.onePeople}}" ng-model='projectChild.onePeople' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td class="overtime-green" ><input type="" name="" value="{{projectChild.twiceSalePeople}}" ng-model='projectChild.twiceSalePeople' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td><input type="" name="" value="{{projectChild.projectID}}" ng-model='projectChild.projectID' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
+                   <td><input type="" name="" value="{{projectChild.desc}}" ng-model='projectChild.desc' ng-keyup='workHours($index,"manHour",projectChild.manHour)'></td>
                    <td class="overtime-pin">是</td>
                    <td class="overtime-pin overtime-shanchu" ng-click="shanchu($index)">删除</td>
                </tr>
