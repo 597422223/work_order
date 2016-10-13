@@ -17,8 +17,8 @@
         <div class="order-list mui-list-flex">
            <div class="list-carCard">
                 <label for="">车牌号</label>                   
-               <select name="" id="" lang='{{plateNumberType}}'>
-                    <option value="{{$index+1}}" ng-repeat='CarPlateType in CarPlateNumberType'>{{CarPlateType}}</option>
+               <select name="" id="" ng-model='plateNumberType1'>
+                    <option ng-selected='$index == 0' ng-repeat='CarPlateType in CarPlateNumberType'>{{CarPlateType}}</option>
                </select> 
                 <input type="text" value="{{plateNumber}}" ng-model='plateNumber' ng-click='cartype1()'>
                     <ul class="list-cardCardorder list-cardmassage" >
@@ -238,7 +238,7 @@
           <i></i>
           <span>违章</span>
           <p><em>{{wz_total}}</em>次</p>
-          <a href="javascipt:void(0)">详情</a>
+          <a>详情</a>
       </div>
       <div class="list-car-info car-info-list2">
            <i></i>
