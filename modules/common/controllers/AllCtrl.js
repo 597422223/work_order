@@ -58,13 +58,13 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.orderArr['orderType'] = 1;  //默认1
 		$rootScope.orderArr['senderName'] = $rootScope.senderName;   //送修人姓名
 		$rootScope.orderArr['senderPhone'] = $rootScope.senderPhone;  //送修人电话
-		$rootScope.orderArr['orderSourceId'] = $rootScope.orderSourceId; //用户来源ID
+		$rootScope.orderArr['orderSourceId'] = $rootScope.orderSourceId1; //用户来源ID
 		$rootScope.orderArr['orderSourceInfo'] = $rootScope.orderSourceInfo; //用户来源详情
 		$rootScope.orderArr['orderSourceInfoId'] = $rootScope.orderSourceInfoId;  //用户来源详情ID   未知  
 		$rootScope.orderArr['orderPeople'] = $rootScope.orderPeople;  //接单人ID
 		$rootScope.orderArr['orderPeopleName'] = $rootScope.orderPeopleName;  // 接单人姓名
 		$rootScope.orderArr['pickPeople'] = $rootScope.pickPeople;  //接车人ID
-		$rootScope.orderArr['pickPeopleName'] = $rootScope.orderPeopleName;  //接车人ID
+		$rootScope.orderArr['pickPeopleName'] = $rootScope.pickPeopleName;  //接车人ID
 		$rootScope.orderArr['getInTime'] = $rootScope.getInTime;; //进场时间
 		$rootScope.orderArr['desc']= $rootScope.desc; //施工备注
 		$rootScope.orderArr['completeTime'] = $rootScope.completeTime; //完工时间
@@ -98,6 +98,19 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	//信息(car)参数
 	$rootScope.SubmitCarInfo = function()
 	{
+
+		if( $rootScope.plateNumberType1 == '正式'  )
+		{
+			$rootScope.plateNumberType1 = 0;
+		}
+		if( $rootScope.plateNumberType1 == '临时'  )
+		{
+			$rootScope.plateNumberType1 = 1;
+		}
+		if( $rootScope.plateNumberType1 == '军牌'  )
+		{
+			$rootScope.plateNumberType1 = 2;
+		}
 		$rootScope.CarArr = {};
 		$rootScope.CarArr['localCarId'] = $rootScope.localCarId;   //车信息ID
 		$rootScope.CarArr['plateNumberType'] = $rootScope.plateNumberType1;  //车牌类型
@@ -114,7 +127,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.CarArr['engineNo'] = $rootScope.engineNo;  //发动机号
 		$rootScope.CarArr['currentMileage'] = $rootScope.lastMileage;  //当前里程数
 		$rootScope.CarArr['regDate'] = $rootScope.carRegDate;  //车辆注册日期
-		$rootScope.CarArr['carType'] = $rootScope.vipNo;  //车系(1=社会车, 2=公司车)
+		$rootScope.CarArr['carType'] = $rootScope.carType;  //车系(1=社会车, 2=公司车)
 		$rootScope.CarArr['color'] = $rootScope.carColor;  //车辆颜色
 		
 		return $rootScope.CarArr;
@@ -138,28 +151,27 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	//项目(item)参数说明
 	$rootScope.SubmitItemInfo = function()
 	{
-		$rootScope.ItemArr = {};
-
-		$rootScope.ItemArr['projectName'] = '';   //项目名
-		$rootScope.ItemArr['manHour'] = '';  //工时
-		$rootScope.ItemArr['multiple'] = '';  //工时倍数
-		$rootScope.ItemArr['manHourPrice'] = '';  //工时费
-		$rootScope.ItemArr['discountPrice'] = '';  //折扣金额
-		$rootScope.ItemArr['onePeople'] = ''; //施工人员
-		$rootScope.ItemArr['orderPeople'] = ''; //接单人员
-		$rootScope.ItemArr['twiceSalePeople'] = '';  // 二次销售人员
-		$rootScope.ItemArr['desc'] = '';  //备注
-		$rootScope.ItemArr['projectId'] = '';  //项目ID
-		$rootScope.ItemArr['projectType'] = '';  //项目类型
-		$rootScope.ItemArr['cardNo'] = '';  //卡号
-
+		$rootScope.ItemArr = [];
+		$rootScope.ItemArrList={};
+		$rootScope.ItemArrList['projectName'] = '';   //项目名
+		$rootScope.ItemArrList['manHour'] = '';  //工时
+		$rootScope.ItemArrList['multiple'] = '';  //工时倍数
+		$rootScope.ItemArrList['manHourPrice'] = '';  //工时费
+		$rootScope.ItemArrList['discountPrice'] = '';  //折扣金额
+		$rootScope.ItemArrList['onePeople'] = ''; //施工人员
+		$rootScope.ItemArrList['orderPeople'] = ''; //接单人员
+		$rootScope.ItemArrList['twiceSalePeople'] = '';  // 二次销售人员
+		$rootScope.ItemArrList['desc'] = '';  //备注
+		$rootScope.ItemArrList['projectId'] = '';  //项目ID
+		$rootScope.ItemArrList['projectType'] = '';  //项目类型
+		$rootScope.ItemArrList['cardNo'] = '';  //卡号
 		return $rootScope.CarArr;
 	}
 
 	//配件(good)参数
 	$rootScope.SubmitGoodInfo = function()
 	{
-		$rootScope.GoodArr = {};
+		$rootScope.GoodArr = [];
 
 		$rootScope.GoodArrList = {};
 
@@ -180,6 +192,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.GoodArrList['desc'] = $rootScope.carRegDate;  //备注
 		$rootScope.GoodArrList['urgent'] = $rootScope.vipNo;;  //是否急件：1=急件; 0=普通
 		$rootScope.GoodArrList['putoutNum'] = $rootScope.carColor;  //出库数量
+
 
 		return $rootScope.CarArr;
 	}
@@ -223,6 +236,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	//工单保存
 	$scope.SaveOrder = function()
 	{
+		alert($rootScope.orderNo);
 		$rootScope.status=1;
 		$rootScope.flag = 0;
 		$rootScope.OrderAllFun();
@@ -242,11 +256,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 			'orderNo': $rootScope.orderNo,
 			//'force':$rootScope.SubmitOrderInfo;
 		};
-		// $scope.data =RequestService.ReturnData1($scope.RequestUrl,$scope.Parameter);
-		// $scope.data.success(function(data) {
-		// 	console.log(data);
-		// })
-		console.log($rootScope.orderArr);
+		
 		$.ajax({
 
 		     type: 'POST',
