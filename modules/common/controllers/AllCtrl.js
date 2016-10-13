@@ -11,15 +11,31 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		}
 			
 	}
-
 	// end
 	
+
+	//已选配件数组
+	$rootScope.selectedData = [];
+    //项目添加
+    $rootScope.test=[];
+	//最终结果数组
+	$rootScope.newdata={'data':[]};
+	$rootScope.stop=0;
+
+
+
 
 	$rootScope.plateNumberType1  =  '正式';
 	$rootScope.orderNo = $location.search().orderNo; 
 	$rootScope.token = RequestService.getCookie('token');
 	$rootScope.selectedReady = 1;
 	$rootScope.gongshiReady = 1;
+
+
+
+
+
+
 	if ($rootScope.orderNo) 
 	{  
 	    $scope.RequestUrl ='/customer/ordermaster/detail';
@@ -116,7 +132,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.CarArr = {};
 		$rootScope.CarArr['localCarId'] = $rootScope.localCarId;   //车信息ID
 		$rootScope.CarArr['plateNumberType'] = $rootScope.plateNumberType1;  //车牌类型
-		$rootScope.CarArr['plateNumber'] = $rootScope.idno;  //车牌号
+		$rootScope.CarArr['plateNumber'] = $rootScope.plateNumber;  //车牌号
 		$rootScope.CarArr['vinNo'] = $rootScope.vinNo;  //车架号/车型VIN码
 		$rootScope.CarArr['ctids'] = $rootScope.ctids;  //车型号，车型ID，逗号分隔
 		$rootScope.CarArr['carNo'] = $rootScope.carModelNo; //品牌型号
@@ -238,7 +254,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	//工单保存
 	$scope.SaveOrder = function()
 	{
-		alert($rootScope.orderNo);
+		console.log($rootScope.selectedData);
 		$rootScope.status=1;
 		$rootScope.flag = 0;
 		$rootScope.OrderAllFun();
@@ -315,13 +331,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		
 	}
 
-	//已选配件数组
-	$rootScope.selectedData = [];
-    //项目添加
-    $rootScope.test=[];
-	//最终结果数组
-	$rootScope.newdata={'data':[]};
-	$rootScope.stop=0;
+	
 	//新开工单重置
 	$scope.changeNum=function () {
 		$rootScope.stop=1;
