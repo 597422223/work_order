@@ -24,9 +24,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 						   	'modules/common/controllers/controllers.js',
 						   	'modules/workhours/workservice/workservice.js',
 						   	'modules/workhours/controllers/workhours.js',
-						   	'modules/booking/controllers/BookingCtrl.js',
-						   	'modules/booking/bookingService/bookingService.js',
-						   	'modules/card/controllers/cardCtrl.js',
 						   ])
 					   }
 				   }
@@ -49,7 +46,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 							  return $ocLazyLoad.load([
 							   	'modules/fastbill/controllers/fastbillHomeController.js',
 							   	"modules/workhours/workservice/workservice.js",
-							   	
 							   ])
 						   }
 					   }
@@ -61,6 +57,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/card/tpl/card.html',
+                    controller: 'cardCtrl',
+                      resolve:{
+                    	  loadMyCtrl:function ($ocLazyLoad) {
+                    		  return $ocLazyLoad.load([
+                    		   	'modules/card/controllers/cardCtrl.js',
+                    		   ])
+                    	   }
+                       }
                 },
 				'index.tab-card.xianyou': {
                     templateUrl: 'modules/card/tpl/xianyou.html',
@@ -72,6 +76,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  		url: '/xianyou',
 	  		controller: 'cardCtrl',
             templateUrl: 'modules/card/tpl/xianyou.html',
+
 	  	
 	  })
 	  .state('index.tab-card.shouka',{
@@ -141,9 +146,18 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  })
 	  .state('index.tab-book',{
 	  		url: '/booking',
+	  		controller: 'BookingCtrl',
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/booking/tpl/booking.html',
+                    resolve:{
+                    	  loadMyCtrl:function ($ocLazyLoad) {
+                    		  return $ocLazyLoad.load([
+                    		   	'modules/booking/controllers/BookingCtrl.js',
+                    		   	'modules/booking/bookingService/bookingService.js',
+                    		   ])
+                    	   }
+                       }
                 }
             }
 	  })

@@ -81,7 +81,33 @@
 	height: 30px;
 	line-height: 30px;
 	border-radius: 3px;
-=======
 	opacity: 0; 
->>>>>>> 7a92e670aa426de797bfdcf76817cbe341cd7d55
+}
+/*新建预约修改10-13*/
+.mark-secondContent .book-service .service-tit .add-book{
+
+							background:#e83f3c;
+							color:#fff;
+							width: 42px;
+							height: 25px;
+							line-height: 25px;
+							text-align:center;
+							font-size: 12px;
+							color: #fff;
+							cursor: default;
+							display: inline-block;
+							margin-left: 10px;
+							border-radius: 5px;
+						}
+
+.mark-secondContent .book-service .service-list{padding-left: 100px;} 
+.mark-secondContent .book-service .service-list ol{list-style: decimal!important; }
+.mark-secondContent .book-service .service-list li{margin: 10px 0;}
+.mark-secondContent .book-service .service-list li span{width: 120px;
+								display: inline-block;}
+.mark-secondContent .book-service .service-list li .book-blue
+{
+	margin-left:70px;
+	cursor: pointer;
+	color: #4c76be!important
 }

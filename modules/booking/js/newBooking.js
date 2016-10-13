@@ -37,57 +37,10 @@
 
 
 
-		  	//获取新建预约单数据 
-						
-
-					$('.newBookSave').click(function(){
-						var Addarr = [];
-						var newAddarr = [];
-						var AppointTime =  $('.Appointment_time input').val();//获取预约到店时间
-						var AppointWay = $('.Appointment_way option:selected').text();//获取预约方式
-						var AppointRemark = $('.Appointment_notes textarea').val()//获取预约备注
-
-
-						$('.Appointment_project .list-border p').each(function(){
-							var pText = $(this).text()
-							Addarr.push(pText)
-						})
-
-
-						$('.Appointment_project .list-border input').each(function(){
-							var pText = $(this).val().replace(/\s+/g,"")
-							// 去掉空格正则
-							// console.log(pText)
-
-							// 为空不添加数组
-							if (pText=='') {
-								return;
-							}else{
-								newAddarr.push(pText)
-							}
-						})
-
-						// 获取到新建新增服务项目
-						var	allArr = newAddarr.concat(Addarr)
-
-						//数组去重
-						function unique(arr){
-						  var tmpArr = [];
-						  for(var i=0; i<arr.length; i++){
-						    //如果当前数组的第i已经保存进了临时数组，那么跳过，
-						    //否则把当前项push到临时数组里面
-						    if(tmpArr.indexOf(arr[i]) == -1){
-						      tmpArr.push(arr[i]);
-						    }
-						  }
-						  return tmpArr;
-						}
-						unique(allArr)
-						// console.log(AppointTime)
-						// console.log(AppointWay)
-						// console.log(AppointRemark)
-						// console.log(unique(allArr))
-						// 处理新建预约数据
-					})
+		  // 添加预约
+	$('.add-book').click(function(){
+		$('.newAddBespeak-pop').show()
+	})
+	
 	})
 	

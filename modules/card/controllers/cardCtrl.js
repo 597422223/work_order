@@ -39,6 +39,45 @@ app.controller('cardCtrl', ['$scope','$rootScope','$http','RequestService',funct
 
 			 			$scope.expression = true;
 			 		}
+			 		// 现有 -充值储值卡 点击充值工单接口
+			 		$scope.chargeClickSure=function(){
+			 			$rootScope.status=4;
+			 			$rootScope.flag = 7;
+			 			$rootScope.OrderAllFun();
+			 			$scope.RequestUrl =API_URL+'/customer/ordermaster/submit';
+			 			$scope.Parameter = {
+			 				'token': $rootScope.token,
+			 				'order': $rootScope.orderArr,
+			 				'customer': $rootScope.customerArr,
+			 				'car': $rootScope.CarArr,
+			 				'insurance': $rootScope.InsuranceArr,
+			 				'item': $rootScope.ItemArr,
+			 				'good': $rootScope.GoodArr,
+			 				'remark': $rootScope.RemarkArr,
+			 				'sale': $rootScope.SalekArr,
+			 				'customerId': $rootScope.customerId,
+			 				'localCarId': $rootScope.localCarId,
+			 				'orderNo': $rootScope.orderNo,
+			 				'cardPrice':$scope.card_pay_money,//售卡金额
+			 				//'force':$rootScope.SubmitOrderInfo;
+			 			};
+			 			$.ajax({
+
+			 			     type: 'POST',
+
+			 			     url: $scope.RequestUrl ,
+
+			 			    data: $scope.Parameter ,
+
+			 			    success: function(data){
+			 			    	console.log(data);
+			 			    	// 用户来源格式待修改  返回成功才可以10-12
+			 			    } ,
+
+			 			});
+
+			 		}
+
 
 			 	}
 			 	// 优惠券点击变色
@@ -78,10 +117,51 @@ app.controller('cardCtrl', ['$scope','$rootScope','$http','RequestService',funct
 				$scope.hideTime = false;
 				// console.log(projectCategory)
 			}
+			// 售卡弹窗确认点击
+			$scope.shoukaPopSure=function(){
+				$rootScope.status=4;
+				$rootScope.flag = 7;
+				$rootScope.OrderAllFun();
+				$scope.RequestUrl =API_URL+'/customer/ordermaster/submit';
+				$scope.Parameter = {
+					'token': $rootScope.token,
+					'order': $rootScope.orderArr,
+					'customer': $rootScope.customerArr,
+					'car': $rootScope.CarArr,
+					'insurance': $rootScope.InsuranceArr,
+					'item': $rootScope.ItemArr,
+					'good': $rootScope.GoodArr,
+					'remark': $rootScope.RemarkArr,
+					'sale': $rootScope.SalekArr,
+					'customerId': $rootScope.customerId,
+					'localCarId': $rootScope.localCarId,
+					'orderNo': $rootScope.orderNo,
+					'cardPrice':$scope.card_get_payAmount,//售卡金额
+					//'force':$rootScope.SubmitOrderInfo;
+				};
+				$.ajax({
+
+				     type: 'POST',
+
+				     url: $scope.RequestUrl ,
+
+				    data: $scope.Parameter ,
+
+				    success: function(data){
+				    	console.log(data);
+				    	// 用户来源格式待修改  返回成功才可以10-12
+				    } ,
+
+				});
+			}
 		}
 	
 		// 售卡人列表
 			$rootScope.CustomerName(1)
 
 			// console.log($rootScope.orderSourceInfoItme)
+
+		
+		
+
 }])

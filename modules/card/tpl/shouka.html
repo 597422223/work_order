@@ -106,8 +106,8 @@
                                <li><input type="text" name="" id="" value="{{senderPhone}}" /></li>
                                <li><input type="text" name="" id="" value="{{senderName}}" /></li>
                                <li>
-                                   <select name=""   >
-                                       <option value="" ng-repeat='items in CarPlateNumberType'>{{items}}</option>
+                                   <select name="">
+                                       <option value="" ng-selected='$index == 0' ng-repeat='items in CarPlateNumberType'>{{items}}</option>
                                    </select>
                                    <input type="text" name="" id="" value="{{plateNumber}}" />
                                </li>
@@ -131,7 +131,7 @@
                        </div>
                    </div>
                    <div class="pay_cardwin_btn">
-                       <span class="pay_cardwin_button">确定</span>
+                       <span class="pay_cardwin_button" ng-click='shoukaPopSure()'>确定</span>
                    </div>
                </div>
                
