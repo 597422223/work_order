@@ -58,6 +58,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/card/tpl/card.html',
+			 resolve:{
+                    	  loadMyCtrl:function ($ocLazyLoad) {
+                    		  return $ocLazyLoad.load([
+                    		   	'modules/card/controllers/cardCtrl.js',
+                    		   ])
+                    	   }
+                       }
                 },
 				'index.tab-card.xianyou': {
                     templateUrl: 'modules/card/tpl/xianyou.html',
@@ -141,6 +148,14 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 'tblmain@index': {
                     templateUrl: 'modules/booking/tpl/booking.html',
+			resolve:{
+                    	  loadMyCtrl:function ($ocLazyLoad) {
+                    		  return $ocLazyLoad.load([
+                    		   	'modules/booking/controllers/BookingCtrl.js',
+                    		   	'modules/booking/bookingService/bookingService.js',
+                    		   ])
+                    	   }
+                       }
                 }
             }
 	  })
