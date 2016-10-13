@@ -18,6 +18,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	$rootScope.orderNo = $location.search().orderNo; 
 	$rootScope.token = RequestService.getCookie('token');
 	$rootScope.selectedReady = 1;
+	$rootScope.gongshiReady = 1;
 	if ($rootScope.orderNo) 
 	{  
 	    $scope.RequestUrl ='/customer/ordermaster/detail';
@@ -315,9 +316,16 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 	//已选配件数组
 	$rootScope.selectedData = [];
-
-
+    //项目添加
+    $rootScope.test=[];
+	//最终结果数组
+	$rootScope.newdata={'data':[]};
+	$rootScope.stop=0;
 	//新开工单重置
+	$scope.changeNum=function () {
+		$rootScope.stop=1;
+		console.log(1)
+	};
 	$rootScope.ResetAllData = function(){
 		$rootScope.selectedData.length = 0;
 		//ocation.url('/index/');  //设置为起始页
