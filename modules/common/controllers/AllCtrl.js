@@ -2,15 +2,16 @@ var app = angular.module('myApp');
 app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$location',function($scope,$rootScope,$http,RequestService,$location) {
 
 	// 10-11 韩盼盼 底部隐藏
-	// $rootScope.myShow=function(){
-	// 	// console.log(window.location.hash)
-	// 	if (window.location.hash == "#/index/card/xianyou"||window.location.hash == "#/index/card/shouka"||window.location.hash == "#/index/booking/nowBooking"||window.location.hash == "#/index/booking/newBooking") {
-	// 		$('.check_footer').hide()
-	// 	}else{
-	// 		$('.check_footer').show()
-	// 	}
+	$rootScope.myShow=function(){
+		// console.log(window.location.hash)
+		if (window.location.hash == "#/index/card/xianyou"||window.location.hash == "#/index/card/shouka"||window.location.hash == "#/index/booking/nowBooking"||window.location.hash == "#/index/booking/newBooking") {
+			$('.check_footer').hide()
+		}else{
+			$('.check_footer').show()
+		}
 			
-	// }
+	}
+
 	// end
 	
 

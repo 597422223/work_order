@@ -7,8 +7,8 @@
                 <label for="">会员卡</label>
                 <input type="text" value="{{vipNo}}" ng-model="vipNo" ng-keyup='VipKeyUp()' class="comInputWidth">
                 <ul class="list-cardorder list-cardmassage" ng-if='VipVal' ng-model="VipVal" style="display:block">
-                    <li ng-click='scan()' ng-repeat='item in ItemVIpNo track by $index  '>
-                        {{item}}
+                    <li ng-click='scan($index)' ng-repeat='item in ItemVIpNo track by $index  '>
+                        {{item.vipNo}}/{{item.plateNumber}}
                     </li>
                 </ul>
                 <span class="order-scan" ng-click='scan()'>扫描</span>

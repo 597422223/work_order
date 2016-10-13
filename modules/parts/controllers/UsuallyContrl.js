@@ -116,8 +116,13 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 		if(yi)
 		{
 
+
 			$scope.brandNameList[index]['status'] = 0; 
+			$scope.brandNameList[index]['fittingsId'] = 0;
 			$scope.brandNameList[index]['urgent'] = 0;
+			$scope.brandNameList[index]['orderPeople'] = $rootScope.pickPeople;
+			$scope.brandNameList[index]['twiceSalePeople'] = $rootScope.pickPeople;
+			$scope.brandNameList[index]['putoutNum'] = 0;
 			$rootScope.selectedData.push( $scope.brandNameList[index]);
 			$scope.AddSelectedArr.push(index);
 		}

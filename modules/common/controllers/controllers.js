@@ -1,10 +1,16 @@
 var app = angular.module('myApp');
 app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','myService',function($scope,$rootScope,$http,RequestService,myService) {
-
-
 	//$rootScope.vipNo = 12345678;
 	//根据会员账号查找客户信息
-	$scope.scan = function(){
+	$scope.scan = function(index){
+
+		//获取vipNop和plateNumber
+		var vipNoplateNumber = [];
+		var vipNoplateNumber = $('.list-cardmassage li').eq(index).text().split('/');
+		$scope.vipNo = vipNoplateNumber[0].trim();
+		$scope.plateNumber = vipNoplateNumber[1].trim();
+
+
 		if($scope.vipNo)
 		{	
 			$rootScope.ResetAllData(); //清空配件所有数据
@@ -12,6 +18,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 			$scope.Parameter = $.param({
 				'token':$rootScope.token,
 				'vipNo':$scope.vipNo,
+				'plateNumber':$scope.plateNumber,
 			});
 			$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
 			$scope.data.success(function(data) {
@@ -70,6 +77,8 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 		}
 		
 		$scope.VipVal = false;
+
+	
 	}
 	
 	//违章、年检、保险、保养
@@ -170,7 +179,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 			}
 			else
 			{
-				alert('不存在违章信息');
+				//alert('不存在违章信息');
 			}
 		});
 	}
@@ -189,15 +198,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 			$scope.data.success(function(data) {
 				if( data.status == 1 )
 				{
-					$scope.ItemVIpNo = [];
-					$.each(data.data,function(index,value){
-						$.each(data.data[index],function(index,value){
-							if( index == 'vipNo' )
-							{
-								$scope.ItemVIpNo.push(value);
-							}
-						})
-					})
+					$scope.ItemVIpNo  = data.data; 
 					$scope.VipVal = true;
 				}
 				else
@@ -291,6 +292,8 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 		})
 		
 	}
+
+
 	
 	//初始化信息
 	$scope.$on('$viewContentLoaded', function() {  
@@ -307,9 +310,9 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
     var unmInedx;
     $scope.RequestUrl ='/customer/project/quick';
     $scope.Parameter = $.param({
-      "token":"3c25a936a9e06c16f62cecb0d13c6282",
-      'localCarId':18,
-      'carDis':2.4,
+      "token":$rootScope.token,
+      'localCarId':$rootScope.localCarId,
+      'carDis':$rootScope.localCarId,
     });
     $scope.data=RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
     $scope.data.success(function(data){
@@ -328,7 +331,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
         }
     });
   }
-  fastbill();
+
   
 }]);
 

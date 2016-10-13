@@ -53,19 +53,20 @@
                    <td>
                       <select>
                         <option>无</option>
-                        <option ng-click='selectedModify($index,"orderPeople",orderSourceInfoItme.id)' ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
+                        <option ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
                       </select>
                    </td>
                    <td>
                       <select>
                         <option>无</option>
-                        <option ng-selected='SelectedList.orderPeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
+                        <option ng-selected='SelectedList.twiceSalePeople == orderSourceInfoItme.id' value='{{orderSourceInfoItme.id}}' ng-repeat='orderSourceInfoItme in orderSourceInfoItme'>{{orderSourceInfoItme.name}}</option>
                       </select>
+                      
                    </td>
                    <td>
                    <input value="{{SelectedList.desc}}" name="" ng-model='SelectedList.desc' ng-keyup='selectedModify($index,"desc",SelectedList.desc)'></td>
                    <td class="overtime_red" ng-if='SelectedList.urgent == 1'>急件出入库</td>
-                   <td class="overtime_red" ng-if='SelectedList.urgent == 0'>{{SelectedList.status}}（0/{{SelectedList.buyNum}}）</td>
+                   <td class="overtime_red" ng-if='SelectedList.urgent == 0'>{{SelectedList.status}}（{{SelectedList.putoutNum}}/{{SelectedList.buyNum}}）</td>
 
 
                    <td class="overtime_blue" ng-if='SelectedList.urgent == 1'>

@@ -161,11 +161,11 @@ $(function(){
 	  		$(self).next().css("display","none");
 	      }
 	      setTimeout(hiddenColor,200);
-		})*/
+		})
 		 $(".list-cardmassage li").click(function(){
-	  	    $(this).parent().prev().val($(this).text());
-	  	    //$(this).parent().css("display","none");
-	  	  });
+	  	    $(this).parent().prev().val(111);
+	  	    $(this).parent().css("display","none");
+	  	  });*/
 /*******************操作结束******************************/ 
 
 	var page = {
