@@ -59,6 +59,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'modules/card/tpl/card.html',
                     controller: 'cardCtrl',
                       resolve:{
+
                     	  loadMyCtrl:function ($ocLazyLoad) {
                     		  return $ocLazyLoad.load([
                     		   	'modules/card/controllers/cardCtrl.js',
@@ -151,6 +152,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
                 'tblmain@index': {
                     templateUrl: 'modules/booking/tpl/booking.html',
                     resolve:{
+
                     	  loadMyCtrl:function ($ocLazyLoad) {
                     		  return $ocLazyLoad.load([
                     		   	'modules/booking/controllers/BookingCtrl.js',

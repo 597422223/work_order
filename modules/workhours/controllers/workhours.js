@@ -1,6 +1,5 @@
 var app = angular.module('myApp');
 app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'myService',function($scope,$rootScope,$http,workServicUserInfo,myService) {
-    $rootScope.newdata={'data':[]};//最终结果数组
    var newdataLen=[];//项目名称和项目ID
    var Arry=[];//模糊判断数组
    var jsondata={};//去重对象
@@ -18,35 +17,24 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 			'token':$rootScope.token,
 			'orderNo':$rootScope.orderNo,
 		});
-		$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
-		$scope.data.success(function (data) {
-			if (data.status==1){
-				console.log($rootScope.orderNo);
-				$scope.agoName=data.data;
-			}
-		})
+		if($rootScope.gongshiReady == 1 )
+		{
+			$scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
+			$scope.data.success(function (data) {
+				if (data.status==1){
+					$.each(data.data,function (key,value) {
+						$rootScope.newdata.data.push(value);
+						$scope.howMany=$rootScope.newdata.data.length
+					});
+				}
+			});
+			$rootScope.gongshiReady = 0;
+		}
 	}else {
-	}
-	//其他页面传来的数据
-	function Passsuccess() {
 
-				$.each(myService.putOut(),function (k,v) {
-					$rootScope.newdata.data.push(v);
-				});
-				$.each(myService.get(),function (k,v) {
-					$rootScope.newdata.data.push(v);
-				});
-			}
-	Passsuccess();
-	$scope.shanchu=function (index) {
-		$rootScope.newdata.data.splice(index,1);
-	};
-	myService.delIn($rootScope.newdata.data);
-	$scope.names=myService.delOut();
-	//end
+	}
 	//点击搜索
 	$scope.addbtn=function(){
-   	console.log($rootScope.test);
 	   $scope.RequestUrl ='/customer/project/query';
 	   $scope.Parameter = $.param({
 		   'token':$rootScope.token,
@@ -55,7 +43,6 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	   $scope.data =myService.ReturnData($scope.RequestUrl,$scope.Parameter);
 	   $scope.data.success(function(data){
 	   		if(data.status==1){
-	   			$scope.addNames=$rootScope.test;
 				$.each(data.data.list, function (i, v){					
 					if($scope.entryName==v.projectName||$scope.entryName==v.projectID){
 						newdataLen.push(v.projectName+v.projectID);
@@ -73,20 +60,33 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 				if(unmInedx==0){
 					alert("项目已添加");
 				}
-				$scope.names=$rootScope.newdata.data;
 	   		}
 
 		}	   	
    	)};
+	//其他页面传来的数据
+		function Passsuccess() {
+			$scope.howMany=$rootScope.newdata.data.length
+			$.each($rootScope.newdata.data, function(k,n) {
+				if(!jsondata[n.projectID]){
+					$rootScope.test.push(n);
+					jsondata[n.projectID]=1;
+				}
+			});
+			$scope.names=$rootScope.newdata.data;
+		}
+		Passsuccess();
+	$scope.shanchu=function (index) {
+		$rootScope.newdata.data.splice(index,1);
+		console.log(1);
+	};
+       //数据修改
+	$rootScope.workHours = function(index,name,value)
+	{
+		$rootScope.newdata.data[index][name]=value;
+		console.log(name);
+	}
    	//END
-
-    //
-	// $scope.Worksearch=function(){
-	//   	var data=workServicUserInfo.projectName();
-	//   	data.success(function(data){
-	//   		console.log(data);
-	//   	});
-	// };
 
     //联想    
     $scope.workeyup = function(){
@@ -137,7 +137,6 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 							{
 								Arry.push(value);
 								dataname.push(data.data.list[i]);
-								// console.log(Arry);
 								$.each(Arry, function(k,v) {
 									if(Arry[k].indexOf($scope.entryName)!=-1){
 										if(dataname[k]!=undefined){
@@ -193,7 +192,7 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	var projectTypeId=function () {
 		var name=[];
 		var num=[];
-		$rootScope.test=[];
+
 		$scope.RequestUrl ='/customer/configure/project';
 		$scope.Parameter = $.param({
 			'token':$rootScope.token
@@ -224,20 +223,20 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 							dataname.push(data.data.list[Index]);
 							$.each(dataname, function(k,n) {
 								if(!jsondata[n.projectID]){
-									TypeArry.push(n);
-									$rootScope.test.push(n);
+									$rootScope.newdata.data.push(n);
+									console.log($rootScope.newdata.data);
 									jsondata[n.projectID]=1;
 								}
 							});
-							myService.putIn(TypeArry);
+
 						})
 					});
-				}
+				};
+				$scope.projectTy=myService.pass();
 			}
 		});
 	};
 	projectTypeId();
-	$scope.projectTy=myService.pass();
 
   // 韩盼盼 当前预约数据添加10-9
 	// $scope.projectAdd=myService.get().projectAdd;
