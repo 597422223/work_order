@@ -107,13 +107,12 @@
                                <li><input type="text" name="" id="" value="{{senderName}}" /></li>
                                <li>
                                    <select name="">
-                                       <option value="">正式</option>
-                                       <option value="">临时</option>
+                                       <option value="" ng-selected='$index == 0' ng-repeat='items in CarPlateNumberType'>{{items}}</option>
                                    </select>
                                    <input type="text" name="" id="" value="{{plateNumber}}" />
                                </li>
                                <li><input type="text" name="" id="" placeholder="不选系统随机选择" /></li>
-                               <li><input type="text" name="" id="" ng-model="card_get_payAmount" /></li>
+                               <li><input type="text" name="" id="" ng-model="card_get_payAmount" disabled /></li>
                                <li ng-hide="hideTime" >
                                <!-- ng-hide="{{item.projectCategory}}=='储值卡'" -->
                                    <input type="text" name="datepicker"  class="datetimepicker today" value=""   style="color:#e83f3c">
@@ -132,7 +131,7 @@
                        </div>
                    </div>
                    <div class="pay_cardwin_btn">
-                       <span class="pay_cardwin_button">确定</span>
+                       <span class="pay_cardwin_button" ng-click='shoukaPopSure()'>确定</span>
                    </div>
                </div>
                

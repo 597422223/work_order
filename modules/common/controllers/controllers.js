@@ -229,7 +229,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 				//车辆颜色
 				$scope.CarColorItime =data.data.color;
 				//车牌类型
-				$scope.CarPlateNumberType =data.data.plateNumberType;
+				$rootScope.CarPlateNumberType =data.data.plateNumberType;
 				//客户来源
 				$scope.CustomerorderSource =data.data.orderSource;
 				//保险投保公司
