@@ -19,7 +19,6 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 				{
 					$.each(data.data[0],function(index,value){
 						$rootScope[index] = value;
-
 					})
 
 					$scope.VCITypesChecked = $scope.vCIType.split(",");
@@ -39,6 +38,8 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 					$.each(data.data[0].history,function(index,value){
 						if( index == 'orderSourceId' )
 						{
+							$rootScope.orderSourceId1 = value;
+
 							if( value == 0 )
 							{
 								value = '';
@@ -58,7 +59,6 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 						}
 						$rootScope[index] = value;
 					})
-					
 					//违章、年检、保险、保养
 					$rootScope.IllegalAll($scope.localCarId,$scope.customerId);
 				}

@@ -24,9 +24,6 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 						   	'modules/common/controllers/controllers.js',
 						   	'modules/workhours/workservice/workservice.js',
 						   	'modules/workhours/controllers/workhours.js',
-						   	'modules/booking/controllers/BookingCtrl.js',
-						   	'modules/booking/bookingService/bookingService.js',
-						   	'modules/card/controllers/cardCtrl.js',
 						   ])
 					   }
 				   }
