@@ -25,4 +25,22 @@
   $('.ctr-off').click(function(){
     $('.choose-project-pop').hide();
   })
-    
+$(".categroy input").focus(function(){
+  $(this).siblings(".tit-search-xia").css("display","block");
+});
+$('.categroy input').blur(function(){
+  var self=this;
+  var hiddenColor=function (){
+    $(self).siblings(".tit-search-xia").css("display","none");
+  }
+  setTimeout(hiddenColor,200);
+});
+
+$(".tit-search-xia li").click(function(){
+  $(this).parent().prev().val($(this).text());
+  $(this).parent().css("display","none");
+});
+$(document).on("click",".categroy .tit-search-xia li ",function(){
+  $(this).parent().prev().val($(this).text());
+  $(this).parent().css("display","none");
+});

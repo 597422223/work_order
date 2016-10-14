@@ -17,31 +17,40 @@ app.controller("FastCtrl",['$scope','$rootScope','$http','RequestService',"mySer
 			$scope.fastName = data.data.list;
 
 			$scope.fast_project = function (index) {
-				var unm=data.data.list[index];
+				// var unm=data.data.list[index];
 				fastNameary.push(data.data.list[index].projectName);
 					var isActive = 'isActive' + index;
 					if ($rootScope[isActive]) {
 						$rootScope[isActive] = '';
 						$rootScope.haveClass = 0;
+						$(document).on("click","#FastBillin .list-FastBilling",function () {
+							var num=parseInt($(this).index());
+							fastAry.splice(num,1);
+							console.log(fastAry);
+						});
 					}
 					else {
 						$rootScope[isActive] = 'list-border';
 						$rootScope.haveClass = 1;
+						$(document).on("click","#FastBillin .list-FastBilling",function () {
+							var num=parseInt($(this).index());
+							$.each(fastNameary, function (key, value) {
+								if (!jsondata[fastNameary[key]]) {
+									fastAry.push(data.data.list[num]);
+									jsondata[fastNameary[key]] = 1;
+								}});
+							// if ($(this).hasClass("list-border")){
+							// 	console.log(1)
+							// }else {
+							//
+							// 	console.log(2)
+							// }
+							console.log(fastAry);
+						});
 					}
 					if ($rootScope.haveClass = 1) {
 						fastAry.splice(index, 1);
 					}
-					$(document).on("click","#FastBillin .list-FastBilling",function (index) {
-						// console.log($(this).hasClass("list-border"));
-						if ($(this).hasClass("list-border")){
-							$.each(fastNameary, function (key, value) {
-								if (!jsondata[fastNameary[key]]) {
-									fastAry.push(unm);
-									jsondata[fastNameary[key]] = 1;
-								}});
-							console.log(fastAry);
-						}
-					});
 
 					// myService.set($rootScope.fastAry);
 			}

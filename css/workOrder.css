@@ -97,3 +97,10 @@
     top: 29px;
     left: 114px;
 }
+.categroy{
+    position: relative;
+}
+.categroy .tit-search-xia{
+    left: 43px;
+    width: 167px;
+}
