@@ -144,6 +144,13 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 	  .state('index.tab-parts.stock',{ //配件--库存配件
 	  	url:'/stock',
 		templateUrl: 'modules/parts/tpl/stock.html',
+		resolve:{
+			  loadMyCtrl:function ($ocLazyLoad) {
+				  return $ocLazyLoad.load([
+				   	'modules/parts/controllers/StockContrl.js',
+				   ])
+			   }
+		   }
 	  })
 	  .state('index.tab-book',{
 	  		url: '/booking',

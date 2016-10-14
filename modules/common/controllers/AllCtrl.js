@@ -29,6 +29,12 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 	$rootScope.token = RequestService.getCookie('token');
 	$rootScope.selectedReady = 1;
 	$rootScope.gongshiReady = 1;
+	//获取当前时间
+	//myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+	//myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+	//myDate.getDate();        //获取当前日(1-31)
+	var myDate = new Date();
+	$rootScope.getInTime = myDate.getFullYear()+'-'+parseInt(myDate.getMonth()+1)+'-'+myDate.getDate();
 
 
 
