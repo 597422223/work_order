@@ -31,9 +31,9 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
 			  'tbl@index': {
 				  templateUrl: 'modules/common/tpl/tbl.html'
 			  },
-			  // 'tblmain@index': {
-				 //  templateUrl: 'modules/fastbill/tpl/fastbill.html'
-			  // }
+			  'tblmain@index': {
+				  templateUrl: 'modules/fastbill/tpl/fastbill.html'
+			  }
 		  }
 	  })
 	  .state('index.tab-order',{

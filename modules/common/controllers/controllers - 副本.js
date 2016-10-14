@@ -64,11 +64,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 								value = 'ewvev';
 							}
 						}
-						if( index != 'orderNo' )
-						{
-							$rootScope[index] = value;
-						}
-						
+						$rootScope[index] = value;
 					})
 					//违章、年检、保险、保养
 					$rootScope.IllegalAll($scope.localCarId,$scope.customerId);
@@ -234,7 +230,7 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 				//车辆颜色
 				$scope.CarColorItime =data.data.color;
 				//车牌类型
-				$rootScope.CarPlateNumberType =data.data.plateNumberType;
+				$scope.CarPlateNumberType =data.data.plateNumberType;
 				//客户来源
 				$scope.CustomerorderSource =data.data.orderSource;
 				//保险投保公司

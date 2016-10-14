@@ -10,7 +10,8 @@ $(function(){
 		});
 	$('.qx-book-ture').click(function(){
 		$('.service-list li').remove()
-		$(".qx-book-pop").css("display","none");
+		$(".qx-book-pop").hide();
+		$('.book-time-controlClose').hide()
 	})
 	$(".qx-book-false").click(function(){
 		$(".qx-book-pop").css("display","none");

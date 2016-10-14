@@ -43,37 +43,33 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 			$scope.SelectedList = Selected_list.list;
 
 			//向GoodArr数组提交
-			console.log($rootScope.selectedData);
-			// if( $rootScope.selectedData.length >= 1 )
-			// {
-			// 	$rootScope.SubmitGoodInfo (); //配件(good)参数
-			// 	$.each($rootScope.selectedData,function(index,value){
-			// 		$rootScope.GoodArrList['fittingsId']= $rootScope.selectedData[index]['fittingsId'] ;   
-			// 		$rootScope.GoodArrList['goodName'] = $rootScope.selectedData[index]['goodsName'] ; 
-			// 		$rootScope.GoodArrList['goodsId']= $rootScope.selectedData[index]['goodsId'];  
-			// 		$rootScope.GoodArrList['goodCode']= $rootScope.selectedData[index]['goodsCode'];  
-			// 		$rootScope.GoodArrList['brandId']= $rootScope.selectedData[index]['brandId'];  
-			// 		$rootScope.GoodArrList['model'] = $rootScope.selectedData[index]['model']; 
-			// 		$rootScope.GoodArrList['brandName']= $rootScope.selectedData[index]['brandName']; 
-			// 		$rootScope.GoodArrList['wp']= $rootScope.selectedData[index]['wp'];  
-			// 		$rootScope.GoodArrList['price']= $rootScope.selectedData[index]['price'];  
-			// 		$rootScope.GoodArrList['purchasePrice']= $rootScope.selectedData[index]['purchasePrice'];  
-			// 		$rootScope.GoodArrList['buyNum']= $rootScope.selectedData[index]['buyNum']; 
-			// 		$rootScope.GoodArrList['discountPrice']= $rootScope.selectedData[index]['discountPrice'];  
-			// 		$rootScope.GoodArrList['orderPeople']= $rootScope.selectedData[index]['orderPeople'];  
-			// 		$rootScope.GoodArrList['twiceSalePeople']= $rootScope.selectedData[index]['twiceSalePeople']; 
-			// 		$rootScope.GoodArrList['desc']= $rootScope.selectedData[index]['desc']; 
-			// 		$rootScope.GoodArrList['urgent']= $rootScope.selectedData[index]['urgent'];
-			// 		$rootScope.GoodArrList['putoutNum']= $rootScope.selectedData[index]['putoutNum']; 
-			// 		$rootScope.GoodArr.push($rootScope.GoodArrList);
-			// 		console.log($rootScope.GoodArr);
-			// 		return;
-
-			// 	})
-			// }
+			if( $rootScope.selectedData.length >= 1 )
+			{
+				$rootScope.SubmitGoodInfo (); //配件(good)参数
+				$.each($rootScope.selectedData,function(index,value){
+					$rootScope.GoodArrList['fittingsId']= $rootScope.selectedData[index]['fittingsId'] ;   
+					$rootScope.GoodArrList['goodName'] = $rootScope.selectedData[index]['goodsName'] ; 
+					$rootScope.GoodArrList['goodsId']= $rootScope.selectedData[index]['goodsId'];  
+					$rootScope.GoodArrList['goodCode']= $rootScope.selectedData[index]['goodsCode'];  
+					$rootScope.GoodArrList['brandId']= $rootScope.selectedData[index]['brandId'];  
+					$rootScope.GoodArrList['model'] = $rootScope.selectedData[index]['model']; 
+					$rootScope.GoodArrList['brandName']= $rootScope.selectedData[index]['brandName']; 
+					$rootScope.GoodArrList['wp']= $rootScope.selectedData[index]['wp'];  
+					$rootScope.GoodArrList['price']= $rootScope.selectedData[index]['price'];  
+					$rootScope.GoodArrList['purchasePrice']= $rootScope.selectedData[index]['purchasePrice'];  
+					$rootScope.GoodArrList['buyNum']= $rootScope.selectedData[index]['buyNum']; 
+					$rootScope.GoodArrList['discountPrice']= $rootScope.selectedData[index]['discountPrice'];  
+					$rootScope.GoodArrList['orderPeople']= $rootScope.selectedData[index]['orderPeople'];  
+					$rootScope.GoodArrList['twiceSalePeople']= $rootScope.selectedData[index]['twiceSalePeople']; 
+					$rootScope.GoodArrList['desc']= $rootScope.selectedData[index]['desc']; 
+					$rootScope.GoodArrList['urgent']= $rootScope.selectedData[index]['urgent'];
+					$rootScope.GoodArrList['putoutNum']= $rootScope.selectedData[index]['putoutNum']; 
+					$rootScope.GoodArr.push($rootScope.GoodArrList);
+					//console.log($rootScope.GoodArr);
+				})
+			}
 
 	}
-
 
 
 	if( $rootScope.orderNo &&  $rootScope.selectedReady == 1)  //判断有无工单号
@@ -89,7 +85,6 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 			if( data.status == 1 )
 			{
 				$rootScope.selectedData = data.data;
-				alert($rootScope.orderNo);
 				$rootScope.searchSelectData();
 				$rootScope.selectedReady = 0;
 			}
@@ -109,6 +104,8 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 		}
 
 	}
+
+	
 
 
 

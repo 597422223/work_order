@@ -3,7 +3,7 @@
 <script type="text/javascript" src="modules/booking/js/newBooking.js"></script>
 <!-- 新建预约 -->
 <div class="book-content2 mark-secondContent">
-    <div class="Appointment_time">
+    <div class="Appointment_time" >
         <label for="">预约到店时间：</label>
         <input type="text" name="AppointmentTime" value="" class="AppointmentTime" placeholder="请选择时间">
     </div>
@@ -18,17 +18,51 @@
         <label>预约备注：</label>
         <textarea name="" id=""></textarea>
     </div>
-    <div class="Appointment_project">
-        <label>预约服务项目：</label>
-        <input type="button" name="新增其他" value="新增其他">
-        <div class="FastBilling clearfix" id="FastBillingBooking">
-            <div class="list-FastBilling" ng-repeat='items in newProject'  ng-click='projectClick($index)'  ng-class='{{"isActive"+$index}}'>
-                <p id={{items.projectID}}>{{items.projectName}}</p>
-                <i></i>
+      <div class="book-service">
+        <div class="service-tit">
+            预约服务内容：
+            <span class="add-book" ng-click='neWBookingAdd()'>增加</span>
+        </div>
+        <div class="service-list">
+            <ol>
+               <!--  <li ng-repeat="items in projectAdd">
+                    <span class="service-con" id={{items.projectID}}>{{items.projectName}}</span> <span class="book-blue delete-book">删除</span>
+                </li> -->
+               <!--  <li>
+                    <span class="service-con">更换刹车片</span> <span class="book-blue delete-book">删除</span>
+                </li> -->
+            </ol>
+        </div>
+    <div>
+    <a href="javascript:void(0)" class="btnRed newBookSave" ng-click="newBookingSave()">保存</a>
+    </div>
+</div>
+
+<!-- 新增预约弹窗 -->
+<div class="newAddBespeak-pop  popOuter" >
+    <div class="mask"></div>
+    <div class="inner">
+        <div class="ctr-off">X关闭</div>
+        <p>新增预约服务</p>
+        <div class="pop-conten">
+            <div class="FastBilling clearfix newAddBespeak_con"  >
+                <div class="list-FastBilling"   ng-repeat="items in project" ng-click='projectClick1($index)'  ng-class='{{"isActive"+$index}}'>
+                    <p  id={{items.projectID}} >{{items.projectName}}</p>
+                    <i></i>
+                </div>
+            </div>
+
+<!-- 
+            <div class="tab-order-module" >
+                <div class="FastBilling mui-list-flex clearfix" id="FastBillingOrder">
+                    <div class="list-FastBilling" ng-class='xuanzhong'  ng-repeat="x in fastName" ng-click='fast_project($index)' ng-model="xuanzhong">
+                        <p>{{x.projectName}}</p>
+                        <span>{{x.manHour}}时{{(x.manHour)*(x.manHourPrice)}}元</span>
+                        <i></i>
+                    </div> -->
+            <div class="newAddBespeakbtn">
+                确认增加
             </div>
         </div>
-    </div>
-    <div>
-    <a href="javascript:void(0)" class="btnRed newBookSave">保存</a>
     </div>
 </div>
