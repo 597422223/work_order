@@ -311,13 +311,13 @@ app.controller('workconl', ["$scope",'$rootScope',"$http","workServicUserInfo",'
 	$rootScope.carPicerFun();
 
 	if($rootScope.carPrice){
-		if ($rootScope.priceTypes.minPrice<$rootScope.carPrice<=$rootScope.priceTypes.maxPrice){
+		if (0<$rootScope.carPrice<=50){
 			$.each($rootScope.newdata.data,function (kay,value) {
 				$rootScope.newdata.data[kay].multiple=$rootScope.priceTypes.multiple;
 				$rootScope.muitiple=1;
 			})
 		}else {
-			if ($rootScope.priceTypes.minPrice<$rootScope.carPrice<=$rootScope.priceTypes.maxPrice) {
+			if (50<$rootScope.carPrice<=100) {
 				$.each($rootScope.newdata.data,function (kay,value) {
 					$rootScope.newdata.data[kay].multiple=2
 				})
