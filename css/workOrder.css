@@ -24,8 +24,7 @@
   position: absolute;
       margin-left: -7px;
 }
-.list-FastBilling{float: left;margin-right:45px;width: 193.5px !important;padding: 0 10px;margin-bottom: 20px !important;}
-.tab-order-module .FastBilling{width: 2000px;}
+.list-FastBilling{float: left;margin-right:39px;width: 193.5px !important;padding: 0 10px;margin-bottom: 20px !important;}
 
 .tab-module .tab-order-module {padding-bottom: 10px !important;}
 
@@ -97,4 +96,11 @@
     color: #000;
     top: 29px;
     left: 114px;
+}
+.categroy{
+    position: relative;
+}
+.categroy .tit-search-xia{
+    left: 43px;
+    width: 167px;
 }
