@@ -1,15 +1,15 @@
 <!--modules/parts/tpl/selectde.html-->
 
 <!-- 已选配件 -->
-<div class="tab-parts-module1 overtime-content1 mark-secondContent" ng-controller='SelectedPart'  style="display:block"  data-ng-init="dothis()">
+<div class="tab-parts-module1 overtime-content1 mark-secondContent" ng-controller='SelectedPart'  style="display:block">
    <div class="content1-tit">
        <span ng-if='NoOrderNo == 0'>已选<i class="overtime-red">0</i>个项目</span>
        <span ng-if='NoOrderNo == 1'>已选<i class="overtime-red">{{selectedLength}}</i>个项目</span>
        <span ng-if='NoOrderNo == 0'>金额<i class="overtime-red AllPrice" >0</i></span>
        <span ng-if='NoOrderNo == 1'>金额<i class="overtime-red AllPrice" >{{discountPrice}}</i></span>
-       <input type="text" value="" placeholder="输入编号/名称" class="apaceAdd">
+       <input type="text" value="{{SelectedFast}}" ng-keyup='SelectedFastF(SelectedFast)' ng-model='SelectedFast' placeholder="输入编号/名称" class="apaceAdd">
        <ul class="tit-search-xia2" id="tit-search-xia2">
-           <li>1880</li>
+           <li ng-click='ClickSelectFast($index)' ng-repeat='SelectedFastList in SelectedFastList'>{{SelectedFastList.goodsId}}/{{SelectedFastList.brandName}}/{{SelectedFastList.goodsName}}/{{SelectedFastList.model}}</li>
        </ul>
        <span class="overtime-add">快捷添加</span>
        <span >扫码出库</span>
@@ -83,11 +83,11 @@
        </table>
    </div>
    <!-- page control -->
-   <div class="ep-pages"> 
+   <!-- <div class="ep-pages"> 
          <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
          <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
          <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
-    </div>
+    </div> -->
 </div>
 
 

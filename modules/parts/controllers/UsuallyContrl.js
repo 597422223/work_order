@@ -100,12 +100,12 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 	
 	//添加新配件到已选
 	$scope.AddSelectedArr = [];  //将已添加的配件下标加入数组
-	$rootScope.AddSelectedData = function(index)
+	$scope.AddSelectedData = function(index)
 	{
 		var yi = true;
 		$.each($scope.AddSelectedArr,function(xia,value){
 
-			if( index == value )
+			if( index == $scope.AddSelectedArr[xia] )
 			{
 				$scope.brandNameList[index]['buyNum'] =parseInt($scope.brandNameList[index]['buyNum'])+  1;
 				$scope.brandNameList[index]['discountPrice'] =  $scope.brandNameList[index]['buyNum'] *$scope.brandNameList[index]['goodsSalePrice'] ;
@@ -115,8 +115,6 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 		
 		if(yi)
 		{
-
-
 			$scope.brandNameList[index]['status'] = 0; 
 			$scope.brandNameList[index]['fittingsId'] = 0;
 			$scope.brandNameList[index]['urgent'] = 0;
@@ -128,7 +126,6 @@ app.controller('UsuallyContrl', ['$scope','$rootScope','$http','RequestService',
 		}
 		
 	}
-
 
 }]);
 

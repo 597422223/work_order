@@ -1,5 +1,7 @@
 var app = angular.module('myApp');
 app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','myService',function($scope,$rootScope,$http,RequestService,myService) {
+	
+
 	//$rootScope.vipNo = 12345678;
 	//根据会员账号查找客户信息
 	$scope.scan = function(index){
@@ -9,6 +11,23 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 		var vipNoplateNumber = $('.list-cardmassage li').eq(index).text().split('/');
 		$scope.vipNo = vipNoplateNumber[0].trim();
 		$scope.plateNumber = vipNoplateNumber[1].trim();
+
+
+
+		//清空已选配件数据
+		$rootScope.selectedData.length=0;
+		if($rootScope.selectedData.length >=1) //selectedData数组有数据
+		{
+			$rootScope.NoOrderNo = 1;
+			$rootScope.searchSelectData();
+		}
+		else //selectedData数组无数据
+		{
+			$rootScope.NoOrderNo = 0;
+		}
+
+
+
 
 
 		if($scope.vipNo)
@@ -35,37 +54,43 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 							$scope.VCITypesAll = this.value;
 							if( $scope.VCITypesCheckedVal  == $scope.VCITypesAll )
 							{
-									$(this).prop('checked','true');
+								$(this).prop('checked','true');
 							}
 						})
 					})
 
+					if( data.data[0].history)
+					{
+						//送修人信息
+						$.each(data.data[0].history,function(index,value){
+							if( index == 'orderSourceId' )
+							{
+								$rootScope.orderSourceId1 = value;
 
-					//送修人信息
-					$.each(data.data[0].history,function(index,value){
-						if( index == 'orderSourceId' )
-						{
-							$rootScope.orderSourceId1 = value;
-
-							if( value == 0 )
-							{
-								value = '';
+								if( value == 0 )
+								{
+									value = '';
+								}
+								if( value ==3 )
+								{
+									value = '员工';
+								}
+								if( value ==4 )
+								{
+									value = '老带新';
+								}
+								if( value ==7 )
+								{
+									value = 'ewvev';
+								}
 							}
-							if( value ==3 )
+							if( index != 'orderNo' )
 							{
-								value = '员工';
+								$rootScope[index] = value;
 							}
-							if( value ==4 )
-							{
-								value = '老带新';
-							}
-							if( value ==7 )
-							{
-								value = 'ewvev';
-							}
-						}
-						$rootScope[index] = value;
-					})
+							
+						})
+					}
 					//违章、年检、保险、保养
 					$rootScope.IllegalAll($scope.localCarId,$scope.customerId);
 				}
@@ -104,36 +129,39 @@ app.controller('commonCtrl', ['$scope','$rootScope','$http','RequestService','my
 					]	
 				}
 				//违章详情
-				$.each(data.data['wz'].wz_list,function(index,value){
-					var each_list = {};
-					$.each(data.data['wz'].wz_list[index],function(index,value){
-						if(	index == 'handled' )
-						{
-							if( value == 0 )
+				if( data.data['wz'].wz_list )
+				{
+					$.each(data.data['wz'].wz_list,function(index,value){
+						var each_list = {};
+						$.each(data.data['wz'].wz_list[index],function(index,value){
+							if(	index == 'handled' )
 							{
-								value='未处理';
+								if( value == 0 )
+								{
+									value='未处理';
+								}
+								if( value == 1 )
+								{
+									value='处理';
+								}
+								if( value == 2 )
+								{
+									value='未知';
+								}
 							}
-							if( value == 1 )
+							if(	index == 'code' )
 							{
-								value='处理';
+								if(value == '')
+								{
+									value='/';
+								}
 							}
-							if( value == 2 )
-							{
-								value='未知';
-							}
-						}
-						if(	index == 'code' )
-						{
-							if(value == '')
-							{
-								value='/';
-							}
-						}
-						each_list[index] = value;
+							each_list[index] = value;
+						})
+						wz_list.list.push(each_list);
 					})
-					wz_list.list.push(each_list);
-				})
-				$scope.wzlist = wz_list.list;
+					$scope.wzlist = wz_list.list;
+				}
 
 				//年检
 				$.each(data.data['inspection'].data,function(index,value){

@@ -17,29 +17,9 @@
                 </div>
                 <div class="list-sorts-items list-stock-items">
                     <ul class="clearfix">
-                        <li><a href="javscript:;">全部</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
-                        <li><a href="javscript:;">车灯照片</a></li>
-                        <li><a href="javscript:;">轮胎</a></li>
-                        <li><a href="javscript:;">蓄电</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
-                        <li><a href="javscript:;">车灯照片</a></li>
-                        <li><a href="javscript:;">轮胎</a></li>
-                        <li><a href="javscript:;">蓄电</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
+                        <li ng-click='StockLeiXingF()'>全部</li>
+                        <li ng-click='StockLeiXingF(StockFenlei)' ng-repeat='StockFenlei in StockFenlei'>{{StockFenlei}}</li>
+                        
                     </ul>
                 </div>
                 <div class="list-sorts-more list-stock-more">
@@ -58,19 +38,9 @@
                 </div>
                 <div class="list-type-items list-stock-items">
                     <ul class="clearfix">
-                        <li><a href="javscript:;">全部</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
-                        <li><a href="javscript:;">车灯照片</a></li>
-                        <li><a href="javscript:;">轮胎</a></li>
-                        <li><a href="javscript:;">蓄电</a></li>
-                        <li><a href="javscript:;">全部</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
+                        <li ng-click='StockBrand()'>全部</li>
+                        <li ng-click='StockBrand(StockLeiXing.standardName)' ng-repeat='StockLeiXing in StockLeiXing'>{{StockLeiXing.standardName}}</li>
+                        
                     </ul>
                 </div>
                 <div class="list-type-more list-stock-more">
@@ -89,18 +59,9 @@
                 </div>
                 <div class="list-brand-items list-stock-items">
                     <ul class="clearfix">
-                        <li><a href="javscript:;">全部</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
-                        <li><a href="javscript:;">车灯照片</a></li>
-                        <li><a href="javscript:;">轮胎</a></li>
-                        <li><a href="javscript:;">蓄电</a></li>
-                        <li><a href="javscript:;">润滑油</a></li>
-                        <li><a href="javscript:;">刹车系统</a></li>
-                        <li><a href="javscript:;">火花塞</a></li>
-                        <li><a href="javscript:;">雨刷</a></li>
+                        <li ng-click='StockKuCun()'>全部</li>
+                        <li ng-click='StockKuCun(StockPingPai.brandName)' ng-repeat='StockPingPai in StockPingPai'>{{StockPingPai.brandName}}</li>
+                        
                     </ul>
                 </div>
                 <div class="list-brand-more list-stock-more">
@@ -129,38 +90,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
-                    
-                    <tr>
-                        <td>空气过滤器</td>
-                        <td>豹王</td>
-                        <td>TDDDFDF2</td>
-                        <td>299.00</td>
-                        <td ><input type="text" name="" value='111' class="overtime_red"></td>
-                        <td>1234</td>
-                        <td>200</td>
+                    <tr ng-repeat='StockStock in StockStock'>
+                        <td>{{StockStock.goodsName}}</td>
+                        <td>{{StockStock.brandName}}</td>
+                        <td>{{StockStock.model}}</td>
+                        <td>{{StockStock.purchasePrice}}</td>
+                        <td ><input type="text" name="" value='{{StockStock.price}}' class="overtime_red"></td>
+                        <td>{{StockStock.storageLocation}}</td>
+                        <td>{{StockStock.storages}}</td>
                         <td class="ctr-num-td">
                             <div class="ctr-nunm">
                                 <span class="moveBtn">-</span>
-                                <input type="text" value="2" class="showNum">
+                                <input type="text" value="{{StockStock.buyNum}}" class="showNum">
                                 <span class="addBtn">+</span>
                             </div>
                         </td>
                         <td>
                             <div class="ctr-add">
-                                <span class="overtime_blue">添加</span>
-                                <span class="overtime_red">全车配采购</span>
+                                <span class="overtime_blue" ng-click='AddSelectedData($index)'>添加</span>
+                                <!-- <span class="overtime_red">全车配采购</span> -->
                             </div>
                         </td>
                     </tr>
-                    
+                    <tr ng-if='StockIf == 0'>
+                        <td colspan="9">暂无数据</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         <!-- 分页control -->
-        <div class="ep-pages"> 
-            <span class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</span>
-         <a href="#" target="_self" class="current">1</a> <a href="#" target="_self">2</a> <a href="#" target="_self">3</a>
-         <span>...</span> <a href="#" target="_self" class="ep-pages-ctrl">&gt;</a>
+         <div class="ep-pages" ng-if='IsPage == 1' pagenum ='{{PageNo}}'> 
+            <a class="ep-pages-ctrl ep-pages-e5e5e5">&lt;</a>
+            <!-- <a class="current">1</a> -->
+            <font>
+            <a ng-repeat='RepeatArr in RepeatArr' ng-click='StockKuCun(StockFenlei,StockLeiXing.standardName,StockPingPai.brandName,RepeatArr)'>
+                {{RepeatArr}}
+            </a> 
+            </font>
+            <a class="ep-pages-ctrl">&gt;</a>
         </div>
 </div>

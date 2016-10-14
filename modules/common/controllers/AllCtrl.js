@@ -14,6 +14,10 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 	// end
 	
+	
+	
+
+	
 
 	$rootScope.plateNumberType1  =  '正式';
 	$rootScope.orderNo = $location.search().orderNo; 
@@ -129,7 +133,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.CarArr = {};
 		$rootScope.CarArr['localCarId'] = $rootScope.localCarId;   //车信息ID
 		$rootScope.CarArr['plateNumberType'] = $rootScope.plateNumberType1;  //车牌类型
-		$rootScope.CarArr['plateNumber'] = $rootScope.idno;  //车牌号
+		$rootScope.CarArr['plateNumber'] = $rootScope.plateNumber;  //车牌号
 		$rootScope.CarArr['vinNo'] = $rootScope.vinNo;  //车架号/车型VIN码
 		$rootScope.CarArr['ctids'] = $rootScope.ctids;  //车型号，车型ID，逗号分隔
 		$rootScope.CarArr['carNo'] = $rootScope.carModelNo; //品牌型号
@@ -190,23 +194,23 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 		$rootScope.GoodArrList = {};
 
-		$rootScope.GoodArrList['fittingsId'] = $rootScope.localCarId;   //工单配件流水号
-		$rootScope.GoodArrList['goodName'] = $rootScope.senderName; //配件名
-		$rootScope.GoodArrList['goodsId'] = $rootScope.idno;  //配件流水号
-		$rootScope.GoodArrList['goodCode'] = $rootScope.vinNo;  //配件编号
-		$rootScope.GoodArrList['brandId'] = $rootScope.ctids;  //品牌唯一标识
-		$rootScope.GoodArrList['model'] = $rootScope.carModelNo; //型号
-		$rootScope.GoodArrList['brandName'] = $rootScope.carModel; //品牌名
-		$rootScope.GoodArrList['wp'] = $rootScope.carBrand;  // 库位
-		$rootScope.GoodArrList['price'] = $rootScope.carSeries;  //下单售价
-		$rootScope.GoodArrList['purchasePrice'] = $rootScope.carYear;  //采购单价
-		$rootScope.GoodArrList['buyNum'] = $rootScope.carDis;  //购买数量
-		$rootScope.GoodArrList['discountPrice'] = $rootScope.carPrice;  //折扣金额
-		$rootScope.GoodArrList['orderPeople'] = $rootScope.engineNo;  //接单人员
-		$rootScope.GoodArrList['twiceSalePeople'] = $rootScope.lastMileage;  //二次销售人员
-		$rootScope.GoodArrList['desc'] = $rootScope.carRegDate;  //备注
-		$rootScope.GoodArrList['urgent'] = $rootScope.vipNo;;  //是否急件：1=急件; 0=普通
-		$rootScope.GoodArrList['putoutNum'] = $rootScope.carColor;  //出库数量
+		// $rootScope.GoodArrList['fittingsId'] = $rootScope.localCarId;   //工单配件流水号
+		// $rootScope.GoodArrList['goodName'] = $rootScope.senderName; //配件名
+		// $rootScope.GoodArrList['goodsId'] = $rootScope.idno;  //配件流水号
+		// $rootScope.GoodArrList['goodCode'] = $rootScope.vinNo;  //配件编号
+		// $rootScope.GoodArrList['brandId'] = $rootScope.ctids;  //品牌唯一标识
+		// $rootScope.GoodArrList['model'] = $rootScope.carModelNo; //型号
+		// $rootScope.GoodArrList['brandName'] = $rootScope.carModel; //品牌名
+		// $rootScope.GoodArrList['wp'] = $rootScope.carBrand;  // 库位
+		// $rootScope.GoodArrList['price'] = $rootScope.carSeries;  //下单售价
+		// $rootScope.GoodArrList['purchasePrice'] = $rootScope.carYear;  //采购单价
+		// $rootScope.GoodArrList['buyNum'] = $rootScope.carDis;  //购买数量
+		// $rootScope.GoodArrList['discountPrice'] = $rootScope.carPrice;  //折扣金额
+		// $rootScope.GoodArrList['onePeople'] = $rootScope.engineNo;  //领料人
+		// $rootScope.GoodArrList['orderPeople'] = $rootScope.lastMileage;  //销售提成人
+		// $rootScope.GoodArrList['desc'] = $rootScope.carRegDate;  //备注
+		// $rootScope.GoodArrList['urgent'] = $rootScope.vipNo;;  //是否急件：1=急件; 0=普通
+		// $rootScope.GoodArrList['putoutNum'] = $rootScope.carColor;  //出库数量
 
 
 		return $rootScope.CarArr;
@@ -244,14 +248,17 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 		$rootScope.SubmitCarInfo();
 		$rootScope.SubmitInsuranceInfo();
 		$rootScope.SubmitItemInfo();
-		$rootScope.SubmitGoodInfo();
+		//$rootScope.SubmitGoodInfo();
 		$rootScope.SubmitRemarkInfo();
 		$rootScope.SubmitSaleInfo();
 	}
 	//工单保存
 	$scope.SaveOrder = function()
 	{
-		alert($rootScope.orderNo);
+
+		console.log($rootScope.SubmitCarInfo());
+
+		return ;
 		$rootScope.status=1;
 		$rootScope.flag = 0;
 		$rootScope.OrderAllFun();
@@ -269,7 +276,7 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 			'customerId': $rootScope.customerId,
 			'localCarId': $rootScope.localCarId,
 			'orderNo': $rootScope.orderNo,
-			//'force':$rootScope.SubmitOrderInfo;
+			'force':$rootScope.force,
 		};
 		
 		$.ajax({
@@ -282,9 +289,20 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 		    success: function(data){
 		    	console.log(data);
+		    	if( data.status == 100 )
+		    	{
+		    		if(confirm('车辆存在存在未完成的工单，是否新开工单')) 
+				    { 
+				    	$rootScope.force = 1;
+				    	$scope.SaveOrder();
+				    } 
+		    	}
 		    } ,
 
 		});
+
+
+		$scope.carTypeHuiF(); //车牌恢复
 
 
 
@@ -348,7 +366,23 @@ app.controller('AllCtrl', ['$scope','$rootScope','$http','RequestService','$loca
 
 
 
-	
+	//车牌恢复
+	$scope.carTypeHuiF = function(){
+
+
+		if( $rootScope.plateNumberType1 == 0  )
+			{
+				$rootScope.plateNumberType1 = '正式';
+			}
+			if( $rootScope.plateNumberType1 == 1  )
+			{
+				$rootScope.plateNumberType1 = '临时';
+			}
+			if( $rootScope.plateNumberType1 == 2 )
+			{
+				$rootScope.plateNumberType1 = '军牌';
+			}
+	}
 	
 }]);
 

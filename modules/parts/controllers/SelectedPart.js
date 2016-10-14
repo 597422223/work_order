@@ -1,6 +1,9 @@
 var app = angular.module('myApp');  
 app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','RequestService',function($scope,$rootScope,$http,$location,RequestService) {
-
+	$scope.tby1 = function()
+	{
+		alert(111);
+	}
 	//查询已选插件数据
 	$rootScope.searchSelectData =function()
 	{
@@ -10,7 +13,7 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 				};
 
 			var discountPrice =0;  //所有配件总金额
-
+			
 			$.each($rootScope.selectedData,function(index,value){
 				var each_list = {};
 				$.each($rootScope.selectedData[index],function(index,value){
@@ -59,8 +62,8 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 					$rootScope.GoodArrList['purchasePrice']= $rootScope.selectedData[index]['purchasePrice'];  
 					$rootScope.GoodArrList['buyNum']= $rootScope.selectedData[index]['buyNum']; 
 					$rootScope.GoodArrList['discountPrice']= $rootScope.selectedData[index]['discountPrice'];  
-					$rootScope.GoodArrList['orderPeople']= $rootScope.selectedData[index]['orderPeople'];  
-					$rootScope.GoodArrList['twiceSalePeople']= $rootScope.selectedData[index]['twiceSalePeople']; 
+					$rootScope.GoodArrList['onePeople']= $rootScope.selectedData[index]['orderPeople'];  
+					$rootScope.GoodArrList['orderPeople']= $rootScope.selectedData[index]['twiceSalePeople']; 
 					$rootScope.GoodArrList['desc']= $rootScope.selectedData[index]['desc']; 
 					$rootScope.GoodArrList['urgent']= $rootScope.selectedData[index]['urgent'];
 					$rootScope.GoodArrList['putoutNum']= $rootScope.selectedData[index]['putoutNum']; 
@@ -143,6 +146,67 @@ app.controller('SelectedPart', ['$scope','$rootScope','$http','$location','Reque
 
 	//获取员工名称
 	$rootScope.CustomerName(1);
+
+	//快速查询
+	$scope.SelectedFastF = function(keyWord)
+	{
+
+		$scope.keyWord = keyWord;
+
+		$scope.brandName = '';	
+		$scope.RequestUrl ='/customer/stock/searchStockPartInfo';
+		$scope.Parameter = $.param({
+			'token':$rootScope.token,
+			'keyWord':$scope.keyWord,
+		});
+		$scope.data =RequestService.ReturnData($scope.RequestUrl,$scope.Parameter);
+		$scope.data.success(function(data) {
+			if( data.status == 1 )
+			{
+				$scope.SelectedFastList = data.data.list;
+				
+			}
+		})
+	}
+
+
+
+	//快速添加
+	$scope.AddSelectedArr = [];  //将已添加的配件下标加入数组
+	$rootScope.ClickSelectFast = function(index)
+	{
+		var yi = true;
+		$.each($scope.AddSelectedArr,function(xia,value){
+
+			if( index == $scope.AddSelectedArr[xia] )
+			{
+				$scope.SelectedFastList[index]['buyNum'] =parseInt($scope.SelectedFastList[index]['buyNum'])+  1;
+				$scope.SelectedFastList[index]['discountPrice'] =  $scope.SelectedFastList[index]['buyNum'] *$scope.SelectedFastList[index]['goodsSalePrice'] ;
+				yi = false;
+			}
+		})
+		if(yi)
+		{
+			$scope.SelectedFastList[index]['status'] = 0; 
+			$scope.SelectedFastList[index]['fittingsId'] = 0;
+			$scope.SelectedFastList[index]['urgent'] = 0;
+			$scope.SelectedFastList[index]['orderPeople'] = $rootScope.pickPeople;
+			$scope.SelectedFastList[index]['twiceSalePeople'] = $rootScope.pickPeople;
+			$scope.SelectedFastList[index]['putoutNum'] = 0;
+			$rootScope.selectedData.push( $scope.SelectedFastList[index]);
+			$scope.AddSelectedArr.push(index);
+		}
+		
+		if($rootScope.selectedData.length >=1) //selectedData数组有数据
+		{
+			$rootScope.NoOrderNo = 1;
+			$rootScope.searchSelectData();
+		}
+		else //selectedData数组无数据
+		{
+			$rootScope.NoOrderNo = 0;
+		}
+	}
 
 
 	

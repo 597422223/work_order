@@ -11,7 +11,7 @@
                         {{item.vipNo}}/{{item.plateNumber}}
                     </li>
                 </ul>
-                <span class="order-scan" ng-click='scan()'>扫描</span>
+                <span class="order-scan" ng-click='tby1()'>扫描</span>
             </div>
         </div>
         <div class="order-list mui-list-flex">
@@ -30,7 +30,7 @@
                         <li>苗志鹏</li>
                         <li>周鲲鹏</li>
                     </ul>
-                  <div class="kaidanBtn">开单</div>
+                  <div class="kaidanBtn">{{plateNumber}}</div>
            </div>
            <div class="list-name">
                <label for="">送&nbsp;&nbsp;修&nbsp;&nbsp;人</label>
@@ -64,7 +64,7 @@
             </div>
             <div class="list-workTeam list_Work">
                 <label for="">施工人</label>
-                <input type="text" value="" name="" class="comInputWidth">
+                <input type="text" value="{{onePeople}}" ng-model='onePeople' name="" class="comInputWidth">
                 <ul id="list-workTeamPle" class="list_WorkUl">
                   <li ng-repeat='StaffList in EmployeeItime track by $index' lang="{{StaffList.id}}">{{StaffList.name}}</li>
               </ul>
